@@ -15,6 +15,9 @@ terepyaar_transcript.txt
 Thumbs.db
 desktop.ini
 
+# YouTube playlist page (contains YouTube InnerTube API key - not used by app)
+ytplaylist.html
+
 # Editor files
 *.swp
 *.swo
