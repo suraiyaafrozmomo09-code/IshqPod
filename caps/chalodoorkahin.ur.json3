@@ -1,0 +1,429 @@
+{
+  "wireMagic": "pb3",
+  "pens": [ {
+  
+  } ],
+  "wsWinStyles": [ {
+  
+  }, {
+    "mhModeHint": 2,
+    "juJustifCode": 1,
+    "sdScrollDir": 3
+  } ],
+  "wpWinPositions": [ {
+  
+  }, {
+    "apPoint": 6,
+    "ahHorPos": 20,
+    "avVerPos": 100,
+    "rcRows": 2,
+    "ccCols": 40
+  } ],
+  "events": [ {
+    "tStartMs": 0,
+    "dDurationMs": 156339,
+    "id": 1,
+    "wpWinPosId": 1,
+    "wsWinStyleId": 1
+  }, {
+    "tStartMs": 9920,
+    "dDurationMs": 15359,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "[موسیقی]"
+    } ]
+  }, {
+    "tStartMs": 21590,
+    "dDurationMs": 3689,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 21600,
+    "dDurationMs": 7040,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "کبھی کبھی میں آپ کے ساتھ سڑک پر چلتا ہوں۔",
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 25269,
+    "dDurationMs": 3371,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 25279,
+    "dDurationMs": 6721,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "مشکلات سے لڑتے ہوئے اپنے بارے میں کیا خیال ہے؟",
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 28630,
+    "dDurationMs": 3370,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 28640,
+    "dDurationMs": 7919,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "میں آپ سے کیوں لکھوں، پڑھوں یا بولوں؟",
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 31990,
+    "dDurationMs": 4569,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 32000,
+    "dDurationMs": 8800,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "صفحات بھرنے اور آئینے میں خود کو دیکھنے کے لیے کیا کروں؟",
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 36549,
+    "dDurationMs": 4251,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 36559,
+    "dDurationMs": 7041,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "میری آنکھوں میں جو بھی نظر آئے گا، میں تجھے پالوں گا۔",
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 40790,
+    "dDurationMs": 2810,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 40800,
+    "dDurationMs": 8880,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "میری سانسوں میں تم",
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 43590,
+    "dDurationMs": 6090,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 43600,
+    "dDurationMs": 15119,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "میں اپنا اس طرح سنبھالوں گا، اسے اپنے ساتھ لے جاؤ اور پھر کرو",
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 49670,
+    "dDurationMs": 9049,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 49680,
+    "dDurationMs": 17280,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "تم اچھا کرو، ہم کل ملیں گے۔",
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 58709,
+    "dDurationMs": 8251,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 58719,
+    "dDurationMs": 13001,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "چلو ہاتھ ملا کر چلتے ہیں، ماضی کو پیچھے چھوڑ کر پلٹتے ہیں۔",
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 66950,
+    "dDurationMs": 4770,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 66960,
+    "dDurationMs": 4760,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "میں آپ کو نہیں دیکھ رہا ہوں۔",
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 74750,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 74760,
+    "dDurationMs": 3159,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "[موسیقی]"
+    } ]
+  }, {
+    "tStartMs": 80510,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 80520,
+    "dDurationMs": 6840,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "[موسیقی]"
+    } ]
+  }, {
+    "tStartMs": 84149,
+    "dDurationMs": 3211,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 84159,
+    "dDurationMs": 9361,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "چلو کہیں دور چلتے ہیں۔",
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 87350,
+    "dDurationMs": 6170,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 87360,
+    "dDurationMs": 9520,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "نہیں، کچھ نہیں، یہ وہ جگہ ہے جہاں کوئی نہیں ہے۔",
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 93510,
+    "dDurationMs": 3370,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 93520,
+    "dDurationMs": 10400,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "وہاں پر امن ہے۔",
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 96870,
+    "dDurationMs": 7050,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 96880,
+    "dDurationMs": 12160,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "یہاں تک کہ افسانوں میں بھی ایسی کوئی کہانی نہیں ہے جب بھی آپ",
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 103910,
+    "dDurationMs": 5130,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 103920,
+    "dDurationMs": 9199,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "سانس لیں، میں اپنی زندگی جیوں گا۔",
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 109030,
+    "dDurationMs": 4089,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 109040,
+    "dDurationMs": 9359,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "میں آپ کو دنیا اور میرے دل کے بارے میں بتانا چاہتا ہوں۔",
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 113109,
+    "dDurationMs": 5290,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 113119,
+    "dDurationMs": 11521,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "بات چیت میں الفاظ کھو جاتے ہیں۔",
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 118389,
+    "dDurationMs": 6251,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 118399,
+    "dDurationMs": 14280,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "میں آپ کو اپنی آنکھوں سے یہ بتانا چاہتا ہوں، ڈرو نہیں۔",
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 124630,
+    "dDurationMs": 8049,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 124640,
+    "dDurationMs": 8039,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "دنیا کو مت چھوڑیں، آپ کو رہنے دیں۔",
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 133589,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 133599,
+    "dDurationMs": 8241,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "میں آپ کے لیے حاضر ہوں۔",
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 137030,
+    "dDurationMs": 4810,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 137040,
+    "dDurationMs": 9160,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "میں حاضر ہوں، ایک دوسرے کو بتاؤ",
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 141830,
+    "dDurationMs": 4370,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 141840,
+    "dDurationMs": 4360,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "ہمیں رہنے دو",
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 150350,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 150360,
+    "dDurationMs": 5979,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "[موسیقی]"
+    } ]
+  } ]
+}

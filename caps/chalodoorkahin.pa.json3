@@ -1,0 +1,1081 @@
+{
+  "wireMagic": "pb3",
+  "pens": [ {
+  
+  } ],
+  "wsWinStyles": [ {
+  
+  }, {
+    "mhModeHint": 2,
+    "juJustifCode": 0,
+    "sdScrollDir": 3
+  } ],
+  "wpWinPositions": [ {
+  
+  }, {
+    "apPoint": 6,
+    "ahHorPos": 20,
+    "avVerPos": 100,
+    "rcRows": 2,
+    "ccCols": 40
+  } ],
+  "events": [ {
+    "tStartMs": 0,
+    "dDurationMs": 156339,
+    "id": 1,
+    "wpWinPosId": 1,
+    "wsWinStyleId": 1
+  }, {
+    "tStartMs": 9920,
+    "dDurationMs": 15359,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "[ਸੰਗੀਤ]"
+    } ]
+  }, {
+    "tStartMs": 21590,
+    "dDurationMs": 3689,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 21600,
+    "dDurationMs": 7040,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "ਕਈ ",
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਵਾਰ ",
+      "tOffsetMs": 350,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਮੈਂ ",
+      "tOffsetMs": 700,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਤੁਹਾਡੇ ",
+      "tOffsetMs": 1050,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਨਾਲ ",
+      "tOffsetMs": 1400,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਸੜਕ ",
+      "tOffsetMs": 1750,
+      "acAsrConf": 0
+    }, {
+      "utf8": "'ਤੇ ",
+      "tOffsetMs": 2100,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਤੁਰਦਾ ",
+      "tOffsetMs": 2450,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਹਾਂ।",
+      "tOffsetMs": 2800,
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 25269,
+    "dDurationMs": 3371,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 25279,
+    "dDurationMs": 6721,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "ਮੁਸ਼ਕਲਾਂ ",
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਨਾਲ ",
+      "tOffsetMs": 506,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਲੜਦੇ ",
+      "tOffsetMs": 1012,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਹੋਏ ",
+      "tOffsetMs": 1518,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਆਪਣੇ ",
+      "tOffsetMs": 2024,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਬਾਰੇ ",
+      "tOffsetMs": 2530,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਕੀ?",
+      "tOffsetMs": 3036,
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 28630,
+    "dDurationMs": 3370,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 28640,
+    "dDurationMs": 7919,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "ਮੈਂ ",
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਤੁਹਾਡੇ ",
+      "tOffsetMs": 349,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਨਾਲ ",
+      "tOffsetMs": 698,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਕਿਉਂ ",
+      "tOffsetMs": 1047,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਲਿਖਾਂ, ",
+      "tOffsetMs": 1396,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਪੜ੍ਹਾਂ ",
+      "tOffsetMs": 1745,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਜਾਂ ",
+      "tOffsetMs": 2094,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਗੱਲ ",
+      "tOffsetMs": 2443,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਕਰਾਂ?",
+      "tOffsetMs": 2792,
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 31990,
+    "dDurationMs": 4569,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 32000,
+    "dDurationMs": 8800,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "ਮੈਨੂੰ ",
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਪੰਨੇ ",
+      "tOffsetMs": 308,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਭਰਨ ",
+      "tOffsetMs": 616,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਅਤੇ ",
+      "tOffsetMs": 924,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਆਪਣੇ ",
+      "tOffsetMs": 1232,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਆਪ ",
+      "tOffsetMs": 1540,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਨੂੰ ",
+      "tOffsetMs": 1848,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਸ਼ੀਸ਼ੇ ",
+      "tOffsetMs": 2156,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਵਿੱਚ ",
+      "tOffsetMs": 2464,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਦੇਖਣ ",
+      "tOffsetMs": 2772,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਲਈ ",
+      "tOffsetMs": 3080,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਕੀ ",
+      "tOffsetMs": 3388,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਕਰਨਾ ",
+      "tOffsetMs": 3696,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਚਾਹੀਦਾ ",
+      "tOffsetMs": 4004,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਹੈ?",
+      "tOffsetMs": 4312,
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 36549,
+    "dDurationMs": 4251,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 36559,
+    "dDurationMs": 7041,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "ਮੈਂ ",
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਆਪਣੀਆਂ ",
+      "tOffsetMs": 320,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਅੱਖਾਂ ",
+      "tOffsetMs": 640,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਵਿੱਚ ",
+      "tOffsetMs": 960,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਜੋ ",
+      "tOffsetMs": 1280,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਵੀ ",
+      "tOffsetMs": 1600,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਦੇਖਦਾ ",
+      "tOffsetMs": 1920,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਹਾਂ, ",
+      "tOffsetMs": 2240,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਮੈਂ ",
+      "tOffsetMs": 2560,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਤੈਨੂੰ ",
+      "tOffsetMs": 2880,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਪਿਆਰ ",
+      "tOffsetMs": 3200,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਕਰਾਂਗਾ।",
+      "tOffsetMs": 3520,
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 40790,
+    "dDurationMs": 2810,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 40800,
+    "dDurationMs": 8880,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "ਮੇਰੇ ",
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਸਾਹਾਂ ",
+      "tOffsetMs": 373,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਵਿੱਚ ",
+      "tOffsetMs": 746,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਤੂੰ",
+      "tOffsetMs": 1119,
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 43590,
+    "dDurationMs": 6090,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 43600,
+    "dDurationMs": 15119,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "ਮੈਂ ",
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਆਪਣਾ ",
+      "tOffsetMs": 387,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਇਸ ",
+      "tOffsetMs": 774,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਤਰ੍ਹਾਂ ",
+      "tOffsetMs": 1161,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਸੰਭਾਲਾਂਗਾ, ",
+      "tOffsetMs": 1548,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਇਸਨੂੰ ",
+      "tOffsetMs": 1935,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਆਪਣੇ ",
+      "tOffsetMs": 2322,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਨਾਲ ",
+      "tOffsetMs": 2709,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਲੈ ",
+      "tOffsetMs": 3096,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਜਾਵਾਂਗਾ ",
+      "tOffsetMs": 3483,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਅਤੇ ",
+      "tOffsetMs": 3870,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਫਿਰ ",
+      "tOffsetMs": 4257,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਇਹ ",
+      "tOffsetMs": 4644,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਕਰਾਂਗਾ।",
+      "tOffsetMs": 5031,
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 49670,
+    "dDurationMs": 9049,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 49680,
+    "dDurationMs": 17280,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "ਤੂੰ ",
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਚੰਗਾ ",
+      "tOffsetMs": 1328,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਕੀਤਾ, ",
+      "tOffsetMs": 2656,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਆਪਾਂ ",
+      "tOffsetMs": 3984,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਕੱਲ੍ਹ ",
+      "tOffsetMs": 5312,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਮਿਲਾਂਗੇ।",
+      "tOffsetMs": 6640,
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 58709,
+    "dDurationMs": 8251,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 58719,
+    "dDurationMs": 13001,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "ਆਓ ",
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਹੱਥ ",
+      "tOffsetMs": 572,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਵਿੱਚ ",
+      "tOffsetMs": 1144,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਹੱਥ ",
+      "tOffsetMs": 1716,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਮਿਲਾ ",
+      "tOffsetMs": 2288,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਕੇ ",
+      "tOffsetMs": 2860,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਚੱਲੀਏ, ",
+      "tOffsetMs": 3432,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਭੂਤਕਾਲ ",
+      "tOffsetMs": 4004,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਨੂੰ ",
+      "tOffsetMs": 4576,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਪਿੱਛੇ ",
+      "tOffsetMs": 5148,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਛੱਡ ",
+      "tOffsetMs": 5720,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਕੇ ",
+      "tOffsetMs": 6292,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਪਿੱਛੇ ",
+      "tOffsetMs": 6864,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਮੁੜੀਏ।",
+      "tOffsetMs": 7436,
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 66950,
+    "dDurationMs": 4770,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 66960,
+    "dDurationMs": 4760,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "ਮੈਨੂੰ ",
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਤੁਸੀਂ ",
+      "tOffsetMs": 352,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਦਿਖਾਈ ",
+      "tOffsetMs": 704,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਨਹੀਂ ",
+      "tOffsetMs": 1056,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਦੇ ",
+      "tOffsetMs": 1408,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਰਹੇ।",
+      "tOffsetMs": 1760,
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 74750,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 74760,
+    "dDurationMs": 3159,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "[ਸੰਗੀਤ]"
+    } ]
+  }, {
+    "tStartMs": 80510,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 80520,
+    "dDurationMs": 6840,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "[ਸੰਗੀਤ]"
+    } ]
+  }, {
+    "tStartMs": 84149,
+    "dDurationMs": 3211,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 84159,
+    "dDurationMs": 9361,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "ਚਲੋ ",
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਕਿਤੇ ",
+      "tOffsetMs": 560,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਦੂਰ ",
+      "tOffsetMs": 1120,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਚੱਲੀਏ।",
+      "tOffsetMs": 1680,
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 87350,
+    "dDurationMs": 6170,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 87360,
+    "dDurationMs": 9520,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "ਨਹੀਂ, ",
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਕੁਝ ",
+      "tOffsetMs": 464,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਨਹੀਂ, ",
+      "tOffsetMs": 928,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਇਹ ",
+      "tOffsetMs": 1392,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਉਹ ",
+      "tOffsetMs": 1856,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਥਾਂ ",
+      "tOffsetMs": 2320,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਹੈ ",
+      "tOffsetMs": 2784,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਜਿੱਥੇ ",
+      "tOffsetMs": 3248,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਕੋਈ ",
+      "tOffsetMs": 3712,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਨਹੀਂ ",
+      "tOffsetMs": 4176,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਹੈ।",
+      "tOffsetMs": 4640,
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 93510,
+    "dDurationMs": 3370,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 93520,
+    "dDurationMs": 10400,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "ਉੱਥੇ ",
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਸ਼ਾਂਤੀ ",
+      "tOffsetMs": 799,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਹੈ।",
+      "tOffsetMs": 1598,
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 96870,
+    "dDurationMs": 7050,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 96880,
+    "dDurationMs": 12160,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "ਦੰਤਕਥਾਵਾਂ ",
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਵਿੱਚ ",
+      "tOffsetMs": 655,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਵੀ, ",
+      "tOffsetMs": 1310,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਅਜਿਹੀ ",
+      "tOffsetMs": 1965,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਕੋਈ ",
+      "tOffsetMs": 2620,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਕਹਾਣੀ ",
+      "tOffsetMs": 3275,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਨਹੀਂ ",
+      "tOffsetMs": 3930,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਹੁੰਦੀ ",
+      "tOffsetMs": 4585,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਜਦੋਂ ",
+      "tOffsetMs": 5240,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਵੀ ",
+      "tOffsetMs": 5895,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਤੁਸੀਂ",
+      "tOffsetMs": 6550,
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 103910,
+    "dDurationMs": 5130,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 103920,
+    "dDurationMs": 9199,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "ਸਾਹ ",
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਲਓ, ",
+      "tOffsetMs": 639,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਮੈਂ ",
+      "tOffsetMs": 1278,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਆਪਣੀ ",
+      "tOffsetMs": 1917,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਜ਼ਿੰਦਗੀ ",
+      "tOffsetMs": 2556,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਜੀਵਾਂਗਾ।",
+      "tOffsetMs": 3195,
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 109030,
+    "dDurationMs": 4089,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 109040,
+    "dDurationMs": 9359,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "ਮੈਂ ",
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਤੁਹਾਨੂੰ ",
+      "tOffsetMs": 289,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਦੁਨੀਆਂ ",
+      "tOffsetMs": 578,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਬਾਰੇ ",
+      "tOffsetMs": 867,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਅਤੇ ",
+      "tOffsetMs": 1156,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਮੇਰੇ ",
+      "tOffsetMs": 1445,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਦਿਲ ",
+      "tOffsetMs": 1734,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਵਿੱਚ ",
+      "tOffsetMs": 2023,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਕੀ ",
+      "tOffsetMs": 2312,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਹੈ, ",
+      "tOffsetMs": 2601,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਬਾਰੇ ",
+      "tOffsetMs": 2890,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਦੱਸਣਾ ",
+      "tOffsetMs": 3179,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਚਾਹੁੰਦਾ ",
+      "tOffsetMs": 3468,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਹਾਂ।",
+      "tOffsetMs": 3757,
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 113109,
+    "dDurationMs": 5290,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 113119,
+    "dDurationMs": 11521,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "ਗੱਲਬਾਤ ",
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਵਿੱਚ ",
+      "tOffsetMs": 592,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਸ਼ਬਦ ",
+      "tOffsetMs": 1184,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਗੁਆਚ ",
+      "tOffsetMs": 1776,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਜਾਂਦੇ ",
+      "tOffsetMs": 2368,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਹਨ",
+      "tOffsetMs": 2960,
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 118389,
+    "dDurationMs": 6251,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 118399,
+    "dDurationMs": 14280,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "ਮੈਂ ",
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਤੁਹਾਨੂੰ ",
+      "tOffsetMs": 456,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਆਪਣੀਆਂ ",
+      "tOffsetMs": 912,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਅੱਖਾਂ ",
+      "tOffsetMs": 1368,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਨਾਲ ",
+      "tOffsetMs": 1824,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਇਹ ",
+      "tOffsetMs": 2280,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਕਹਿਣਾ ",
+      "tOffsetMs": 2736,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਚਾਹੁੰਦਾ ",
+      "tOffsetMs": 3192,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਹਾਂ, ",
+      "tOffsetMs": 3648,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਡਰੋ ",
+      "tOffsetMs": 4104,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਨਾ।",
+      "tOffsetMs": 4560,
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 124630,
+    "dDurationMs": 8049,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 124640,
+    "dDurationMs": 8039,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "ਦੁਨੀਆਂ ",
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਨਾ ",
+      "tOffsetMs": 719,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਛੱਡੋ, ",
+      "tOffsetMs": 1438,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਇਸਨੂੰ ",
+      "tOffsetMs": 2157,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਤੁਸੀਂ ",
+      "tOffsetMs": 2876,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਹੀ ",
+      "tOffsetMs": 3595,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਰਹਿਣ ",
+      "tOffsetMs": 4314,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਦਿਓ।",
+      "tOffsetMs": 5033,
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 133589,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 133599,
+    "dDurationMs": 8241,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "ਮੈਂ ",
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਤੁਹਾਡੇ ",
+      "tOffsetMs": 480,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਲਈ ",
+      "tOffsetMs": 960,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਇੱਥੇ ",
+      "tOffsetMs": 1440,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਹਾਂ।",
+      "tOffsetMs": 1920,
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 137030,
+    "dDurationMs": 4810,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 137040,
+    "dDurationMs": 9160,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "ਮੈਂ ",
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਇੱਥੇ ",
+      "tOffsetMs": 533,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਹਾਂ, ",
+      "tOffsetMs": 1066,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਇੱਕ ",
+      "tOffsetMs": 1599,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਦੂਜੇ ",
+      "tOffsetMs": 2132,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਨੂੰ ",
+      "tOffsetMs": 2665,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਦੱਸੋ।",
+      "tOffsetMs": 3198,
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 141830,
+    "dDurationMs": 4370,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 141840,
+    "dDurationMs": 4360,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "ਸਾਨੂੰ ",
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਰਹਿਣ ",
+      "tOffsetMs": 680,
+      "acAsrConf": 0
+    }, {
+      "utf8": "ਦਿਓ",
+      "tOffsetMs": 1360,
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 150350,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 150360,
+    "dDurationMs": 5979,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "[ਸੰਗੀਤ]"
+    } ]
+  } ]
+}

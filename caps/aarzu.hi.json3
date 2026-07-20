@@ -1,0 +1,1950 @@
+{
+  "wireMagic": "pb3",
+  "pens": [ {
+  
+  } ],
+  "wsWinStyles": [ {
+  
+  }, {
+    "mhModeHint": 2,
+    "juJustifCode": 0,
+    "sdScrollDir": 3
+  } ],
+  "wpWinPositions": [ {
+  
+  }, {
+    "apPoint": 6,
+    "ahHorPos": 20,
+    "avVerPos": 100,
+    "rcRows": 2,
+    "ccCols": 40
+  } ],
+  "events": [ {
+    "tStartMs": 0,
+    "dDurationMs": 218760,
+    "id": 1,
+    "wpWinPosId": 1,
+    "wsWinStyleId": 1
+  }, {
+    "tStartMs": 35600,
+    "dDurationMs": 3100,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "ओम",
+      "acAsrConf": 0
+    }, {
+      "utf8": " [संगीत]",
+      "tOffsetMs": 1080
+    } ]
+  }, {
+    "tStartMs": 41910,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 41920,
+    "dDurationMs": 2020,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "[संगीत]",
+      "isSpeakerChange": 1
+    } ]
+  }, {
+    "tStartMs": 49770,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 49780,
+    "dDurationMs": 2020,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "[संगीत]"
+    } ]
+  }, {
+    "tStartMs": 54790,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 54800,
+    "dDurationMs": 10045,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "तेरा",
+      "acAsrConf": 0,
+      "isSpeakerChange": 1
+    }, {
+      "utf8": " [संगीत]",
+      "tOffsetMs": 220
+    }, {
+      "utf8": " शर्माना",
+      "tOffsetMs": 720,
+      "acAsrConf": 0
+    }, {
+      "utf8": " मेरी",
+      "tOffsetMs": 1919,
+      "acAsrConf": 0
+    }, {
+      "utf8": " जानना",
+      "tOffsetMs": 2239,
+      "acAsrConf": 0
+    }, {
+      "utf8": " कभी",
+      "tOffsetMs": 3120,
+      "acAsrConf": 0
+    }, {
+      "utf8": " रख",
+      "tOffsetMs": 4480,
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 59670,
+    "dDurationMs": 5175,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 59680,
+    "dDurationMs": 11040,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "लूं",
+      "acAsrConf": 0
+    }, {
+      "utf8": " छुपा",
+      "tOffsetMs": 480,
+      "acAsrConf": 0
+    }, {
+      "utf8": " के",
+      "tOffsetMs": 1120,
+      "acAsrConf": 0
+    }, {
+      "utf8": " तेरी",
+      "tOffsetMs": 1519,
+      "acAsrConf": 0
+    }, {
+      "utf8": " यादें",
+      "tOffsetMs": 1920,
+      "acAsrConf": 0
+    }, {
+      "utf8": " सभी",
+      "tOffsetMs": 2879,
+      "acAsrConf": 0
+    }, {
+      "utf8": " ख्वाबों",
+      "tOffsetMs": 4160,
+      "acAsrConf": 0
+    }, {
+      "utf8": " में",
+      "tOffsetMs": 4960,
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 64835,
+    "dDurationMs": 5885,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 64845,
+    "dDurationMs": 10515,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "[संगीत]"
+    }, {
+      "utf8": " मेरे",
+      "tOffsetMs": 195,
+      "acAsrConf": 0
+    }, {
+      "utf8": " है",
+      "tOffsetMs": 995,
+      "acAsrConf": 0
+    }, {
+      "utf8": " तू",
+      "tOffsetMs": 1314,
+      "acAsrConf": 0
+    }, {
+      "utf8": " ही",
+      "tOffsetMs": 1715,
+      "acAsrConf": 0
+    }, {
+      "utf8": " बसी",
+      "tOffsetMs": 2115,
+      "acAsrConf": 0
+    }, {
+      "utf8": " सी",
+      "tOffsetMs": 2594,
+      "acAsrConf": 0
+    }, {
+      "utf8": " तू",
+      "tOffsetMs": 3555,
+      "acAsrConf": 0
+    }, {
+      "utf8": " ही",
+      "tOffsetMs": 3954,
+      "acAsrConf": 0
+    }, {
+      "utf8": " बसी",
+      "tOffsetMs": 4435,
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 70710,
+    "dDurationMs": 4650,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 70720,
+    "dDurationMs": 9200,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "तू",
+      "acAsrConf": 0
+    }, {
+      "utf8": " [संगीत]",
+      "tOffsetMs": 20
+    }, {
+      "utf8": " ही",
+      "tOffsetMs": 399,
+      "acAsrConf": 0
+    }, {
+      "utf8": " बसी",
+      "tOffsetMs": 880,
+      "acAsrConf": 0
+    }, {
+      "utf8": " तेरा",
+      "tOffsetMs": 2320,
+      "acAsrConf": 0
+    }, {
+      "utf8": " शर्माना",
+      "tOffsetMs": 3120,
+      "acAsrConf": 0
+    }, {
+      "utf8": " मेरी",
+      "tOffsetMs": 4240,
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 75350,
+    "dDurationMs": 4570,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 75360,
+    "dDurationMs": 9439,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "जानना",
+      "acAsrConf": 0
+    }, {
+      "utf8": " [संगीत]",
+      "tOffsetMs": 620
+    }, {
+      "utf8": " कभी",
+      "tOffsetMs": 799,
+      "acAsrConf": 0
+    }, {
+      "utf8": " रख",
+      "tOffsetMs": 2240,
+      "acAsrConf": 0
+    }, {
+      "utf8": " लूं",
+      "tOffsetMs": 2560,
+      "acAsrConf": 0
+    }, {
+      "utf8": " छुपा",
+      "tOffsetMs": 3040,
+      "acAsrConf": 0
+    }, {
+      "utf8": " के",
+      "tOffsetMs": 3759,
+      "acAsrConf": 0
+    }, {
+      "utf8": " तेरी",
+      "tOffsetMs": 4160,
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 79910,
+    "dDurationMs": 4889,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 79920,
+    "dDurationMs": 9120,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "यादें",
+      "acAsrConf": 0
+    }, {
+      "utf8": " [संगीत]",
+      "tOffsetMs": 645
+    }, {
+      "utf8": " सभी",
+      "tOffsetMs": 879,
+      "acAsrConf": 0
+    }, {
+      "utf8": " ख्वाबों",
+      "tOffsetMs": 2160,
+      "acAsrConf": 0
+    }, {
+      "utf8": " में",
+      "tOffsetMs": 3040,
+      "acAsrConf": 0
+    }, {
+      "utf8": " मेरे",
+      "tOffsetMs": 3440,
+      "acAsrConf": 0
+    }, {
+      "utf8": " है",
+      "tOffsetMs": 4239,
+      "acAsrConf": 0
+    }, {
+      "utf8": " तू",
+      "tOffsetMs": 4559,
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 84789,
+    "dDurationMs": 4251,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 84799,
+    "dDurationMs": 6241,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "ही",
+      "acAsrConf": 0
+    }, {
+      "utf8": " बसीर",
+      "tOffsetMs": 481,
+      "acAsrConf": 0
+    }, {
+      "utf8": " तू",
+      "tOffsetMs": 1921,
+      "acAsrConf": 0
+    }, {
+      "utf8": " ही",
+      "tOffsetMs": 2320,
+      "acAsrConf": 0
+    }, {
+      "utf8": " बसीर",
+      "tOffsetMs": 2801,
+      "acAsrConf": 0
+    }, {
+      "utf8": " [संगीत]",
+      "tOffsetMs": 2971
+    } ]
+  }, {
+    "tStartMs": 89030,
+    "dDurationMs": 2010,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 89040,
+    "dDurationMs": 3971,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "तू",
+      "acAsrConf": 0
+    }, {
+      "utf8": " ही",
+      "tOffsetMs": 320,
+      "acAsrConf": 0
+    }, {
+      "utf8": " बसी",
+      "tOffsetMs": 719,
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 91030,
+    "dDurationMs": 1981,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 91040,
+    "dDurationMs": 3920,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "तेरी",
+      "acAsrConf": 0,
+      "isSpeakerChange": 1
+    }, {
+      "utf8": " याद",
+      "tOffsetMs": 240,
+      "acAsrConf": 0
+    }, {
+      "utf8": " जो",
+      "tOffsetMs": 560,
+      "acAsrConf": 0
+    }, {
+      "utf8": " रहे",
+      "tOffsetMs": 719,
+      "acAsrConf": 0
+    }, {
+      "utf8": " ना",
+      "tOffsetMs": 1039,
+      "acAsrConf": 0
+    }, {
+      "utf8": " मेरी",
+      "tOffsetMs": 1200,
+      "acAsrConf": 0
+    }, {
+      "utf8": " ख्वाबों",
+      "tOffsetMs": 1360,
+      "acAsrConf": 0
+    }, {
+      "utf8": " में",
+      "tOffsetMs": 1759,
+      "acAsrConf": 0
+    }, {
+      "utf8": " बसा",
+      "tOffsetMs": 1840,
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 93001,
+    "dDurationMs": 1959,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 93011,
+    "dDurationMs": 3869,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "[संगीत]"
+    }, {
+      "utf8": " है",
+      "tOffsetMs": 189,
+      "acAsrConf": 0
+    }, {
+      "utf8": " तू",
+      "tOffsetMs": 269,
+      "acAsrConf": 0
+    }, {
+      "utf8": " ही",
+      "tOffsetMs": 509,
+      "acAsrConf": 0
+    }, {
+      "utf8": " तू",
+      "tOffsetMs": 589,
+      "acAsrConf": 0
+    }, {
+      "utf8": " सवालों",
+      "tOffsetMs": 989,
+      "acAsrConf": 0
+    }, {
+      "utf8": " में",
+      "tOffsetMs": 1468,
+      "acAsrConf": 0
+    }, {
+      "utf8": " मैं",
+      "tOffsetMs": 1549,
+      "acAsrConf": 0
+    }, {
+      "utf8": " रख",
+      "tOffsetMs": 1788,
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 94950,
+    "dDurationMs": 1930,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 94960,
+    "dDurationMs": 5280,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "लूं",
+      "acAsrConf": 0
+    }, {
+      "utf8": " छुपा",
+      "tOffsetMs": 240,
+      "acAsrConf": 0
+    }, {
+      "utf8": " के",
+      "tOffsetMs": 479,
+      "acAsrConf": 0
+    }, {
+      "utf8": " मुझे",
+      "tOffsetMs": 720,
+      "acAsrConf": 0
+    }, {
+      "utf8": " तू",
+      "tOffsetMs": 880,
+      "acAsrConf": 0
+    }, {
+      "utf8": " ही",
+      "tOffsetMs": 1040,
+      "acAsrConf": 0
+    }, {
+      "utf8": " तो",
+      "tOffsetMs": 1199,
+      "acAsrConf": 0
+    }, {
+      "utf8": " बिगाड़े",
+      "tOffsetMs": 1360,
+      "acAsrConf": 0
+    }, {
+      "utf8": " मेरी",
+      "tOffsetMs": 1760,
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 96870,
+    "dDurationMs": 3370,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 96880,
+    "dDurationMs": 5040,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "मेरी",
+      "acAsrConf": 0
+    }, {
+      "utf8": " आंखों",
+      "tOffsetMs": 160,
+      "acAsrConf": 0
+    }, {
+      "utf8": " में",
+      "tOffsetMs": 480,
+      "acAsrConf": 0
+    }, {
+      "utf8": " सजा",
+      "tOffsetMs": 640,
+      "acAsrConf": 0
+    }, {
+      "utf8": " है",
+      "tOffsetMs": 879,
+      "acAsrConf": 0
+    }, {
+      "utf8": " तू",
+      "tOffsetMs": 1040,
+      "acAsrConf": 0
+    }, {
+      "utf8": " ही",
+      "tOffsetMs": 1199,
+      "acAsrConf": 0
+    }, {
+      "utf8": " तू",
+      "tOffsetMs": 1360,
+      "acAsrConf": 0
+    }, {
+      "utf8": " पीछे",
+      "tOffsetMs": 2320,
+      "acAsrConf": 0
+    }, {
+      "utf8": " देखो",
+      "tOffsetMs": 2640,
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 100230,
+    "dDurationMs": 1690,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 100240,
+    "dDurationMs": 3839,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "तेरी",
+      "acAsrConf": 0
+    }, {
+      "utf8": " याद",
+      "tOffsetMs": 160,
+      "acAsrConf": 0
+    }, {
+      "utf8": " जो",
+      "tOffsetMs": 559,
+      "acAsrConf": 0
+    }, {
+      "utf8": " [संगीत]",
+      "tOffsetMs": 631
+    }, {
+      "utf8": " रही",
+      "tOffsetMs": 720,
+      "acAsrConf": 0
+    }, {
+      "utf8": " ना",
+      "tOffsetMs": 960,
+      "acAsrConf": 0
+    }, {
+      "utf8": " मेरी",
+      "tOffsetMs": 1120,
+      "acAsrConf": 0
+    }, {
+      "utf8": " ख्वाबों",
+      "tOffsetMs": 1360,
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 101910,
+    "dDurationMs": 2169,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 101920,
+    "dDurationMs": 4239,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "में",
+      "acAsrConf": 0
+    }, {
+      "utf8": " बसा",
+      "tOffsetMs": 80,
+      "acAsrConf": 0
+    }, {
+      "utf8": " है",
+      "tOffsetMs": 400,
+      "acAsrConf": 0
+    }, {
+      "utf8": " तू",
+      "tOffsetMs": 559,
+      "acAsrConf": 0
+    }, {
+      "utf8": " ही",
+      "tOffsetMs": 720,
+      "acAsrConf": 0
+    }, {
+      "utf8": " तू",
+      "tOffsetMs": 879,
+      "acAsrConf": 0
+    }, {
+      "utf8": " सवालों",
+      "tOffsetMs": 1199,
+      "acAsrConf": 0
+    }, {
+      "utf8": " में",
+      "tOffsetMs": 1680,
+      "acAsrConf": 0
+    }, {
+      "utf8": " मैं",
+      "tOffsetMs": 1839,
+      "acAsrConf": 0
+    }, {
+      "utf8": " रख",
+      "tOffsetMs": 2000,
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 104069,
+    "dDurationMs": 2090,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 104079,
+    "dDurationMs": 5521,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "लूं",
+      "acAsrConf": 0
+    }, {
+      "utf8": " छुपा",
+      "tOffsetMs": 241,
+      "acAsrConf": 0
+    }, {
+      "utf8": " के",
+      "tOffsetMs": 561,
+      "acAsrConf": 0
+    }, {
+      "utf8": " मुझे",
+      "tOffsetMs": 720,
+      "acAsrConf": 0
+    }, {
+      "utf8": " तू",
+      "tOffsetMs": 881,
+      "acAsrConf": 0
+    }, {
+      "utf8": " ही",
+      "tOffsetMs": 1121,
+      "acAsrConf": 0
+    }, {
+      "utf8": " तो",
+      "tOffsetMs": 1281,
+      "acAsrConf": 0
+    }, {
+      "utf8": " बिगाड़े",
+      "tOffsetMs": 1441,
+      "acAsrConf": 0
+    }, {
+      "utf8": " मेरी",
+      "tOffsetMs": 1841,
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 106149,
+    "dDurationMs": 3451,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 106159,
+    "dDurationMs": 8801,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "आंखों",
+      "acAsrConf": 0
+    }, {
+      "utf8": " में",
+      "tOffsetMs": 320,
+      "acAsrConf": 0
+    }, {
+      "utf8": " सजा",
+      "tOffsetMs": 481,
+      "acAsrConf": 0
+    }, {
+      "utf8": " है",
+      "tOffsetMs": 721,
+      "acAsrConf": 0
+    }, {
+      "utf8": " तू",
+      "tOffsetMs": 881,
+      "acAsrConf": 0
+    }, {
+      "utf8": " ही",
+      "tOffsetMs": 1041,
+      "acAsrConf": 0
+    }, {
+      "utf8": " तू",
+      "tOffsetMs": 1201,
+      "acAsrConf": 0
+    }, {
+      "utf8": " [संगीत]",
+      "tOffsetMs": 1917
+    } ]
+  }, {
+    "tStartMs": 109590,
+    "dDurationMs": 5370,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 109600,
+    "dDurationMs": 12240,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "ख्वाबों",
+      "acAsrConf": 0
+    }, {
+      "utf8": " में",
+      "tOffsetMs": 879,
+      "acAsrConf": 0
+    }, {
+      "utf8": " तू",
+      "tOffsetMs": 2240,
+      "acAsrConf": 0
+    }, {
+      "utf8": " ही",
+      "tOffsetMs": 2720,
+      "acAsrConf": 0
+    }, {
+      "utf8": " तू",
+      "tOffsetMs": 3040,
+      "acAsrConf": 0
+    }, {
+      "utf8": " मैं",
+      "tOffsetMs": 4320,
+      "acAsrConf": 0
+    }, {
+      "utf8": " [संगीत]",
+      "tOffsetMs": 4371
+    }, {
+      "utf8": " तेरे",
+      "tOffsetMs": 4640,
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 114950,
+    "dDurationMs": 6890,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 114960,
+    "dDurationMs": 10000,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "बिन",
+      "acAsrConf": 0
+    }, {
+      "utf8": " अधूरा",
+      "tOffsetMs": 1360,
+      "acAsrConf": 0
+    }, {
+      "utf8": " हूं",
+      "tOffsetMs": 2320,
+      "acAsrConf": 0
+    }, {
+      "utf8": " सवारे",
+      "tOffsetMs": 3600,
+      "acAsrConf": 0
+    }, {
+      "utf8": " तू",
+      "tOffsetMs": 4560,
+      "acAsrConf": 0
+    }, {
+      "utf8": " बिगाड़े",
+      "tOffsetMs": 5839,
+      "acAsrConf": 0
+    }, {
+      "utf8": " [संगीत]",
+      "tOffsetMs": 6216
+    } ]
+  }, {
+    "tStartMs": 121830,
+    "dDurationMs": 3130,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 121840,
+    "dDurationMs": 7199,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "तू",
+      "acAsrConf": 0
+    }, {
+      "utf8": " है",
+      "tOffsetMs": 1279,
+      "acAsrConf": 0
+    }, {
+      "utf8": " हमसफर",
+      "tOffsetMs": 1520,
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 124950,
+    "dDurationMs": 4089,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 124960,
+    "dDurationMs": 8880,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "क्या",
+      "acAsrConf": 0
+    }, {
+      "utf8": " खुदा",
+      "tOffsetMs": 400,
+      "acAsrConf": 0
+    }, {
+      "utf8": " है",
+      "tOffsetMs": 1040,
+      "acAsrConf": 0
+    }, {
+      "utf8": " तू",
+      "tOffsetMs": 1360,
+      "acAsrConf": 0
+    }, {
+      "utf8": " तू",
+      "tOffsetMs": 1600,
+      "acAsrConf": 0
+    }, {
+      "utf8": " पलकों",
+      "tOffsetMs": 2880,
+      "acAsrConf": 0
+    }, {
+      "utf8": " [संगीत]",
+      "tOffsetMs": 3421
+    }, {
+      "utf8": " पे",
+      "tOffsetMs": 3519,
+      "acAsrConf": 0
+    }, {
+      "utf8": " मैं",
+      "tOffsetMs": 3760,
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 129029,
+    "dDurationMs": 4811,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 129039,
+    "dDurationMs": 8001,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "रख",
+      "acAsrConf": 0
+    }, {
+      "utf8": " दूं",
+      "tOffsetMs": 241,
+      "acAsrConf": 0
+    }, {
+      "utf8": " तेरी",
+      "tOffsetMs": 640,
+      "acAsrConf": 0
+    }, {
+      "utf8": " मेरा",
+      "tOffsetMs": 1121,
+      "acAsrConf": 0
+    }, {
+      "utf8": " ये",
+      "tOffsetMs": 1601,
+      "acAsrConf": 0
+    }, {
+      "utf8": " जहां",
+      "tOffsetMs": 1920,
+      "acAsrConf": 0
+    }, {
+      "utf8": " तारों",
+      "tOffsetMs": 3361,
+      "acAsrConf": 0
+    }, {
+      "utf8": " से",
+      "tOffsetMs": 4001,
+      "acAsrConf": 0
+    }, {
+      "utf8": " सजा",
+      "tOffsetMs": 4241,
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 133830,
+    "dDurationMs": 3210,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 133840,
+    "dDurationMs": 7759,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "दूं",
+      "acAsrConf": 0
+    }, {
+      "utf8": " तुझको",
+      "tOffsetMs": 479,
+      "acAsrConf": 0
+    }, {
+      "utf8": " सुन",
+      "tOffsetMs": 880,
+      "acAsrConf": 0
+    }, {
+      "utf8": " ले",
+      "tOffsetMs": 1280,
+      "acAsrConf": 0
+    }, {
+      "utf8": " हम",
+      "tOffsetMs": 1520,
+      "acAsrConf": 0
+    }, {
+      "utf8": " [संगीत]",
+      "tOffsetMs": 2401
+    } ]
+  }, {
+    "tStartMs": 137030,
+    "dDurationMs": 4569,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 137040,
+    "dDurationMs": 8000,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "आईना",
+      "acAsrConf": 0
+    }, {
+      "utf8": " दिखा",
+      "tOffsetMs": 880,
+      "acAsrConf": 0
+    }, {
+      "utf8": " दूं",
+      "tOffsetMs": 1360,
+      "acAsrConf": 0
+    }, {
+      "utf8": " तुझको",
+      "tOffsetMs": 1839,
+      "acAsrConf": 0
+    }, {
+      "utf8": " मेरी",
+      "tOffsetMs": 2320,
+      "acAsrConf": 0
+    }, {
+      "utf8": " तू",
+      "tOffsetMs": 2800,
+      "acAsrConf": 0
+    }, {
+      "utf8": " रजा",
+      "tOffsetMs": 3120,
+      "acAsrConf": 0
+    }, {
+      "utf8": " [संगीत]",
+      "tOffsetMs": 3786
+    } ]
+  }, {
+    "tStartMs": 141589,
+    "dDurationMs": 3451,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 141599,
+    "dDurationMs": 5521,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "मेरी",
+      "acAsrConf": 0
+    }, {
+      "utf8": " तू",
+      "tOffsetMs": 481,
+      "acAsrConf": 0
+    }, {
+      "utf8": " रजा",
+      "tOffsetMs": 881,
+      "acAsrConf": 0
+    }, {
+      "utf8": " मेरी",
+      "tOffsetMs": 2241,
+      "acAsrConf": 0
+    }, {
+      "utf8": " तू",
+      "tOffsetMs": 2801,
+      "acAsrConf": 0
+    }, {
+      "utf8": " रजा",
+      "tOffsetMs": 3041,
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 145030,
+    "dDurationMs": 2090,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 145040,
+    "dDurationMs": 4320,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "पीछे",
+      "acAsrConf": 0,
+      "isSpeakerChange": 1
+    }, {
+      "utf8": " देखो",
+      "tOffsetMs": 320,
+      "acAsrConf": 0
+    }, {
+      "utf8": " [संगीत]",
+      "tOffsetMs": 371
+    }, {
+      "utf8": " राह",
+      "tOffsetMs": 640,
+      "acAsrConf": 0
+    }, {
+      "utf8": " तेरी",
+      "tOffsetMs": 880,
+      "acAsrConf": 0
+    }, {
+      "utf8": " याद",
+      "tOffsetMs": 1120,
+      "acAsrConf": 0
+    }, {
+      "utf8": " जो",
+      "tOffsetMs": 1440,
+      "acAsrConf": 0
+    }, {
+      "utf8": " रही",
+      "tOffsetMs": 1600,
+      "acAsrConf": 0
+    }, {
+      "utf8": " ना",
+      "tOffsetMs": 1839,
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 147110,
+    "dDurationMs": 2250,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 147120,
+    "dDurationMs": 4080,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "मेरी",
+      "acAsrConf": 0
+    }, {
+      "utf8": " ख्वाबों",
+      "tOffsetMs": 160,
+      "acAsrConf": 0
+    }, {
+      "utf8": " में",
+      "tOffsetMs": 560,
+      "acAsrConf": 0
+    }, {
+      "utf8": " बसा",
+      "tOffsetMs": 640,
+      "acAsrConf": 0
+    }, {
+      "utf8": " है",
+      "tOffsetMs": 960,
+      "acAsrConf": 0
+    }, {
+      "utf8": " तू",
+      "tOffsetMs": 1040,
+      "acAsrConf": 0
+    }, {
+      "utf8": " ही",
+      "tOffsetMs": 1199,
+      "acAsrConf": 0
+    }, {
+      "utf8": " तू",
+      "tOffsetMs": 1360,
+      "acAsrConf": 0
+    }, {
+      "utf8": " सवालों",
+      "tOffsetMs": 1759,
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 149350,
+    "dDurationMs": 1850,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 149360,
+    "dDurationMs": 4720,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "में",
+      "acAsrConf": 0
+    }, {
+      "utf8": " मैं",
+      "tOffsetMs": 80,
+      "acAsrConf": 0
+    }, {
+      "utf8": " रख",
+      "tOffsetMs": 320,
+      "acAsrConf": 0
+    }, {
+      "utf8": " लूं",
+      "tOffsetMs": 480,
+      "acAsrConf": 0
+    }, {
+      "utf8": " छुपा",
+      "tOffsetMs": 720,
+      "acAsrConf": 0
+    }, {
+      "utf8": " के",
+      "tOffsetMs": 959,
+      "acAsrConf": 0
+    }, {
+      "utf8": " मुझे",
+      "tOffsetMs": 1120,
+      "acAsrConf": 0
+    }, {
+      "utf8": " तू",
+      "tOffsetMs": 1360,
+      "acAsrConf": 0
+    }, {
+      "utf8": " ही",
+      "tOffsetMs": 1519,
+      "acAsrConf": 0
+    }, {
+      "utf8": " तू",
+      "tOffsetMs": 1599,
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 151190,
+    "dDurationMs": 2890,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 151200,
+    "dDurationMs": 5119,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "बिगाड़े",
+      "acAsrConf": 0
+    }, {
+      "utf8": " मेरी",
+      "tOffsetMs": 480,
+      "acAsrConf": 0
+    }, {
+      "utf8": " आंखों",
+      "tOffsetMs": 640,
+      "acAsrConf": 0
+    }, {
+      "utf8": " में",
+      "tOffsetMs": 960,
+      "acAsrConf": 0
+    }, {
+      "utf8": " सजा",
+      "tOffsetMs": 1119,
+      "acAsrConf": 0
+    }, {
+      "utf8": " है",
+      "tOffsetMs": 1440,
+      "acAsrConf": 0
+    }, {
+      "utf8": " तू",
+      "tOffsetMs": 1600,
+      "acAsrConf": 0
+    }, {
+      "utf8": " ही",
+      "tOffsetMs": 1759,
+      "acAsrConf": 0
+    }, {
+      "utf8": " तू",
+      "tOffsetMs": 1920,
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 154070,
+    "dDurationMs": 2249,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 154080,
+    "dDurationMs": 4400,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "पीछे",
+      "acAsrConf": 0
+    }, {
+      "utf8": " देखो",
+      "tOffsetMs": 400,
+      "acAsrConf": 0
+    }, {
+      "utf8": " [संगीत]",
+      "tOffsetMs": 501
+    }, {
+      "utf8": " राह",
+      "tOffsetMs": 720,
+      "acAsrConf": 0
+    }, {
+      "utf8": " तेरी",
+      "tOffsetMs": 960,
+      "acAsrConf": 0
+    }, {
+      "utf8": " याद",
+      "tOffsetMs": 1200,
+      "acAsrConf": 0
+    }, {
+      "utf8": " जो",
+      "tOffsetMs": 1600,
+      "acAsrConf": 0
+    }, {
+      "utf8": " रही",
+      "tOffsetMs": 1760,
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 156309,
+    "dDurationMs": 2171,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 156319,
+    "dDurationMs": 4081,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "मेरी",
+      "acAsrConf": 0
+    }, {
+      "utf8": " ख्वाबों",
+      "tOffsetMs": 161,
+      "acAsrConf": 0
+    }, {
+      "utf8": " में",
+      "tOffsetMs": 481,
+      "acAsrConf": 0
+    }, {
+      "utf8": " बसा",
+      "tOffsetMs": 640,
+      "acAsrConf": 0
+    }, {
+      "utf8": " है",
+      "tOffsetMs": 881,
+      "acAsrConf": 0
+    }, {
+      "utf8": " तू",
+      "tOffsetMs": 1041,
+      "acAsrConf": 0
+    }, {
+      "utf8": " ही",
+      "tOffsetMs": 1200,
+      "acAsrConf": 0
+    }, {
+      "utf8": " तू",
+      "tOffsetMs": 1280,
+      "acAsrConf": 0
+    }, {
+      "utf8": " सवालों",
+      "tOffsetMs": 1681,
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 158470,
+    "dDurationMs": 1930,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 158480,
+    "dDurationMs": 6000,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "में",
+      "acAsrConf": 0
+    }, {
+      "utf8": " मैं",
+      "tOffsetMs": 160,
+      "acAsrConf": 0
+    }, {
+      "utf8": " रख",
+      "tOffsetMs": 320,
+      "acAsrConf": 0
+    }, {
+      "utf8": " लूं",
+      "tOffsetMs": 479,
+      "acAsrConf": 0
+    }, {
+      "utf8": " छुपा",
+      "tOffsetMs": 720,
+      "acAsrConf": 0
+    }, {
+      "utf8": " के",
+      "tOffsetMs": 1039,
+      "acAsrConf": 0
+    }, {
+      "utf8": " मुझे",
+      "tOffsetMs": 1200,
+      "acAsrConf": 0
+    }, {
+      "utf8": " तू",
+      "tOffsetMs": 1440,
+      "acAsrConf": 0
+    }, {
+      "utf8": " ही",
+      "tOffsetMs": 1600,
+      "acAsrConf": 0
+    }, {
+      "utf8": " तो",
+      "tOffsetMs": 1759,
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 160390,
+    "dDurationMs": 4090,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 160400,
+    "dDurationMs": 8960,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "बिगाड़े",
+      "acAsrConf": 0
+    }, {
+      "utf8": " मेरी",
+      "tOffsetMs": 479,
+      "acAsrConf": 0
+    }, {
+      "utf8": " आंखों",
+      "tOffsetMs": 640,
+      "acAsrConf": 0
+    }, {
+      "utf8": " में",
+      "tOffsetMs": 960,
+      "acAsrConf": 0
+    }, {
+      "utf8": " सजा",
+      "tOffsetMs": 1119,
+      "acAsrConf": 0
+    }, {
+      "utf8": " है",
+      "tOffsetMs": 1360,
+      "acAsrConf": 0
+    }, {
+      "utf8": " तू",
+      "tOffsetMs": 1520,
+      "acAsrConf": 0
+    }, {
+      "utf8": " ही",
+      "tOffsetMs": 1680,
+      "acAsrConf": 0
+    }, {
+      "utf8": " तू",
+      "tOffsetMs": 1839,
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 164470,
+    "dDurationMs": 4890,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 164480,
+    "dDurationMs": 9039,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "तेरा",
+      "acAsrConf": 0
+    }, {
+      "utf8": " [संगीत]",
+      "tOffsetMs": 581
+    }, {
+      "utf8": " शर्माना",
+      "tOffsetMs": 800,
+      "acAsrConf": 0
+    }, {
+      "utf8": " मेरी",
+      "tOffsetMs": 1920,
+      "acAsrConf": 0
+    }, {
+      "utf8": " जानना",
+      "tOffsetMs": 2320,
+      "acAsrConf": 0
+    }, {
+      "utf8": " कभी",
+      "tOffsetMs": 3119,
+      "acAsrConf": 0
+    }, {
+      "utf8": " रख",
+      "tOffsetMs": 4560,
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 169350,
+    "dDurationMs": 4169,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 169360,
+    "dDurationMs": 9456,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "लूं",
+      "acAsrConf": 0
+    }, {
+      "utf8": " छुपा",
+      "tOffsetMs": 480,
+      "acAsrConf": 0
+    }, {
+      "utf8": " के",
+      "tOffsetMs": 1120,
+      "acAsrConf": 0
+    }, {
+      "utf8": " [संगीत]",
+      "tOffsetMs": 1596
+    }, {
+      "utf8": " तेरी",
+      "tOffsetMs": 1599,
+      "acAsrConf": 0
+    }, {
+      "utf8": " यादें",
+      "tOffsetMs": 2000,
+      "acAsrConf": 0
+    }, {
+      "utf8": " सभी",
+      "tOffsetMs": 2879,
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 173509,
+    "dDurationMs": 5307,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 173519,
+    "dDurationMs": 6961,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "ख्वाबों",
+      "acAsrConf": 0
+    }, {
+      "utf8": " में",
+      "tOffsetMs": 881,
+      "acAsrConf": 0
+    }, {
+      "utf8": " मेरे",
+      "tOffsetMs": 1281,
+      "acAsrConf": 0
+    }, {
+      "utf8": " है",
+      "tOffsetMs": 2080,
+      "acAsrConf": 0
+    }, {
+      "utf8": " तू",
+      "tOffsetMs": 2401,
+      "acAsrConf": 0
+    }, {
+      "utf8": " ही",
+      "tOffsetMs": 2720,
+      "acAsrConf": 0
+    }, {
+      "utf8": " बसी",
+      "tOffsetMs": 3201,
+      "acAsrConf": 0
+    }, {
+      "utf8": " तू",
+      "tOffsetMs": 4641,
+      "acAsrConf": 0
+    }, {
+      "utf8": " ही",
+      "tOffsetMs": 5041,
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 178806,
+    "dDurationMs": 1674,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 178816,
+    "dDurationMs": 8464,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "[संगीत]"
+    }, {
+      "utf8": " बसी",
+      "tOffsetMs": 143,
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 180470,
+    "dDurationMs": 6810,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 180480,
+    "dDurationMs": 11360,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "तू",
+      "acAsrConf": 0
+    }, {
+      "utf8": " ही",
+      "tOffsetMs": 320,
+      "acAsrConf": 0
+    }, {
+      "utf8": " बसी",
+      "tOffsetMs": 800,
+      "acAsrConf": 0
+    }, {
+      "utf8": " तेरा",
+      "tOffsetMs": 2240,
+      "acAsrConf": 0
+    }, {
+      "utf8": " शर्माना",
+      "tOffsetMs": 3039,
+      "acAsrConf": 0
+    }, {
+      "utf8": " मेरी",
+      "tOffsetMs": 4240,
+      "acAsrConf": 0
+    }, {
+      "utf8": " जानना",
+      "tOffsetMs": 4560,
+      "acAsrConf": 0
+    }, {
+      "utf8": " ना",
+      "tOffsetMs": 5119,
+      "acAsrConf": 0
+    }, {
+      "utf8": " कभी",
+      "tOffsetMs": 5440,
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 187270,
+    "dDurationMs": 4570,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 187280,
+    "dDurationMs": 9120,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "रख",
+      "acAsrConf": 0
+    }, {
+      "utf8": " लूं",
+      "tOffsetMs": 400,
+      "acAsrConf": 0
+    }, {
+      "utf8": " [संगीत]",
+      "tOffsetMs": 707
+    }, {
+      "utf8": " छुपा",
+      "tOffsetMs": 879,
+      "acAsrConf": 0
+    }, {
+      "utf8": " के",
+      "tOffsetMs": 1520,
+      "acAsrConf": 0
+    }, {
+      "utf8": " तेरी",
+      "tOffsetMs": 1920,
+      "acAsrConf": 0
+    }, {
+      "utf8": " यादें",
+      "tOffsetMs": 2319,
+      "acAsrConf": 0
+    }, {
+      "utf8": " सभी",
+      "tOffsetMs": 3280,
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 191830,
+    "dDurationMs": 4570,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 191840,
+    "dDurationMs": 10000,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "ख्वाबों",
+      "acAsrConf": 0
+    }, {
+      "utf8": " में",
+      "tOffsetMs": 880,
+      "acAsrConf": 0
+    }, {
+      "utf8": " मेरे",
+      "tOffsetMs": 1200,
+      "acAsrConf": 0
+    }, {
+      "utf8": " है",
+      "tOffsetMs": 2000,
+      "acAsrConf": 0
+    }, {
+      "utf8": " तू",
+      "tOffsetMs": 2319,
+      "acAsrConf": 0
+    }, {
+      "utf8": " ही",
+      "tOffsetMs": 2720,
+      "acAsrConf": 0
+    }, {
+      "utf8": " बसी",
+      "tOffsetMs": 3200,
+      "acAsrConf": 0
+    }, {
+      "utf8": " [संगीत]",
+      "tOffsetMs": 3352
+    } ]
+  }, {
+    "tStartMs": 196390,
+    "dDurationMs": 5450,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 196400,
+    "dDurationMs": 10320,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "तू",
+      "acAsrConf": 0
+    }, {
+      "utf8": " ही",
+      "tOffsetMs": 400,
+      "acAsrConf": 0
+    }, {
+      "utf8": " बसी",
+      "tOffsetMs": 880,
+      "acAsrConf": 0
+    }, {
+      "utf8": " तू",
+      "tOffsetMs": 2320,
+      "acAsrConf": 0
+    }, {
+      "utf8": " ही",
+      "tOffsetMs": 2720,
+      "acAsrConf": 0
+    }, {
+      "utf8": " बसी",
+      "tOffsetMs": 3119,
+      "acAsrConf": 0
+    }, {
+      "utf8": " दोनों",
+      "tOffsetMs": 3680,
+      "acAsrConf": 0
+    }, {
+      "utf8": " जहान",
+      "tOffsetMs": 4240,
+      "acAsrConf": 0
+    }, {
+      "utf8": " तेरी",
+      "tOffsetMs": 4800,
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 201830,
+    "dDurationMs": 4890,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 201840,
+    "dDurationMs": 7360,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "मोहब्बत",
+      "acAsrConf": 0
+    }, {
+      "utf8": " में",
+      "tOffsetMs": 640,
+      "acAsrConf": 0
+    }, {
+      "utf8": " हार",
+      "tOffsetMs": 880,
+      "acAsrConf": 0
+    }, {
+      "utf8": " की",
+      "tOffsetMs": 1280,
+      "acAsrConf": 0
+    }, {
+      "utf8": " वो",
+      "tOffsetMs": 2240,
+      "acAsrConf": 0
+    }, {
+      "utf8": " जा",
+      "tOffsetMs": 2640,
+      "acAsrConf": 0
+    }, {
+      "utf8": " रहा",
+      "tOffsetMs": 2960,
+      "acAsrConf": 0
+    }, {
+      "utf8": " है",
+      "tOffsetMs": 3119,
+      "acAsrConf": 0
+    }, {
+      "utf8": " कोई",
+      "tOffsetMs": 3600,
+      "acAsrConf": 0
+    }, {
+      "utf8": " शबे",
+      "tOffsetMs": 4000,
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 206710,
+    "dDurationMs": 2490,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 206720,
+    "dDurationMs": 7680,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "गुजार",
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 209190,
+    "dDurationMs": 5210,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 209200,
+    "dDurationMs": 9560,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "वीरा",
+      "acAsrConf": 0
+    }, {
+      "utf8": " है",
+      "tOffsetMs": 560,
+      "acAsrConf": 0
+    }, {
+      "utf8": " मैं",
+      "tOffsetMs": 880,
+      "acAsrConf": 0
+    }, {
+      "utf8": " कदा",
+      "tOffsetMs": 1119,
+      "acAsrConf": 0
+    }, {
+      "utf8": " खो",
+      "tOffsetMs": 1759,
+      "acAsrConf": 0
+    }, {
+      "utf8": " सागर",
+      "tOffsetMs": 2399,
+      "acAsrConf": 0
+    }, {
+      "utf8": " उदास",
+      "tOffsetMs": 2959,
+      "acAsrConf": 0
+    }, {
+      "utf8": " तुम",
+      "tOffsetMs": 4160,
+      "acAsrConf": 0
+    }, {
+      "utf8": " क्या",
+      "tOffsetMs": 4640,
+      "acAsrConf": 0
+    }, {
+      "utf8": " गए",
+      "tOffsetMs": 4880,
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 214390,
+    "dDurationMs": 4370,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 214400,
+    "dDurationMs": 4360,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "कि",
+      "acAsrConf": 0
+    }, {
+      "utf8": " रूठ",
+      "tOffsetMs": 320,
+      "acAsrConf": 0
+    }, {
+      "utf8": " अगले",
+      "tOffsetMs": 479,
+      "acAsrConf": 0
+    }, {
+      "utf8": " दिन",
+      "tOffsetMs": 960,
+      "acAsrConf": 0
+    }, {
+      "utf8": " बाहर",
+      "tOffsetMs": 1360,
+      "acAsrConf": 0
+    } ]
+  } ]
+}

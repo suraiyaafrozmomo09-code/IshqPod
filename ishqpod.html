@@ -1,0 +1,3042 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IshqPod — Murtaza Qizilbash</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; -webkit-user-select: none; user-select: none; -webkit-tap-highlight-color: transparent; }
+
+html, body { height: 100%; font-family: 'Helvetica Neue', -apple-system, Arial, sans-serif; overflow: hidden; }
+
+body {
+  background:
+    radial-gradient(ellipse 70% 50% at 50% 30%, #3a0808 0%, transparent 60%),
+    radial-gradient(ellipse 90% 70% at 50% 90%, #1a0202 0%, #050000 70%),
+    #050000;
+  display: flex; align-items: center; justify-content: center;
+  min-height: 100vh; position: relative; color: #d4af37;
+}
+
+/* ============ STAR FIELD ============ */
+#starField { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+.star {
+  position: absolute; width: 2px; height: 2px;
+  background: #fff; border-radius: 50%;
+  animation: twinkle var(--dur) ease-in-out infinite;
+  opacity: 0;
+}
+@keyframes twinkle {
+  0%, 100% { opacity: 0; transform: scale(0.3); }
+  50% { opacity: var(--max-opacity, 0.8); transform: scale(1); }
+}
+
+/* Ambient atmosphere */
+.ambient { position: fixed; inset: 0; pointer-events: none; overflow: hidden; z-index: 1; }
+.orb { position: absolute; border-radius: 50%; filter: blur(100px); }
+.orb-1 { width: 500px; height: 500px; background: radial-gradient(circle, #d4af37 0%, transparent 70%); top: -10%; left: -10%; opacity: 0.22; animation: drift1 25s ease-in-out infinite; }
+.orb-2 { width: 600px; height: 600px; background: radial-gradient(circle, #8a1212 0%, transparent 70%); bottom: -15%; right: -10%; opacity: 0.3; animation: drift2 30s ease-in-out infinite; }
+.orb-3 { width: 300px; height: 300px; background: radial-gradient(circle, #f4d03f 0%, transparent 70%); top: 40%; right: 20%; opacity: 0.12; animation: drift1 20s ease-in-out infinite reverse; }
+@keyframes drift1 { 0%,100%{transform:translate(0,0) scale(1);} 50%{transform:translate(80px,-50px) scale(1.15);} }
+@keyframes drift2 { 0%,100%{transform:translate(0,0) scale(1);} 50%{transform:translate(-60px,40px) scale(1.1);} }
+
+/* ============ FLOATING LYRICS (Romanized Urdu / Hinglish) ============ */
+.floating-lyrics {
+  position: fixed; top: 50%; transform: translateY(-50%);
+  width: min(30vw, 420px);
+  max-height: 76vh;
+  display: flex; flex-direction: column; justify-content: center;
+  gap: 14px;
+  pointer-events: none; /* clicks pass through to the device */
+  z-index: 4;
+  opacity: 0; transition: opacity 0.8s ease;
+  font-family: 'Playfair Display', Georgia, serif;
+}
+.floating-lyrics.visible { opacity: 1; }
+.floating-lyrics.left  { left: 4%;  text-align: right; align-items: flex-end; }
+.floating-lyrics.right { right: 4%; text-align: left;  align-items: flex-start; }
+
+.lyr-line {
+  position: relative;
+  max-width: 100%;
+  font-weight: 400; letter-spacing: 0.6px; line-height: 1.5;
+  transition: opacity 1.2s ease, transform 1.2s cubic-bezier(0.4,0,0.2,1),
+              font-size 0.8s ease, color 0.8s ease, text-shadow 0.8s ease;
+  will-change: transform, opacity;
+}
+/* soft glow aura behind text */
+.lyr-line::before {
+  content: ''; position: absolute; inset: -14px -22px;
+  background: radial-gradient(ellipse, rgba(212,175,55,0.10) 0%, transparent 70%);
+  border-radius: 40px; z-index: -1; opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+.lyr-line.past {
+  font-size: 16px; color: rgba(212,175,55,0.45);
+  opacity: 0.45; transform: translateY(-8px);
+}
+.lyr-line.current {
+  font-size: 24px; color: #f4d03f; opacity: 0.85;
+  font-weight: 500; font-style: italic;
+  text-shadow: 0 0 24px rgba(255,215,0,0.35), 0 0 60px rgba(244,208,63,0.18);
+  transform: translateY(0);
+}
+.lyr-line.current::before { opacity: 1; }
+.lyr-line.next {
+  font-size: 17px; color: rgba(212,175,55,0.55);
+  opacity: 0.55; transform: translateY(8px);
+}
+.lyr-line.enter { opacity: 0; transform: translateY(26px); }
+.lyr-line.exit  { opacity: 0; transform: translateY(-26px); }
+
+/* status line (no lyrics / instrumental / loading) */
+.lyr-status {
+  font-size: 17px; font-style: italic; color: rgba(212,175,55,0.6);
+  letter-spacing: 1.5px; text-shadow: 0 0 20px rgba(244,208,63,0.25);
+  animation: statusBreathe 4s ease-in-out infinite;
+}
+@keyframes statusBreathe { 0%,100%{opacity:0.45;} 50%{opacity:0.8;} }
+
+/* ---- lyrics control pill ---- */
+.lyrics-controls {
+  position: fixed; top: 22px; right: 26px; z-index: 50;
+  display: flex; gap: 6px; align-items: center;
+  background: rgba(20,4,4,0.72);
+  border: 1px solid rgba(212,175,55,0.25);
+  border-radius: 20px; padding: 5px 8px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.06);
+}
+.lyr-btn {
+  background: transparent; border: 1px solid transparent;
+  color: rgba(212,175,55,0.55); font-size: 10px; letter-spacing: 1.5px;
+  padding: 4px 10px; border-radius: 14px; cursor: pointer;
+  font-family: 'Helvetica Neue', -apple-system, Arial, sans-serif;
+  font-weight: 600; text-transform: uppercase;
+  transition: all 0.25s ease;
+}
+.lyr-btn:hover { color: #f4d03f; }
+.lyr-btn.on {
+  color: #1a0303;
+  background: linear-gradient(135deg, #b8902f 0%, #f4d03f 100%);
+  box-shadow: 0 0 14px rgba(244,208,63,0.4);
+}
+.lyrics-controls .sep { width: 1px; height: 14px; background: rgba(212,175,55,0.2); }
+.lyrics-controls .mode-btns { display: flex; gap: 2px; transition: opacity 0.3s; }
+.lyrics-controls.off .mode-btns { opacity: 0.25; pointer-events: none; }
+
+@media (max-width: 1100px) { .floating-lyrics { width: 24vw; } .lyr-line.current { font-size: 20px; } }
+@media (max-width: 860px) { .floating-lyrics { display: none; } }
+
+body::before {
+  content: ''; position: fixed; inset: 0;
+  background-image: repeating-linear-gradient(45deg, transparent 0, transparent 60px, rgba(212,175,55,0.015) 60px, rgba(212,175,55,0.015) 61px);
+  pointer-events: none; z-index: 2;
+}
+
+/* Side decoration */
+.side-deco {
+  position: fixed; top: 50%; transform: translateY(-50%);
+  color: rgba(212,175,55,0.18); font-size: 10px; letter-spacing: 7px;
+  writing-mode: vertical-rl; font-weight: 200; z-index: 3;
+}
+.side-deco.left { left: 30px; }
+.side-deco.right { right: 30px; }
+
+.caption {
+  position: fixed; bottom: 24px; left: 0; right: 0; text-align: center;
+  color: rgba(212,175,55,0.4); font-size: 10px; letter-spacing: 5px;
+  text-transform: uppercase; font-weight: 300; z-index: 5;
+  text-shadow: 0 0 20px rgba(0,0,0,0.8);
+}
+.caption strong { color: rgba(244,208,63,0.75); font-weight: 500; letter-spacing: 6px; }
+.caption .divider { margin: 0 12px; color: rgba(212,175,55,0.2); }
+
+/* Error toast */
+.error-toast {
+  position: fixed; bottom: 80px; left: 50%; transform: translateX(-50%) translateY(20px);
+  background: rgba(60,10,10,0.95); color: #f4d03f; padding: 10px 20px;
+  border-radius: 8px; font-size: 11px; letter-spacing: 1px;
+  border: 1px solid rgba(244,208,63,0.3);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.1);
+  z-index: 100; opacity: 0; transition: all 0.4s cubic-bezier(0.4,0,0.2,1);
+  pointer-events: none; white-space: nowrap;
+}
+.error-toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+/* Hidden YouTube container */
+#youtube-container {
+  position: absolute; width: 0; height: 0; overflow: hidden; opacity: 0; pointer-events: none;
+}
+
+/* iPod stage with perspective */
+.ipod-stage { perspective: 1600px; perspective-origin: 50% 45%; z-index: 10; position: relative; animation: floatBob 7s ease-in-out infinite; transform-style: preserve-3d; }
+@keyframes floatBob {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-14px); }
+}
+
+/* === IPOD BODY === */
+.ipod {
+  position: relative; width: 340px; height: 570px;
+  background: linear-gradient(165deg, #5e0a0a 0%, #7a1010 18%, #931515 42%, #8a1212 55%, #6e0d0d 75%, #4a0606 100%);
+  border-radius: 34px;
+  box-shadow:
+    0 70px 140px -20px rgba(0,0,0,0.95),
+    0 40px 70px -15px rgba(80,0,0,0.7),
+    0 20px 30px -5px rgba(0,0,0,0.6),
+    0 0 0 1px rgba(160,70,70,0.15),
+    inset 0 3px 1px rgba(255,210,210,0.35),
+    inset 3px 0 3px rgba(255,180,180,0.12),
+    inset -3px 0 4px rgba(0,0,0,0.5),
+    inset 0 -3px 1px rgba(0,0,0,0.4),
+    inset 0 0 120px rgba(0,0,0,0.35);
+  transform-style: preserve-3d;
+  transform: rotateX(6deg) rotateY(-8deg);
+  will-change: transform;
+}
+
+/* 3D thickness — extruded side walls */
+.ipod-side {
+  position: absolute; inset: 0; border-radius: 34px;
+  background: linear-gradient(165deg, #2a0404 0%, #3d0606 50%, #1a0202 100%);
+  transform: translateZ(-22px);
+  box-shadow: 0 0 40px rgba(0,0,0,0.8);
+}
+.ipod-side::before {
+  content: ''; position: absolute; inset: -11px; border-radius: 40px;
+  background: linear-gradient(90deg, #4a0707 0%, #6e0d0d 20%, #3a0505 50%, #5a0909 80%, #2a0404 100%);
+  transform: translateZ(11px) ;
+  z-index: -1; filter: brightness(0.75);
+}
+
+.ipod::before {
+  content: ''; position: absolute; inset: 0; border-radius: 34px;
+  background:
+    repeating-linear-gradient(90deg, transparent 0, rgba(255,255,255,0.015) 1px, transparent 2px, transparent 3px),
+    radial-gradient(ellipse 60% 40% at 30% 15%, rgba(255,220,220,0.18) 0%, transparent 60%);
+  pointer-events: none; z-index: 1;
+}
+
+/* Shine/glass reflection overlay */
+.ipod-glow {
+  position: absolute; top: 2%; left: 6%; width: 40%; height: 55%;
+  background: linear-gradient(135deg, rgba(255,230,230,0.2) 0%, rgba(255,200,200,0.06) 30%, rgba(255,200,200,0.02) 50%, transparent 70%);
+  border-radius: 30px; pointer-events: none; z-index: 2; filter: blur(3px);
+}
+.ipod-glow-2 {
+  position: absolute; bottom: 15%; right: 5%; width: 25%; height: 30%;
+  background: linear-gradient(315deg, rgba(255,200,200,0.08) 0%, transparent 60%);
+  border-radius: 20px; pointer-events: none; z-index: 2; filter: blur(5px);
+}
+
+/* Dynamic glare that follows the cursor */
+.ipod-glare {
+  position: absolute; inset: 0; border-radius: 34px;
+  background: radial-gradient(circle 260px at var(--glare-x, 30%) var(--glare-y, 20%), rgba(255,235,220,0.16) 0%, rgba(255,220,200,0.05) 40%, transparent 70%);
+  pointer-events: none; z-index: 6; transform: translateZ(2px);
+}
+
+/* Top details */
+.hold-switch {
+  position: absolute; top: -1px; left: 60px; width: 32px; height: 5px;
+  background: linear-gradient(180deg, #1a0202 0%, #3a0505 50%, #2a0303 100%);
+  border-radius: 0 0 4px 4px;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.8), 0 1px 0 rgba(255,200,200,0.12);
+  z-index: 4;
+}
+.headphone-jack {
+  position: absolute; top: 10px; right: 22px; width: 14px; height: 6px;
+  background: radial-gradient(ellipse, #000 30%, #1a0202 70%);
+  border-radius: 50%;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,1), 0 1px 0 rgba(255,200,200,0.15);
+  z-index: 4;
+}
+.brand-text {
+  position: absolute; top: 10px; left: 22px; font-size: 7px;
+  color: rgba(255,220,220,0.4); letter-spacing: 2.5px; font-weight: 700;
+  z-index: 4; text-shadow: 0 1px 0 rgba(0,0,0,0.3);
+}
+
+/* === SCREEN === */
+.screen-bezel {
+  position: absolute; top: 28px; left: 28px; right: 28px; height: 230px;
+  background: linear-gradient(180deg, #1a0303 0%, #0a0101 100%);
+  border-radius: 10px; padding: 4px;
+  box-shadow:
+    inset 0 2px 5px rgba(0,0,0,0.9),
+    inset 0 -1px 0 rgba(255,200,200,0.06),
+    0 1px 0 rgba(255,200,200,0.18),
+    0 2px 4px rgba(0,0,0,0.4);
+  z-index: 3;
+  transform: translateZ(6px);
+  transform-style: preserve-3d;
+}
+
+.screen {
+  position: relative; width: 100%; height: 100%;
+  background: radial-gradient(ellipse at 50% 0%, #1a1208 0%, #0a0604 60%, #050302 100%);
+  border-radius: 6px; overflow: hidden;
+  box-shadow: inset 0 0 25px rgba(0,0,0,0.9);
+}
+
+.screen::before {
+  content: ''; position: absolute; top: -20%; left: -10%; width: 50%; height: 140%;
+  background: linear-gradient(95deg, transparent 30%, rgba(255,255,255,0.04) 45%, rgba(255,255,255,0.08) 50%, rgba(255,255,255,0.04) 55%, transparent 70%);
+  pointer-events: none; z-index: 100; transform: rotate(15deg);
+}
+
+.screen::after {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 50%;
+  background: linear-gradient(180deg, rgba(255,255,255,0.05) 0%, transparent 100%);
+  pointer-events: none; z-index: 99; border-radius: 6px 6px 0 0;
+}
+
+/* === NOW PLAYING === */
+.now-playing {
+  position: absolute; inset: 0; display: flex; flex-direction: column;
+  color: #d4af37;
+  transition: transform 0.45s cubic-bezier(0.4,0,0.2,1), opacity 0.3s;
+  z-index: 10;
+}
+.now-playing.hidden { transform: translateY(-30%); opacity: 0; pointer-events: none; }
+
+.status-bar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 5px 10px; font-size: 9px; color: #b8902f;
+  border-bottom: 1px solid rgba(212,175,55,0.12);
+  background: rgba(0,0,0,0.4); flex-shrink: 0;
+}
+.status-left { display: flex; align-items: center; gap: 6px; }
+.status-title { font-weight: 700; letter-spacing: 0.8px; font-size: 9px; color: #d4af37; }
+
+.playing-indicator { display: flex; gap: 1.5px; align-items: flex-end; height: 8px; }
+.playing-indicator span { width: 1.5px; background: #f4d03f; border-radius: 1px; animation: eq 0.8s ease-in-out infinite; }
+.playing-indicator span:nth-child(1) { height: 4px; animation-delay: 0s; }
+.playing-indicator span:nth-child(2) { height: 7px; animation-delay: 0.15s; }
+.playing-indicator span:nth-child(3) { height: 5px; animation-delay: 0.3s; }
+.playing-indicator.paused span { animation-play-state: paused; height: 3px !important; }
+@keyframes eq { 0%,100%{transform:scaleY(0.4);} 50%{transform:scaleY(1);} }
+
+.battery { display: flex; align-items: center; gap: 4px; font-size: 8px; }
+.battery-icon {
+  width: 16px; height: 8px; border: 1px solid #b8902f; border-radius: 2px;
+  position: relative; padding: 1px;
+}
+.battery-icon::after {
+  content: ''; position: absolute; right: -3px; top: 2px; width: 2px; height: 4px;
+  background: #b8902f; border-radius: 0 1px 1px 0;
+}
+.battery-fill { height: 100%; width: 75%; background: linear-gradient(90deg, #b8902f, #f4d03f); border-radius: 1px; }
+
+/* Album art - with real thumbnails, 3D flip on song change */
+.album-art {
+  height: 120px; margin: 5px 6px 4px; border-radius: 4px;
+  position: relative; overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: inset 0 0 30px rgba(0,0,0,0.7), 0 1px 3px rgba(0,0,0,0.5);
+  transform-style: preserve-3d;
+  perspective: 800px;
+}
+.album-art.flipping { animation: artFlip 0.7s cubic-bezier(0.4,0,0.2,1); }
+@keyframes artFlip {
+  0%   { transform: rotateY(0deg); }
+  50%  { transform: rotateY(90deg) scale(0.92); filter: brightness(0.6); }
+  100% { transform: rotateY(0deg); }
+}
+.album-art-inner {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.album-art-bg {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; filter: blur(10px) brightness(0.5) saturate(1.3);
+  transform: scale(1.25);
+}
+.album-art-inner img.cover {
+  position: relative; height: 100%; width: auto; aspect-ratio: 1 / 1;
+  object-fit: cover; border-radius: 3px; z-index: 1;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.7), 0 0 0 1px rgba(255,255,255,0.1);
+  transition: transform 0.3s ease;
+}
+.album-art-inner img.cover:hover { transform: scale(1.04); }
+.album-art-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(0,0,0,0.3) 0%, transparent 50%, rgba(0,0,0,0.2) 100%);
+  pointer-events: none; z-index: 2;
+}
+.album-art-shine {
+  position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+  background: linear-gradient(135deg, transparent 30%, rgba(255,255,255,0.06) 45%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0.06) 55%, transparent 70%);
+  pointer-events: none; z-index: 3;
+  transform: rotate(25deg);
+  animation: shineMove 6s ease-in-out infinite;
+}
+@keyframes shineMove {
+  0%, 100% { transform: rotate(25deg) translateX(-30%); }
+  50% { transform: rotate(25deg) translateX(30%); }
+}
+
+/* Offline fallback - glowing mandala */
+.album-art-fallback {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(circle at 30% 30%, #8a1212 0%, transparent 60%),
+    radial-gradient(circle at 70% 70%, #d4af37 0%, transparent 50%),
+    linear-gradient(135deg, #2a0606 0%, #4a0808 50%, #1a0303 100%);
+  display: flex; align-items: center; justify-content: center;
+  transition: opacity 0.6s ease;
+  opacity: 0; pointer-events: none;
+}
+.album-art-fallback.show { opacity: 1; }
+
+.mandala {
+  position: relative; width: 64px; height: 64px;
+  animation: rotate 20s linear infinite;
+  animation-play-state: paused; opacity: 0.5; z-index: 2;
+  transition: opacity 0.4s;
+}
+.now-playing.playing .album-art-fallback .mandala,
+.album-art-fallback.show .mandala { animation-play-state: running; opacity: 1; }
+
+.mandala::before, .mandala::after {
+  content: ''; position: absolute; inset: 0; border-radius: 50%;
+}
+.mandala::before {
+  background: conic-gradient(from 0deg, transparent 0deg, rgba(244,208,63,0.5) 30deg, transparent 60deg, rgba(212,175,55,0.3) 120deg, transparent 150deg, rgba(244,208,63,0.5) 210deg, transparent 240deg, rgba(212,175,55,0.3) 300deg, transparent 330deg);
+  filter: blur(1px);
+}
+.mandala::after {
+  inset: 10px;
+  background: conic-gradient(from 45deg, transparent 0deg, rgba(244,208,63,0.6) 60deg, transparent 120deg, rgba(212,175,55,0.4) 180deg, transparent 240deg, rgba(244,208,63,0.6) 300deg, transparent 360deg);
+  border: 1px solid rgba(244,208,63,0.3);
+}
+.mandala-core {
+  position: absolute; top: 50%; left: 50%; width: 12px; height: 12px;
+  transform: translate(-50%,-50%);
+  background: radial-gradient(circle, #f4d03f 0%, #d4af37 50%, transparent 80%);
+  border-radius: 50%; box-shadow: 0 0 15px rgba(244,208,63,0.8);
+  z-index: 3; animation: pulse 2s ease-in-out infinite;
+}
+@keyframes rotate { from{transform:rotate(0deg);} to{transform:rotate(360deg);} }
+@keyframes pulse { 0%,100%{transform:translate(-50%,-50%) scale(1); opacity:0.9;} 50%{transform:translate(-50%,-50%) scale(1.3); opacity:1;} }
+
+/* Visualizer bars on album art */
+.art-viz {
+  position: absolute; bottom: 4px; left: 10px; right: 10px; height: 14px;
+  display: flex; align-items: flex-end; justify-content: center; gap: 2px;
+  z-index: 5; opacity: 0.7;
+}
+.art-viz .vbar {
+  flex: 1; max-width: 3px;
+  background: linear-gradient(180deg, #f4d03f 0%, #b8902f 100%);
+  border-radius: 1px; height: 2px; transition: height 0.08s;
+}
+
+/* Song info */
+.song-info { padding: 2px 10px 1px; text-align: center; }
+.song-title {
+  font-size: 14px; font-weight: 600; color: #f4d03f;
+  text-shadow: 0 0 12px rgba(244,208,63,0.5);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  letter-spacing: 0.5px;
+}
+.song-artist { font-size: 9px; color: #b8902f; margin-top: 1px; letter-spacing: 1.5px; font-weight: 500; }
+
+/* Progress */
+.progress-section { padding: 4px 12px 2px; }
+.progress-bar {
+  height: 3px; background: rgba(212,175,55,0.15); border-radius: 2px;
+  position: relative; cursor: pointer; overflow: visible;
+}
+.progress-bar::before { content: ''; position: absolute; inset: -8px 0; cursor: pointer; }
+.progress-fill {
+  height: 100%; background: linear-gradient(90deg, #b8902f 0%, #f4d03f 100%);
+  border-radius: 2px; width: 0%; position: relative;
+  box-shadow: 0 0 6px rgba(244,208,63,0.6); transition: width 0.1s linear;
+}
+.progress-fill::after {
+  content: ''; position: absolute; right: -3px; top: 50%;
+  transform: translateY(-50%); width: 7px; height: 7px;
+  background: #f4d03f; border-radius: 50%;
+  box-shadow: 0 0 8px rgba(244,208,63,0.9);
+}
+.time-row {
+  display: flex; justify-content: space-between; margin-top: 3px;
+  font-size: 9px; color: #b8902f; font-variant-numeric: tabular-nums; letter-spacing: 0.5px;
+}
+
+.bottom-info {
+  padding: 3px 10px; font-size: 9px; color: #8a6a20;
+  display: flex; justify-content: space-between; align-items: center;
+  margin-top: auto; border-top: 1px solid rgba(212,175,55,0.08);
+  background: rgba(0,0,0,0.2);
+}
+.bottom-info .dots { color: #d4af37; letter-spacing: 2px; opacity: 0.6; }
+
+/* Loading overlay on screen */
+.loading-screen {
+  position: absolute; inset: 0;
+  background: rgba(5,3,2,0.85);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  z-index: 50; transition: opacity 0.4s ease;
+  opacity: 0; pointer-events: none;
+}
+.loading-screen.show { opacity: 1; }
+.loading-spinner {
+  width: 24px; height: 24px; border: 2px solid rgba(212,175,55,0.2);
+  border-top-color: #f4d03f; border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+.loading-text { font-size: 9px; color: #b8902f; margin-top: 8px; letter-spacing: 1px; }
+
+/* === PLAYLIST === */
+.playlist {
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, #0d0a05 0%, #050302 100%);
+  transform: translateY(100%);
+  transition: transform 0.45s cubic-bezier(0.4,0,0.2,1);
+  display: flex; flex-direction: column; z-index: 20;
+}
+.playlist.open { transform: translateY(0); }
+
+.playlist-header {
+  padding: 7px 12px; font-size: 10px; color: #f4d03f;
+  border-bottom: 1px solid rgba(212,175,55,0.2);
+  text-align: center; letter-spacing: 1.5px; text-transform: uppercase;
+  font-weight: 600; background: rgba(0,0,0,0.5); flex-shrink: 0;
+}
+
+.playlist-items { flex: 1; overflow-y: auto; padding: 3px 0; }
+.playlist-items::-webkit-scrollbar { width: 3px; }
+.playlist-items::-webkit-scrollbar-track { background: transparent; }
+.playlist-items::-webkit-scrollbar-thumb { background: rgba(212,175,55,0.3); border-radius: 2px; }
+
+.playlist-item {
+  padding: 6px 12px; font-size: 11px; color: #d4af37; cursor: pointer;
+  border-bottom: 1px solid rgba(212,175,55,0.06);
+  display: flex; justify-content: space-between; align-items: center;
+  transition: background 0.15s, color 0.15s; gap: 8px;
+}
+.playlist-item:hover { background: rgba(212,175,55,0.08); }
+.playlist-item.active {
+  background: linear-gradient(90deg, rgba(212,175,55,0.18) 0%, rgba(212,175,55,0.05) 100%);
+  color: #f4d03f;
+}
+/* Wheel/button navigation highlight — classic iPod inverted row */
+.playlist-item.selected {
+  background: linear-gradient(90deg, #b8902f 0%, #d4af37 100%);
+  color: #1a0303;
+}
+.playlist-item.selected .num, .playlist-item.selected .dur,
+.playlist-item.selected .pl-artist { color: rgba(26,3,3,0.65); }
+.playlist-item.selected .name { color: #1a0303; }
+.playlist-item .thumb {
+  width: 22px; height: 22px; border-radius: 3px; object-fit: cover;
+  flex-shrink: 0; box-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  background: #2a0606;
+}
+.playlist-item .num { color: #8a6a20; font-size: 9px; min-width: 18px; font-variant-numeric: tabular-nums; }
+.playlist-item .name { flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-weight: 500; }
+.playlist-item .pl-artist { color: #8a6a20; font-size: 9px; font-weight: 400; }
+.playlist-item.active .pl-artist { color: #b8902f; }
+.playlist-item .dur { color: #8a6a20; font-size: 9px; font-variant-numeric: tabular-nums; }
+.playlist-item.active .num, .playlist-item.active .dur { color: #b8902f; }
+
+.playing-icon { width: 10px; display: flex; gap: 1px; align-items: flex-end; height: 8px; }
+.playing-icon span { width: 1.5px; background: #f4d03f; border-radius: 1px; animation: eq 0.8s ease-in-out infinite; }
+.playing-icon span:nth-child(1) { height: 4px; animation-delay: 0s; }
+.playing-icon span:nth-child(2) { height: 7px; animation-delay: 0.2s; }
+.playing-icon span:nth-child(3) { height: 5px; animation-delay: 0.4s; }
+.playlist-item:not(.active) .playing-icon { display: none; }
+
+.playlist-footer {
+  padding: 8px; text-align: center; font-size: 8px; color: #8a6a20; 
+  border-top: 1px solid rgba(212,175,55,0.1);
+}
+
+/* === CLICK WHEEL === */
+.click-wheel {
+  position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%) translateZ(10px);
+  width: 250px; height: 250px; border-radius: 50%;
+  background: radial-gradient(circle at 35% 28%, #fafafa 0%, #e8e8e8 18%, #c8c8c8 40%, #a8a8a8 65%, #888888 88%, #707070 100%);
+  box-shadow:
+    0 14px 30px rgba(0,0,0,0.7),
+    0 6px 12px rgba(0,0,0,0.45),
+    0 2px 3px rgba(0,0,0,0.3),
+    inset 0 3px 2px rgba(255,255,255,0.7),
+    inset 3px 0 3px rgba(255,255,255,0.35),
+    inset -3px 0 4px rgba(0,0,0,0.2),
+    inset 0 -3px 2px rgba(0,0,0,0.25),
+    inset 0 0 0 1px rgba(0,0,0,0.12);
+  cursor: grab; z-index: 5; overflow: hidden;
+  transition: box-shadow 0.2s;
+  transform-style: preserve-3d;
+}
+.click-wheel:active { cursor: grabbing; }
+.click-wheel.scrubbing {
+  box-shadow:
+    0 10px 25px rgba(0,0,0,0.65),
+    0 4px 8px rgba(0,0,0,0.4),
+    0 2px 3px rgba(0,0,0,0.3),
+    inset 0 3px 2px rgba(255,255,255,0.7),
+    inset 3px 0 3px rgba(255,255,255,0.35),
+    inset -3px 0 4px rgba(0,0,0,0.2),
+    inset 0 -3px 2px rgba(0,0,0,0.25),
+    inset 0 0 0 1px rgba(0,0,0,0.12),
+    inset 0 0 30px rgba(212,175,55,0.18);
+}
+
+.click-wheel::before {
+  content: ''; position: absolute; inset: 0; border-radius: 50%;
+  background: repeating-conic-gradient(from 0deg, transparent 0deg, rgba(0,0,0,0.02) 0.4deg, transparent 0.8deg);
+  pointer-events: none;
+}
+.click-wheel::after {
+  content: ''; position: absolute; top: 50%; left: 50%; width: 90px; height: 90px;
+  border-radius: 50%; transform: translate(-50%,-50%);
+  background: radial-gradient(circle, transparent 60%, rgba(0,0,0,0.08) 90%);
+  pointer-events: none; box-shadow: inset 0 0 8px rgba(0,0,0,0.15);
+}
+
+.wheel-label {
+  position: absolute; color: #4a4a4a; font-weight: 700;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.7);
+  z-index: 7; pointer-events: none;
+}
+.wheel-label.menu { top: 16px; left: 50%; transform: translateX(-50%); font-size: 10px; letter-spacing: 1.5px; }
+.wheel-label.prev { left: 20px; top: 50%; transform: translateY(-50%); font-size: 20px; }
+.wheel-label.next { right: 20px; top: 50%; transform: translateY(-50%); font-size: 20px; }
+.wheel-label.play { bottom: 16px; left: 50%; transform: translateX(-50%); font-size: 18px; }
+
+.wheel-btn {
+  position: absolute; z-index: 8; cursor: pointer;
+  background: transparent; border: none;
+  width: 80px; height: 80px;
+  transition: background 0.15s;
+}
+.wheel-btn:active { background: rgba(0,0,0,0.06); border-radius: 50%; }
+.wheel-btn.menu { top: 0; left: 85px; }
+.wheel-btn.prev { top: 85px; left: 0; }
+.wheel-btn.next { top: 85px; right: 0; }
+.wheel-btn.play { bottom: 0; left: 85px; }
+
+.select-btn {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+  width: 80px; height: 80px; border-radius: 50%;
+  background: radial-gradient(circle at 35% 28%, #ffffff 0%, #f0f0f0 25%, #d0d0d0 55%, #a8a8a8 85%, #888888 100%);
+  box-shadow:
+    0 5px 12px rgba(0,0,0,0.55),
+    0 2px 4px rgba(0,0,0,0.3),
+    inset 0 3px 2px rgba(255,255,255,0.9),
+    inset 0 -3px 2px rgba(0,0,0,0.18),
+    inset 3px 0 2px rgba(255,255,255,0.4),
+    inset -3px 0 2px rgba(0,0,0,0.12);
+  cursor: pointer; z-index: 9; transition: all 0.08s ease-out;
+}
+.select-btn:active {
+  transform: translate(-50%,-50%) scale(0.93);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.4), inset 0 2px 2px rgba(255,255,255,0.6), inset 0 -2px 2px rgba(0,0,0,0.2);
+}
+
+/* Floor reflection */
+.reflection {
+  position: absolute; bottom: -110px; left: 50%; transform: translateX(-50%) scaleY(-1) translateZ(-30px);
+  width: 340px; height: 570px;
+  background: linear-gradient(145deg, #5e0a0a 0%, #7a1010 18%, #931515 42%, #8a1212 55%, #6e0d0d 75%, #4a0606 100%);
+  border-radius: 34px; opacity: 0.15; filter: blur(4px);
+  mask: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, transparent 55%);
+  -webkit-mask: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, transparent 55%);
+  z-index: -1;
+}
+
+/* Contact shadow under the floating iPod */
+.floor-shadow {
+  position: absolute; bottom: -60px; left: 50%; transform: translateX(-50%);
+  width: 320px; height: 46px; border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.3) 50%, transparent 75%);
+  filter: blur(10px); z-index: -2;
+  animation: shadowBob 7s ease-in-out infinite;
+}
+@keyframes shadowBob {
+  0%, 100% { transform: translateX(-50%) scale(1); opacity: 1; }
+  50% { transform: translateX(-50%) scale(0.88); opacity: 0.7; }
+}
+
+/* 3D floating music notes */
+.float-note {
+  position: fixed; color: rgba(212,175,55,0.5); pointer-events: none;
+  z-index: 4; animation: noteRise linear forwards;
+  text-shadow: 0 0 12px rgba(244,208,63,0.6);
+  will-change: transform, opacity;
+}
+@keyframes noteRise {
+  0%   { transform: translateY(0) translateZ(0) rotate(0deg) scale(0.6); opacity: 0; }
+  15%  { opacity: 1; }
+  100% { transform: translateY(-55vh) rotate(40deg) scale(1.3); opacity: 0; }
+}
+
+@media (max-height: 720px) { .ipod-stage { transform: scale(0.85); } }
+@media (max-width: 400px) { .ipod-stage { transform: scale(0.88); } .side-deco { display: none; } }
+</style>
+</head>
+<body>
+
+<div id="starField"></div>
+
+<div class="ambient">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+</div>
+
+<div class="side-deco left">ISHQ · POD · 2024</div>
+<div class="side-deco right">MURTAZA · QIZILBASH</div>
+
+<!-- Floating lyrics panels -->
+<div class="floating-lyrics left" id="lyricsLeft" aria-hidden="true"></div>
+<div class="floating-lyrics right" id="lyricsRight" aria-hidden="true"></div>
+
+<!-- Lyrics controls -->
+<div class="lyrics-controls" id="lyricsControls">
+  <button class="lyr-btn on" id="lyrToggle">Lyrics</button>
+  <div class="sep"></div>
+  <div class="mode-btns">
+    <button class="lyr-btn" id="lyrModeLeft">L</button>
+    <button class="lyr-btn on" id="lyrModeRight">R</button>
+    <button class="lyr-btn" id="lyrModeBoth">Both</button>
+  </div>
+</div>
+
+<div class="error-toast" id="errorToast"></div>
+
+<!-- Hidden YouTube player container -->
+<div id="youtube-container"></div>
+
+<div class="ipod-stage">
+  <div class="ipod" id="ipod">
+    <div class="ipod-side"></div>
+    <div class="hold-switch"></div>
+    <div class="headphone-jack"></div>
+    <div class="brand-text">ISHQPOD</div>
+    <div class="ipod-glow"></div>
+    <div class="ipod-glow-2"></div>
+    <div class="ipod-glare" id="ipodGlare"></div>
+
+    <div class="screen-bezel">
+      <div class="screen">
+        <div class="now-playing" id="nowPlaying">
+          <div class="status-bar">
+            <div class="status-left">
+              <div class="playing-indicator paused" id="playingIndicator">
+                <span></span><span></span><span></span>
+              </div>
+              <span class="status-title">ISHQPOD</span>
+            </div>
+            <div class="battery">
+              <span>75%</span>
+              <div class="battery-icon"><div class="battery-fill"></div></div>
+            </div>
+          </div>
+
+          <div class="album-art" id="albumArt">
+            <div class="album-art-inner" id="albumArtInner">
+              <img class="album-art-bg" id="albumBg" src="" alt="" aria-hidden="true" />
+              <img class="cover" id="albumThumb" src="" alt="Album Art" loading="lazy" />
+            </div>
+            <div class="album-art-fallback" id="albumArtFallback">
+              <div class="mandala"><div class="mandala-core"></div></div>
+            </div>
+            <div class="album-art-overlay"></div>
+            <div class="album-art-shine"></div>
+            <div class="art-viz" id="artViz"></div>
+          </div>
+
+          <div class="song-info">
+            <div class="song-title" id="songTitle">Tum</div>
+            <div class="song-artist" id="songArtist">MURTAZA QIZILBASH</div>
+          </div>
+
+          <div class="progress-section">
+            <div class="progress-bar" id="progressBar">
+              <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <div class="time-row">
+              <span id="currentTime">0:00</span>
+              <span id="totalTime">0:00</span>
+            </div>
+          </div>
+
+          <div class="bottom-info">
+            <span id="songIndex">1 of 25</span>
+            <span class="dots">♥ ♥ ♥</span>
+          </div>
+        </div>
+
+        <!-- Loading overlay -->
+        <div class="loading-screen" id="loadingScreen">
+          <div class="loading-spinner"></div>
+          <div class="loading-text">BUFFERING...</div>
+        </div>
+
+        <div class="playlist" id="playlist">
+          <div class="playlist-header">
+            <span>Mix — Murtaza Qizilbash</span>
+          </div>
+          <div class="playlist-items" id="playlistItems"></div>
+          <div class="playlist-footer">
+            <span id="songCount">25</span> songs
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="click-wheel" id="clickWheel">
+      <div class="wheel-btn menu" id="btnMenu"></div>
+      <div class="wheel-btn prev" id="btnPrev"></div>
+      <div class="wheel-btn next" id="btnNext"></div>
+      <div class="wheel-btn play" id="btnPlay"></div>
+
+      <div class="wheel-label menu">MENU</div>
+      <div class="wheel-label prev">⏮</div>
+      <div class="wheel-label next">⏭</div>
+      <div class="wheel-label play">⏯</div>
+
+      <div class="select-btn" id="selectBtn"></div>
+    </div>
+
+    <div class="reflection"></div>
+    <div class="floor-shadow"></div>
+  </div>
+</div>
+
+<div class="caption">
+  <strong>ISHQPOD</strong>
+  <span class="divider">·</span>
+  Drag the wheel to seek
+</div>
+
+<script>
+// ============ FILE PROTOCOL CHECK ============
+if (window.location.protocol === 'file:') {
+  document.body.innerHTML = `
+    <div style="display:flex;align-items:center;justify-content:center;min-height:100vh;background:#050000;color:#d4af37;font-family:'Helvetica Neue',sans-serif;text-align:center;padding:40px;">
+      <div>
+        <h1 style="font-size:28px;margin-bottom:10px;color:#f4d03f;">🎵 IshqPod</h1>
+        <p style="font-size:16px;margin-bottom:20px;color:#b8902f;">YouTube playback requires an HTTP server.</p>
+        <div style="background:#1a0808;border:1px solid #d4af37;border-radius:12px;padding:24px;max-width:400px;margin:0 auto;">
+          <p style="font-size:13px;margin-bottom:16px;color:#d4af37;">Double-click the</p>
+          <div style="background:#2a0a0a;padding:10px 20px;border-radius:6px;display:inline-block;font-size:18px;font-weight:bold;color:#f4d03f;margin:8px 0;border:1px solid #d4af37;">start-ipod.bat</div>
+          <p style="font-size:13px;margin-top:16px;color:#b8902f;">file in the app folder to launch it correctly.</p>
+        </div>
+        <p style="font-size:11px;margin-top:30px;color:#8a6a20;">Or run: <code style="background:#1a0808;padding:3px 8px;border-radius:3px;color:#f4d03f;">python -m http.server 8080</code> and open <code style="background:#1a0808;padding:3px 8px;border-radius:3px;color:#f4d03f;">http://localhost:8080</code></p>
+      </div>
+    </div>
+  `;
+} else {
+
+// ============================================================
+//  🎵 SONG DATA — Add your songs here!
+//     To add a new song, just add an object like:
+//     { title: 'Song Name', videoId: 'YouTubeVideoID' }
+//     Get the videoId from the YouTube URL after "v="
+// ============================================================
+const songs = [
+  // ===== YouTube Mix — Murtaza Qizilbash (full playlist, in order) =====
+  { title: 'Tum',              artist: 'Murtaza Qizilbash',           videoId: '0enmMyV1Q48', duration: 259 },
+  { title: 'Hum',              artist: 'Murtaza Qizilbash',           videoId: 'tvcaYU7uofY', duration: 276 },
+  { title: 'Bhool',            artist: 'Murtaza Qizilbash',           videoId: 'ZUQoFmTUw08', duration: 245 },
+  { title: 'Har Baar',         artist: 'Murtaza Qizilbash · Samar Jafri', videoId: 'XYmTfNiAqW8', duration: 251 },
+  { title: 'Pyaar Mein',       artist: 'Murtaza Qizilbash',           videoId: 'IyLSbYII_qk', duration: 216 },
+  { title: 'Khasara',          artist: 'Abdul Hannan · Samar Jafri',  videoId: '-EhOs3Ol-v4', duration: 161 },
+  { title: 'Woh',              artist: 'Murtaza Qizilbash',           videoId: 'Y1QKbqszZfg', duration: 233 },
+  { title: 'Khat',             artist: 'Navjot Ahuja',                videoId: 'LUgpPmj6nR8', duration: 297 },
+  { title: 'Chalo Door Kahin', artist: 'Samar Jafri',                 videoId: 'piyLXuSrDYo', duration: 165 },
+  { title: 'Beparwah',         artist: 'Murtaza Qizilbash',           videoId: 'OT7jbBQsSYk', duration: 194 },
+  { title: 'Maand',            artist: 'Bayaan · Hasan Raheem · Rovalio', videoId: 'JVtKEX90SZ0', duration: 187 },
+  { title: 'Baat Unkahi',      artist: 'Kaavish · Samra Khan',        videoId: 'rn9aNVsABvc', duration: 312 },
+  { title: 'Tere Pyaar Main',  artist: 'Kaavish',                     videoId: 'kfKP4o-bXzM', duration: 303 },
+  { title: 'Arz Kiya Hai',     artist: 'Anuv Jain × Lost Stories',    videoId: 'bP8ATWCvqzw', duration: 306 },
+  { title: 'Saya Figan',       artist: 'Murtaza Qizilbash',           videoId: 'mdbbFs9KX0c', duration: 284 },
+  { title: 'Hoor',             artist: 'Samar Jafri',                 videoId: '4Jmeg6nK0Y8', duration: 209 },
+  { title: 'Faasle',           artist: 'Kaavish',                     videoId: 'JqLFnz7C_Io', duration: 312 },
+  { title: 'Safar',            artist: 'Bayaan · Sherazam',           videoId: '09Urt8CSQAA', duration: 231 },
+  { title: 'Sila',             artist: 'Abdul Hannan · M. Qizilbash', videoId: '650MNBxXSdY', duration: 249 },
+  { title: 'Laavan',           artist: 'Jasmine Sandlas',             videoId: 'OxXKDGO-MYQ', duration: 187 },
+  { title: 'Aarzu',            artist: 'Noor · Khan · Madhurxo',      videoId: 'M5OCLifZK1w', duration: 227 },
+  { title: 'Main Rahun',       artist: 'Samar Jafri (Parwarish)',     videoId: 'EK8IdWyztLo', duration: 206 },
+  { title: 'Jhol',             artist: 'Maanu × Annural Khalid',      videoId: '-2RAq5o5pwc', duration: 279 },
+  { title: 'Regardless',       artist: 'Asim Azhar',                  videoId: 'k_Pkyyn7UE0', duration: 225 },
+  { title: 'O Yaara',          artist: 'Abdul Hannan × Kaavish',      videoId: '4DVDFxiZKCg', duration: 291 }
+  // 👆 Add new songs above this line! Each entry: { title: '...', artist: '...', videoId: '...' }
+];
+
+let currentSongIndex = 0;
+let menuSelectedIndex = 0;
+let isPlaying = false;
+let playlistOpen = false;
+let ytPlayer = null;
+let ytReady = false;
+let progressInterval = null;
+let vizInterval = null;
+let ytApiLoaded = false;
+let consecutiveErrors = 0;
+let artLoadTokenCounter = 0;
+
+// ============ DOM REFS ============
+const $ = id => document.getElementById(id);
+const songTitle = $('songTitle');
+const totalTime = $('totalTime');
+const currentTime = $('currentTime');
+const songIndex = $('songIndex');
+const progressFill = $('progressFill');
+const nowPlaying = $('nowPlaying');
+const playingIndicator = $('playingIndicator');
+const albumThumb = $('albumThumb');
+const albumArtFallback = $('albumArtFallback');
+const artViz = $('artViz');
+const playlistEl = $('playlist');
+const playlistItems = $('playlistItems');
+const loadingScreen = $('loadingScreen');
+const errorToast = $('errorToast');
+const songCount = $('songCount');
+
+let errorTimeout = null;
+let artLoadToken = 0;
+
+// ============ STAR FIELD ============
+function createStarField() {
+  const container = document.getElementById('starField');
+  for (let i = 0; i < 120; i++) {
+    const star = document.createElement('div');
+    star.className = 'star';
+    star.style.left = Math.random() * 100 + '%';
+    star.style.top = Math.random() * 100 + '%';
+    const size = 1 + Math.random() * 2;
+    star.style.width = size + 'px';
+    star.style.height = size + 'px';
+    star.style.setProperty('--dur', (3 + Math.random() * 5) + 's');
+    star.style.setProperty('--max-opacity', (0.3 + Math.random() * 0.7));
+    star.style.animationDelay = Math.random() * 5 + 's';
+    container.appendChild(star);
+  }
+}
+createStarField();
+
+// ============ YOUTUBE IFrame API ============
+function loadYouTubeAPI() {
+  if (ytApiLoaded) return;
+  const tag = document.createElement('script');
+  tag.src = 'https://www.youtube.com/iframe_api';
+  const firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+}
+
+const ytDiv = document.createElement('div');
+ytDiv.id = 'youtube-player';
+document.getElementById('youtube-container').appendChild(ytDiv);
+
+window.onYouTubeIframeAPIReady = function() {
+  ytApiLoaded = true;
+  try {
+    ytPlayer = new YT.Player('youtube-player', {
+      height: '0',
+      width: '0',
+      playerVars: {
+        autoplay: 0,
+        controls: 0,
+        disablekb: 1,
+        fs: 0,
+        iv_load_policy: 3,
+        modestbranding: 1,
+        playsinline: 1,
+        rel: 0,
+        enablejsapi: 1
+      },
+      events: {
+        onReady: onPlayerReady,
+        onStateChange: onPlayerStateChange,
+        onError: onPlayerError
+      }
+    });
+  } catch(e) {
+    showError('YouTube player failed to initialize');
+  }
+};
+
+function onPlayerReady(event) {
+  ytReady = true;
+  loadingScreen.classList.remove('show');
+}
+
+function onPlayerStateChange(event) {
+  if (event.data === YT.PlayerState.PLAYING) {
+    isPlaying = true;
+    consecutiveErrors = 0;
+    updatePlayingState();
+    loadingScreen.classList.remove('show');
+    startProgressPolling();
+    startVisualizer();
+    const dur = ytPlayer.getDuration();
+    if (dur && dur > 0) {
+      songs[currentSongIndex].duration = dur;
+      totalTime.textContent = formatTime(dur);
+      updatePlaylist();
+    }
+  } else if (event.data === YT.PlayerState.PAUSED) {
+    isPlaying = false;
+    updatePlayingState();
+    stopProgressPolling();
+    stopVisualizer();
+  } else if (event.data === YT.PlayerState.ENDED) {
+    isPlaying = false;
+    stopProgressPolling();
+    stopVisualizer();
+    nextSong();
+  } else if (event.data === YT.PlayerState.CUED) {
+    loadingScreen.classList.remove('show');
+    const dur = ytPlayer.getDuration();
+    if (dur && dur > 0) {
+      songs[currentSongIndex].duration = dur;
+      totalTime.textContent = formatTime(dur);
+      updatePlaylist();
+    }
+    updateProgress();
+  } else if (event.data === -1) {
+    loadingScreen.classList.remove('show');
+  }
+}
+
+function onPlayerError(event) {
+  console.error('YouTube player error:', event.data);
+  loadingScreen.classList.remove('show');
+  isPlaying = false;
+  updatePlayingState();
+  stopProgressPolling();
+  stopVisualizer();
+
+  let msg = 'Playback error';
+  switch(event.data) {
+    case 2: msg = 'Invalid video ID'; break;
+    case 5: msg = 'Video not playable in embedded player'; break;
+    case 100: msg = 'Video not found or removed'; break;
+    case 101: case 150: msg = 'Video embedding not allowed'; break;
+    default: msg = 'YouTube error (' + event.data + ')';
+  }
+  showError(msg + ' — skipping to next song');
+
+  // Auto-skip to next song so playback never dead-ends,
+  // but stop after a full loop of failures to avoid an infinite skip cycle.
+  consecutiveErrors++;
+  if (consecutiveErrors < songs.length) {
+    setTimeout(() => {
+      currentSongIndex = (currentSongIndex + 1) % songs.length;
+      updateUI();
+      play();
+    }, 1200);
+  } else {
+    consecutiveErrors = 0;
+    showError('No playable songs — check your connection');
+  }
+}
+
+// ============ ERROR TOAST ============
+function showError(msg) {
+  errorToast.textContent = '\u26A0 ' + msg;
+  errorToast.classList.add('show');
+  if (errorTimeout) clearTimeout(errorTimeout);
+  errorTimeout = setTimeout(() => {
+    errorToast.classList.remove('show');
+  }, 3500);
+}
+
+// ============ PLAYBACK CONTROLS ============
+function play() {
+  if (!ytApiLoaded) {
+    showError('YouTube player loading...');
+    return;
+  }
+
+  const song = songs[currentSongIndex];
+  loadingScreen.classList.add('show');
+
+  if (ytPlayer && ytReady) {
+    try {
+      const state = ytPlayer.getPlayerState();
+      const videoData = ytPlayer.getVideoData();
+      if (state === YT.PlayerState.PAUSED && videoData && videoData.video_id === song.videoId) {
+        ytPlayer.playVideo();
+      } else {
+        ytPlayer.loadVideoById(song.videoId);
+      }
+    } catch(e) {
+      try {
+        ytPlayer.cueVideoById(song.videoId);
+        setTimeout(() => {
+          try { ytPlayer.playVideo(); } catch(ex) { showError('Could not start playback'); }
+        }, 300);
+      } catch(ex) {
+        showError('Could not start playback');
+        loadingScreen.classList.remove('show');
+      }
+    }
+  } else if (ytPlayer) {
+    try {
+      ytPlayer.loadVideoById(song.videoId);
+    } catch(e) {
+      showError('Player not ready');
+      loadingScreen.classList.remove('show');
+    }
+  } else {
+    showError('YouTube player not initialized');
+    loadingScreen.classList.remove('show');
+  }
+}
+
+function pause() {
+  if (ytPlayer && ytReady) {
+    try { ytPlayer.pauseVideo(); } catch(e) {}
+  }
+}
+
+function togglePlay() {
+  if (isPlaying) pause(); else play();
+}
+
+function nextSong() {
+  const wasPlaying = isPlaying;
+  stopCurrentSong();
+  currentSongIndex = (currentSongIndex + 1) % songs.length;
+  updateUI();
+  if (wasPlaying) play();
+}
+
+function prevSong() {
+  if (ytPlayer && ytReady && ytPlayer.getCurrentTime && ytPlayer.getCurrentTime() > 3) {
+    if (isPlaying) {
+      try { ytPlayer.seekTo(0, true); } catch(e) {}
+      return;
+    }
+  }
+  const wasPlaying = isPlaying;
+  stopCurrentSong();
+  currentSongIndex = (currentSongIndex - 1 + songs.length) % songs.length;
+  updateUI();
+  if (wasPlaying) play();
+}
+
+function stopCurrentSong() {
+  if (ytPlayer && ytReady) {
+    try { ytPlayer.stopVideo(); } catch(e) {}
+  }
+  isPlaying = false;
+  updatePlayingState();
+  stopProgressPolling();
+  stopVisualizer();
+  loadingScreen.classList.remove('show');
+}
+
+function selectSong(idx) {
+  stopCurrentSong();
+  currentSongIndex = idx;
+  updateUI();
+  play();
+  closePlaylist();
+}
+
+function seekTo(t) {
+  if (!ytPlayer || !ytReady) return;
+  try {
+    const dur = ytPlayer.getDuration();
+    if (!dur) return;
+    ytPlayer.seekTo(Math.max(0, Math.min(dur, t)), true);
+  } catch(e) {}
+}
+
+function seekBy(delta) {
+  if (!ytPlayer || !ytReady) return;
+  try {
+    const dur = ytPlayer.getDuration();
+    if (!dur) return;
+    seekTo(ytPlayer.getCurrentTime() + delta);
+  } catch(e) {}
+}
+
+// ============ UI UPDATES ============
+function formatTime(s) {
+  if (isNaN(s) || !isFinite(s)) return "0:00";
+  const m = Math.floor(s / 60);
+  const sec = Math.floor(s % 60);
+  return `${m}:${sec.toString().padStart(2,'0')}`;
+}
+
+function getYouTubeThumbnailUrl(videoId, quality) {
+  return `https://img.youtube.com/vi/${videoId}/${quality || 'maxresdefault'}.jpg`;
+}
+
+function loadAlbumArt(videoId) {
+  const img = document.getElementById('albumThumb');
+  const bg = document.getElementById('albumBg');
+  const fallback = document.getElementById('albumArtFallback');
+  const artLoadToken = ++artLoadTokenCounter;
+
+  // Reset to fallback while loading
+  img.style.display = 'none';
+  bg.style.display = 'none';
+  fallback.classList.add('show');
+
+  // YouTube quality chain. maxresdefault often "succeeds" with a gray
+  // 120x90 placeholder, so probe sizes and skip anything that small.
+  // mqdefault/maxres are 16:9 (no letterbox bars); hqdefault is a last resort.
+  const chain = ['maxresdefault', 'mqdefault', 'hqdefault'];
+
+  function tryQuality(i) {
+    if (i >= chain.length) return; // keep mandala fallback
+    const probe = new Image();
+    probe.onload = function() {
+      if (artLoadToken !== artLoadTokenCounter) return;
+      if (probe.naturalWidth <= 120) { tryQuality(i + 1); return; } // gray placeholder
+      img.src = probe.src;
+      bg.src = probe.src;
+      img.style.display = 'block';
+      bg.style.display = 'block';
+      fallback.classList.remove('show');
+    };
+    probe.onerror = function() {
+      if (artLoadToken !== artLoadTokenCounter) return;
+      tryQuality(i + 1);
+    };
+    probe.src = getYouTubeThumbnailUrl(videoId, chain[i]);
+  }
+  tryQuality(0);
+}
+
+function updateUI() {
+  const song = songs[currentSongIndex];
+  songTitle.textContent = song.title;
+  document.getElementById('songArtist').textContent = (song.artist || 'Murtaza Qizilbash').toUpperCase();
+
+  // 3D flip animation on song change
+  const art = document.getElementById('albumArt');
+  art.classList.remove('flipping');
+  void art.offsetWidth;
+  art.classList.add('flipping');
+
+  totalTime.textContent = formatTime(song.duration || 0);
+  songIndex.textContent = `${currentSongIndex+1} of ${songs.length}`;
+  document.getElementById('songCount').textContent = songs.length;
+
+  loadAlbumArt(song.videoId);
+  if (typeof loadLyricsForSong === 'function') loadLyricsForSong(song);
+
+  updatePlaylist();
+  updateProgress();
+}
+
+function startProgressPolling() {
+  stopProgressPolling();
+  progressInterval = setInterval(updateProgress, 200);
+}
+
+function stopProgressPolling() {
+  if (progressInterval) {
+    clearInterval(progressInterval);
+    progressInterval = null;
+  }
+}
+
+function updateProgress() {
+  if (!ytPlayer || !ytReady) return;
+  try {
+    const dur = ytPlayer.getDuration();
+    const t = ytPlayer.getCurrentTime();
+    if (!dur || !t) return;
+    const pct = (t / dur) * 100;
+    progressFill.style.width = Math.min(pct, 100) + '%';
+    currentTime.textContent = formatTime(t);
+  } catch(e) {}
+}
+
+function updatePlayingState() {
+  if (isPlaying) {
+    nowPlaying.classList.add('playing');
+    playingIndicator.classList.remove('paused');
+    startNotes();
+  } else {
+    nowPlaying.classList.remove('playing');
+    playingIndicator.classList.add('paused');
+    stopNotes();
+  }
+  updatePlaylist();
+}
+
+// Visualizer (decorative)
+const VIZ_BARS = 18;
+for (let i = 0; i < VIZ_BARS; i++) {
+  const bar = document.createElement('div');
+  bar.className = 'vbar';
+  artViz.appendChild(bar);
+}
+
+function startVisualizer() {
+  stopVisualizer();
+  vizInterval = setInterval(() => {
+    const bars = artViz.querySelectorAll('.vbar');
+    bars.forEach(bar => {
+      bar.style.height = Math.max(2, Math.random() * 14) + 'px';
+    });
+  }, 80);
+}
+
+function stopVisualizer() {
+  if (vizInterval) {
+    clearInterval(vizInterval);
+    vizInterval = null;
+  }
+  const bars = artViz.querySelectorAll('.vbar');
+  bars.forEach(bar => { bar.style.height = '2px'; });
+}
+
+// ============ PLAYLIST ============
+function updatePlaylist() {
+  playlistItems.innerHTML = '';
+  songs.forEach((song, i) => {
+    const item = document.createElement('div');
+    let classes = 'playlist-item';
+    if (i === currentSongIndex) classes += ' active';
+    if (playlistOpen && i === menuSelectedIndex) classes += ' selected';
+    item.className = classes;
+
+    let extraHtml = '';
+    if (i === currentSongIndex && isPlaying) {
+      extraHtml = '<div class="playing-icon"><span></span><span></span><span></span></div>';
+    }
+
+    item.innerHTML = `
+      <span class="num">${(i+1).toString().padStart(2,'0')}</span>
+      <img class="thumb" src="${getYouTubeThumbnailUrl(song.videoId, 'default')}" alt="" loading="lazy" onerror="this.style.visibility='hidden'" />
+      <span class="name">${song.title}<span class="pl-artist">${song.artist ? ' — ' + song.artist : ''}</span></span>
+      ${extraHtml}
+      <span class="dur">${formatTime(song.duration || 0)}</span>
+    `;
+    item.onclick = (e) => { e.stopPropagation(); selectSong(i); };
+    playlistItems.appendChild(item);
+  });
+}
+
+function openPlaylist() {
+  playlistOpen = true;
+  menuSelectedIndex = currentSongIndex;
+  playlistEl.classList.add('open');
+  nowPlaying.classList.add('hidden');
+  updatePlaylist();
+  scrollMenuToSelected(false);
+}
+
+function closePlaylist() {
+  playlistOpen = false;
+  playlistEl.classList.remove('open');
+  nowPlaying.classList.remove('hidden');
+  updatePlaylist();
+}
+
+// Move the highlighted row and keep it in view (prev/next buttons, wheel, arrows)
+function menuMove(delta) {
+  menuSelectedIndex = (menuSelectedIndex + delta + songs.length) % songs.length;
+  updatePlaylist();
+  scrollMenuToSelected(true);
+}
+
+function scrollMenuToSelected(smooth) {
+  const el = playlistItems.children[menuSelectedIndex];
+  if (!el) return;
+  // Scroll ONLY the playlist-items container. Using el.scrollIntoView() here
+  // scrolls every scrollable ancestor (including the .screen clip container),
+  // which crops the main screen while the playlist is still animating in.
+  const itemTop = el.offsetTop - playlistItems.offsetTop;
+  const itemBottom = itemTop + el.offsetHeight;
+  const viewTop = playlistItems.scrollTop;
+  const viewBottom = viewTop + playlistItems.clientHeight;
+  let target = null;
+  if (itemTop < viewTop) target = itemTop;
+  else if (itemBottom > viewBottom) target = itemBottom - playlistItems.clientHeight;
+  if (target !== null) {
+    playlistItems.scrollTo({ top: target, behavior: smooth ? 'smooth' : 'auto' });
+  }
+  resetScreenScroll();
+}
+
+// The .screen has overflow:hidden but can still be scrolled programmatically —
+// if it ever gets nudged, the whole display looks cropped. Keep it pinned.
+const screenEl = document.querySelector('.screen');
+function resetScreenScroll() {
+  if (screenEl.scrollTop !== 0) screenEl.scrollTop = 0;
+  if (screenEl.scrollLeft !== 0) screenEl.scrollLeft = 0;
+}
+
+// ============ CLICK WHEEL SCRUBBING ============
+const wheel = document.getElementById('clickWheel');
+let lastAngle = null;
+let isScrubbing = false;
+let scrubAccumulator = 0;
+
+function getAngle(clientX, clientY) {
+  const rect = wheel.getBoundingClientRect();
+  const cx = rect.left + rect.width / 2;
+  const cy = rect.top + rect.height / 2;
+  return Math.atan2(clientY - cy, clientX - cx);
+}
+
+function isOnButton(target) {
+  return target.classList.contains('wheel-btn') ||
+         target.classList.contains('select-btn') ||
+         target.closest('.select-btn') ||
+         target.closest('.wheel-btn');
+}
+
+function startScrub(e) {
+  if (isOnButton(e.target)) return;
+  const rect = wheel.getBoundingClientRect();
+  const cx = rect.left + rect.width / 2;
+  const cy = rect.top + rect.height / 2;
+  const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+  const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+  const dx = clientX - cx;
+  const dy = clientY - cy;
+  const dist = Math.sqrt(dx*dx + dy*dy);
+  const radius = rect.width / 2;
+  if (dist < 48 || dist > radius) return;
+  isScrubbing = true;
+  lastAngle = getAngle(clientX, clientY);
+  wheel.classList.add('scrubbing');
+  e.preventDefault();
+}
+
+function doScrub(e) {
+  if (!isScrubbing) return;
+  e.preventDefault();
+  const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+  const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+  const angle = getAngle(clientX, clientY);
+  let delta = angle - lastAngle;
+  if (delta > Math.PI) delta -= 2 * Math.PI;
+  if (delta < -Math.PI) delta += 2 * Math.PI;
+  scrubAccumulator += delta;
+  const SEEK_THRESHOLD = 0.15;
+  while (Math.abs(scrubAccumulator) > SEEK_THRESHOLD) {
+    const direction = scrubAccumulator > 0 ? 1 : -1;
+    seekBy(direction * 1.5);
+    scrubAccumulator -= direction * SEEK_THRESHOLD;
+  }
+  lastAngle = angle;
+}
+
+function endScrub() {
+  isScrubbing = false;
+  lastAngle = null;
+  scrubAccumulator = 0;
+  wheel.classList.remove('scrubbing');
+}
+
+wheel.addEventListener('mousedown', startScrub);
+wheel.addEventListener('touchstart', startScrub, { passive: false });
+document.addEventListener('mousemove', doScrub);
+document.addEventListener('touchmove', doScrub, { passive: false });
+document.addEventListener('mouseup', endScrub);
+document.addEventListener('touchend', endScrub);
+document.addEventListener('touchcancel', endScrub);
+
+wheel.addEventListener('wheel', (e) => {
+  e.preventDefault();
+  seekBy(e.deltaY > 0 ? 5 : -5);
+}, { passive: false });
+
+// ============ BUTTON HANDLERS ============
+$('btnMenu').addEventListener('click', (e) => {
+  e.stopPropagation();
+  if (playlistOpen) closePlaylist(); else openPlaylist();
+});
+$('btnPlay').addEventListener('click', (e) => {
+  e.stopPropagation();
+  togglePlay();
+});
+$('btnNext').addEventListener('click', (e) => {
+  e.stopPropagation();
+  if (playlistOpen) menuMove(1); else nextSong();
+});
+$('btnPrev').addEventListener('click', (e) => {
+  e.stopPropagation();
+  if (playlistOpen) menuMove(-1); else prevSong();
+});
+$('selectBtn').addEventListener('click', (e) => {
+  e.stopPropagation();
+  if (playlistOpen) closePlaylist();
+  else togglePlay();
+});
+
+// Middle button drag (moves in all directions, triggers actions on release)
+let isDraggingSelectBtn = false;
+let selectBtnDragStart = { x: 0, y: 0 };
+let selectBtnDragCurrent = { x: 0, y: 0 };
+let hasTriggeredAction = false;
+
+function startSelectBtnDrag(e) {
+  e.stopPropagation();
+  isDraggingSelectBtn = true;
+  hasTriggeredAction = false;
+  const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+  const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+  selectBtnDragStart = { x: clientX, y: clientY };
+  selectBtnDragCurrent = { x: 0, y: 0 };
+  const selectBtn = $('selectBtn');
+  selectBtn.style.transition = 'none';
+  e.preventDefault();
+}
+
+function doSelectBtnDrag(e) {
+  if (!isDraggingSelectBtn) return;
+  e.preventDefault();
+  const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+  const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+  const dx = clientX - selectBtnDragStart.x;
+  const dy = clientY - selectBtnDragStart.y;
+  selectBtnDragCurrent = { x: dx, y: dy };
+  const selectBtn = $('selectBtn');
+  const maxDrag = 45;
+  const newX = Math.max(-maxDrag, Math.min(maxDrag, dx * 0.5));
+  const newY = Math.max(-maxDrag, Math.min(maxDrag, dy * 0.5));
+  selectBtn.style.transform = `translate(calc(-50% + ${newX}px), calc(-50% + ${newY}px))`;
+}
+
+function endSelectBtnDrag() {
+  if (!isDraggingSelectBtn) return;
+  isDraggingSelectBtn = false;
+  const selectBtn = $('selectBtn');
+  selectBtn.style.transition = 'all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)';
+  selectBtn.style.transform = 'translate(-50%, -50%)';
+  
+  const dx = selectBtnDragCurrent.x;
+  const dy = selectBtnDragCurrent.y;
+  const threshold = 25;
+  
+  if (!hasTriggeredAction) {
+    if (Math.abs(dx) > Math.abs(dy)) {
+      if (dx > threshold) nextSong();
+      else if (dx < -threshold) prevSong();
+    } else {
+      if (dy < -threshold) seekBy(10);
+      else if (dy > threshold) seekBy(-10);
+    }
+    hasTriggeredAction = true;
+  }
+}
+
+$('selectBtn').addEventListener('mousedown', startSelectBtnDrag);
+$('selectBtn').addEventListener('touchstart', startSelectBtnDrag, { passive: false });
+document.addEventListener('mousemove', doSelectBtnDrag);
+document.addEventListener('touchmove', doSelectBtnDrag, { passive: false });
+document.addEventListener('mouseup', endSelectBtnDrag);
+document.addEventListener('touchend', endSelectBtnDrag);
+document.addEventListener('touchcancel', endSelectBtnDrag);
+
+// Progress bar click to seek
+$('progressBar').addEventListener('click', (e) => {
+  if (!ytPlayer || !ytReady) return;
+  try {
+    const dur = ytPlayer.getDuration();
+    if (!dur) return;
+    const rect = e.currentTarget.getBoundingClientRect();
+    const pct = (e.clientX - rect.left) / rect.width;
+    seekTo(pct * dur);
+  } catch(ex) {}
+});
+
+// Keyboard shortcuts
+document.addEventListener('keydown', (e) => {
+  if (playlistOpen) {
+    switch(e.key) {
+      case 'ArrowDown': e.preventDefault(); menuMove(1); break;
+      case 'ArrowUp': e.preventDefault(); menuMove(-1); break;
+      case 'Enter': case ' ': e.preventDefault(); selectSong(menuSelectedIndex); break;
+      case 'Escape': case 'm': case 'M': closePlaylist(); break;
+    }
+    return;
+  }
+  switch(e.key) {
+    case ' ': e.preventDefault(); togglePlay(); break;
+    case 'ArrowRight': nextSong(); break;
+    case 'ArrowLeft': prevSong(); break;
+    case 'ArrowUp': e.preventDefault(); seekBy(5); break;
+    case 'ArrowDown': e.preventDefault(); seekBy(-5); break;
+    case 'm': case 'M': openPlaylist(); break;
+  }
+});
+
+// ============ 3D TILT PARALLAX + DYNAMIC GLARE ============
+const ipod = document.getElementById('ipod');
+const ipodGlare = document.getElementById('ipodGlare');
+let targetTiltX = 6, targetTiltY = -8;
+let currentTiltX = 6, currentTiltY = -8;
+let targetGlareX = 30, targetGlareY = 20;
+let currentGlareX = 30, currentGlareY = 20;
+
+document.addEventListener('mousemove', (e) => {
+  const dx = (e.clientX / window.innerWidth - 0.5) * 2;
+  const dy = (e.clientY / window.innerHeight - 0.5) * 2;
+  targetTiltY = -8 + dx * 14;
+  targetTiltX = 6 - dy * 11;
+  targetGlareX = 50 + dx * 60;
+  targetGlareY = 35 + dy * 55;
+});
+
+// Device tilt on phones/tablets
+window.addEventListener('deviceorientation', (e) => {
+  if (e.gamma === null) return;
+  targetTiltY = -8 + Math.max(-20, Math.min(20, e.gamma)) * 0.7;
+  targetTiltX = 6 - Math.max(-20, Math.min(20, e.beta - 45)) * 0.5;
+});
+
+function animateTilt() {
+  currentTiltX += (targetTiltX - currentTiltX) * 0.06;
+  currentTiltY += (targetTiltY - currentTiltY) * 0.06;
+  currentGlareX += (targetGlareX - currentGlareX) * 0.08;
+  currentGlareY += (targetGlareY - currentGlareY) * 0.08;
+  ipod.style.transform = `rotateX(${currentTiltX}deg) rotateY(${currentTiltY}deg)`;
+  ipodGlare.style.setProperty('--glare-x', currentGlareX + '%');
+  ipodGlare.style.setProperty('--glare-y', currentGlareY + '%');
+  requestAnimationFrame(animateTilt);
+}
+animateTilt();
+
+// ============ FLOATING 3D MUSIC NOTES ============
+const NOTE_GLYPHS = ['♪', '♫', '♩', '♬', '♥'];
+let noteInterval = null;
+
+function spawnNote() {
+  const note = document.createElement('div');
+  note.className = 'float-note';
+  note.textContent = NOTE_GLYPHS[Math.floor(Math.random() * NOTE_GLYPHS.length)];
+  note.style.left = (35 + Math.random() * 30) + '%';
+  note.style.bottom = (10 + Math.random() * 15) + '%';
+  note.style.fontSize = (12 + Math.random() * 16) + 'px';
+  const dur = 4 + Math.random() * 4;
+  note.style.animationDuration = dur + 's';
+  document.body.appendChild(note);
+  setTimeout(() => note.remove(), dur * 1000);
+}
+
+function startNotes() {
+  if (noteInterval) return;
+  noteInterval = setInterval(spawnNote, 900);
+}
+function stopNotes() {
+  if (noteInterval) { clearInterval(noteInterval); noteInterval = null; }
+}
+
+// ============ KEEP FULL VIEW PINNED ============
+// overflow:hidden containers can still be scrolled programmatically
+// (focus jumps, scrollIntoView, etc.), which crops the page/screen.
+// Snap them back the instant it happens so the full view always shows.
+['scroll'].forEach(evt => {
+  window.addEventListener(evt, () => { window.scrollTo(0, 0); }, { passive: true });
+  document.body.addEventListener(evt, () => { document.body.scrollTop = 0; document.body.scrollLeft = 0; }, { passive: true });
+  screenEl.addEventListener(evt, resetScreenScroll, { passive: true });
+});
+
+// ============ FLOATING LYRICS ENGINE ============
+// Romanized Urdu / Hinglish lyrics floating beside the device.
+//
+// Sources, in order:
+//   1. LOCAL_LYRICS below (per-videoId) — paste your own romanized lyrics here.
+//      Three formats supported:
+//        timed:   [{ t: 12.5, text: 'Tum ho paas mere' }, ...]   (t = seconds)
+//        untimed: ['Tum ho paas mere', 'Saath ho mere', ...]     (spread from 0:00)
+//        untimed + intro: { intro: 15, lines: ['...'] }          (vocals start at 0:15)
+//   2. lyrics.ovh public API (free, no auth) — untimed, auto-spread.
+//   3. Status line: "✨ Instrumental Magic ✨" / "Lyrics not available".
+const LOCAL_LYRICS = {
+  // '0enmMyV1Q48': ['First line of Tum...', 'Second line...'],   // Tum — Murtaza Qizilbash
+  // Hum — Murtaza Qizilbash (timed from the YouTube transcript, t = seconds)
+  'tvcaYU7uofY': [
+    { t: 1.5,   text: 'Dil nu ki samjhawan ve mein sajna?' },
+    { t: 5.5,   text: 'Akhiyan ne rawaan ni mein walna' },
+    { t: 9.0,   text: 'Ni chand dalna' },
+    { t: 11.5,  text: 'Ni karne ve hijr di mein gal na' },
+    { t: 15.0,  text: 'O sajna' },
+    { t: 17.1,  text: 'Ay rah-guzar' },
+    { t: 20.0,  text: 'Pehchanta kya tu mujh ko nahi?' },
+    { t: 24.3,  text: 'Tu be-fikr' },
+    { t: 26.2,  text: 'Baatein yeh reh jaayein gi ankahi' },
+    { t: 31.6,  text: 'Aankhon teri mei dooba hai yeh deewana' },
+    { t: 39.1,  text: 'Baaton teri mei khoya hai yeh parwana' },
+    { t: 44.0,  text: 'Mein tere gunn gaoun' },
+    { t: 46.0,  text: 'Mein khud ko sataoun' },
+    { t: 48.5,  text: 'Woh rastay sajaoun, tu jin pe chala' },
+    { t: 52.0,  text: 'Yeh meri majboori hai' },
+    { t: 54.6,  text: 'Tujh se jo doori' },
+    { t: 56.5,  text: 'Tou karde tu poori yeh meri dua' },
+    { t: 60.4,  text: 'Haan, hum hain tumharay' },
+    { t: 65.4,  text: 'Dil ki sadaa yeh hai' },
+    { t: 68.5,  text: 'Meri baqa yeh hai' },
+    { t: 74.2,  text: 'Phir kyun na ho tum humaray?' },
+    { t: 80.3,  text: 'Kaisi saza yeh hai?' },
+    { t: 84.5,  text: 'Mujh pe jafa yeh hai' },
+    { t: 105.0, text: 'Jis tarha se saansein hain mujh mei rawaan' },
+    { t: 109.7, text: 'Jis tarha se aankhon mei basta jahaan' },
+    { t: 113.0, text: 'Mein kya hi kahun?' },
+    { t: 114.8, text: 'Basta hai mujhe mei yoon tera junoon' },
+    { t: 118.3, text: 'O humdum' },
+    { t: 119.8, text: 'Jal gaya ghar mera mein jaon ga kahan?' },
+    { t: 123.5, text: 'Mere armaanon ka hai urta dhuaan' },
+    { t: 127.2, text: 'Mein kya hi karun?' },
+    { t: 129.0, text: 'Khud ko bachaun? Ya mein khud se laroon?' },
+    { t: 135.0, text: 'Kya hi meri khata hai yeh?' },
+    { t: 138.5, text: 'Mein samjha na' },
+    { t: 142.3, text: 'Kis qadar be-wafa hoon mein?' },
+    { t: 145.5, text: 'Na yeh jaana' },
+    { t: 147.8, text: 'Ya meri khush-fehmi hai' },
+    { t: 150.0, text: 'Mann mera wehmi' },
+    { t: 151.8, text: 'Yeh teri dil-rehmi hai mujh pe ayaan' },
+    { t: 155.3, text: 'Ke teri parchaayi hai' },
+    { t: 157.8, text: 'Mujh pe yoon chaayi' },
+    { t: 159.5, text: 'Ke marr bhi gaya tou rahoon ga sadaa' },
+    { t: 163.0, text: 'Kyun ke—' },
+    { t: 164.2, text: 'Haan, hum hain tumharay' },
+    { t: 168.9, text: 'Dil ki sadaa yeh hai' },
+    { t: 172.6, text: 'Meri baqa yeh hai' },
+    { t: 177.6, text: 'Phir kyun na ho tum humaray?' },
+    { t: 183.7, text: 'Kaisi saza yeh hai?' },
+    { t: 187.5, text: 'Mujh pe jafa yeh hai' },
+    { t: 193.6, text: 'Dil nu ki samjhawan ve mein sajna?' },
+    { t: 197.5, text: 'Akhiyan ne rawaan ni mein walna' },
+    { t: 201.0, text: 'Ni chand dalna' },
+    { t: 203.6, text: 'Ni karne ve hijr di mein gal na' },
+    { t: 207.0, text: 'O sajna' },
+    { t: 209.0, text: 'Dil nu ki samjhawan ve mein sajna?' },
+    { t: 213.0, text: 'Akhiyan ne rawaan ni mein walna' },
+    { t: 217.0, text: 'Ni chand dalna' },
+    { t: 219.0, text: 'Ni karne ve hijr di mein gal na' },
+    { t: 222.0, text: 'O sajna' },
+    { t: 224.2, text: 'Haan, hum hain tumharay' },
+    { t: 228.0, text: 'Dil ki sadaa yeh hai' },
+    { t: 231.5, text: 'Meri baqa yeh hai' },
+    { t: 236.7, text: 'Phir kyun na ho tum humaray?' },
+    { t: 242.7, text: 'Kaisi saza yeh hai?' },
+    { t: 246.0, text: 'Mujh pe jafa yeh hai' },
+    { t: 251.4, text: 'O sajna' },
+    { t: 253.0, text: 'Dil nu ki samjhawan ve mein sajna?' },
+    { t: 257.4, text: 'Akhiyan ne rawaan ni mein walna' },
+    { t: 260.7, text: 'Ni chand dalna' },
+    { t: 263.0, text: 'Ni karne ve hijr di mein gal na' },
+    { t: 265.5, text: 'O sajna' },
+    { t: 266.5, text: 'Dil nu ki samjhawan ve mein sajna?' }
+  ],
+
+  // O Yaara — Abdul Hannan × Kaavish (timed from caps/oyaara.out.js)
+  '4DVDFxiZKCg': [
+    { t: 21.6, text: 'Kya bataun in sawaalon mein' },
+    { t: 29.0, text: 'Kab se yun phasa hoon' },
+    { t: 32.6, text: 'Raakh saare safhe par likh raha hoon' },
+    { t: 37.4, text: 'Fasaane mein zindagi ke' },
+    { t: 40.5, text: 'Mann ko kaise' },
+    { t: 43.5, text: 'Aur kaise behlaun' },
+    { t: 48.7, text: 'Tukde kaanch ke bikhre zameen par' },
+    { t: 54.8, text: 'Chalna chahun par chhaya har kadam' },
+    { t: 64.0, text: 'Dua saans lena' },
+    { t: 83.2, text: 'Saza ye wafa' },
+    { t: 87.1, text: 'To bazaar mein bike' },
+    { t: 90.5, text: 'Ek chehra haqeeqat' },
+    { t: 95.5, text: 'Dher saari kyun lage' },
+    { t: 99.3, text: 'Hain khud ki khoj mein sab hi' },
+    { t: 102.5, text: 'Haal dil mein ab kaise samjhaun' },
+    { t: 108.5, text: 'Hai ye uljhe dhaagon sa' },
+    { t: 114.0, text: 'Meri soch ka jahaan' },
+    { t: 122.4, text: 'Tukde kaanch ke bikhre zameen par' },
+    { t: 127.5, text: 'Chalna chahun par' },
+    { t: 131.8, text: 'Chhaya har kadam' },
+    { t: 137.8, text: 'Dua saans lena' },
+    { t: 208.8, text: 'Andar tere raaz kai' },
+    { t: 220.0, text: 'Hai andar tere raaz kai' },
+    { t: 227.0, text: 'Khud se jo mil paayega wo' },
+    { t: 232.3, text: 'Yaara dil se jo sun paayega' },
+    { t: 238.0, text: 'Na chhod aas ki dor ko' },
+    { t: 244.5, text: 'Sach tu samajh jaayega' },
+    { t: 249.5, text: 'O yaara phir tu sambhal jaayega' },
+  ],
+
+  // Regardless — Asim Azhar (timed from caps/regardless.out.js)
+  'k_Pkyyn7UE0': [
+    { t: 11.2, text: 'Loki kayi rus ke nahi mannde' },
+    { t: 14.0, text: 'Ho gaye evein badnaam' },
+    { t: 16.2, text: 'Peechhe mere hansde' },
+    { t: 18.8, text: 'Phir puchhde mera haal' },
+    { t: 21.4, text: 'Te mera koi jawaab' },
+    { t: 24.0, text: 'Jidhar bhi jaawan' },
+    { t: 26.6, text: 'Le sabr imtehaan' },
+    { t: 29.6, text: 'Kiven main bataawan' },
+    { t: 32.6, text: 'Eh duniya badi beimaan' },
+    { t: 35.5, text: 'Loki kayi rus ke hain bhool gaye' },
+    { t: 39.0, text: 'Rakhda na har koi maan' },
+    { t: 42.7, text: 'Dil bada toota' },
+    { t: 45.4, text: 'Par sukh bhi hai dekhe' },
+    { t: 48.7, text: 'Chalta chalun par ye saza' },
+    { t: 54.6, text: 'Kab tak yun doge' },
+    { t: 57.5, text: 'Main saare ka saara' },
+    { t: 60.6, text: 'Jal sa gaya, uthta dhuaan' },
+    { t: 66.3, text: 'Sun balliye sun balliye' },
+    { t: 69.5, text: 'Kamle dil de maare' },
+    { t: 72.3, text: 'Ki kariye ki kariye' },
+    { t: 75.3, text: 'Eh maamla vas ton baahre' },
+    { t: 78.3, text: 'Sun balliye sun balliye' },
+    { t: 82.3, text: 'Akhiyaan vich hanju hazaare' },
+    { t: 84.4, text: 'Seene vich dil nahi hai' },
+    { t: 87.5, text: 'Ishq da ban gaya mazaare' },
+    { t: 101.4, text: 'Ajnabi jo hue kaise tum' },
+    { t: 105.5, text: 'Chal diye kahaan gaye' },
+    { t: 109.1, text: 'Laapata laapata' },
+    { t: 113.4, text: 'Dil mein jo ranjishein' },
+    { t: 116.5, text: 'Bhari hain arse se' },
+    { t: 120.0, text: 'Kaise hum wo karein ab juda' },
+    { t: 125.4, text: 'Gaya jaane kya zamaana' },
+    { t: 129.4, text: 'Ye uljha fasaana' },
+    { t: 132.7, text: 'Kehne ko keh dun par na aaye suljhaana' },
+    { t: 137.9, text: 'Tumhein lagaana galti meri banaana' },
+    { t: 140.3, text: 'Karun jurmaana' },
+    { t: 142.2, text: 'Chalo maikhaana kholo tehkhaana' },
+    { t: 144.8, text: 'Rakh di hai mehfil' },
+    { t: 146.6, text: 'Tumse kya chhupaana kya chhupaana' },
+    { t: 149.5, text: 'Nahi jaana' },
+    { t: 150.7, text: 'Na meri koi khata thi na unki thi' },
+    { t: 156.7, text: 'Waqt ke aage kisi ki nahi chalti' },
+    { t: 162.7, text: 'Dil bada toota' },
+    { t: 165.4, text: 'Par sukh bhi hai dekhe' },
+    { t: 168.7, text: 'Chalta hoon main bas ek sila' },
+    { t: 174.3, text: 'Sun balliye sun balliye' },
+    { t: 176.6, text: 'Kamle dil de maare' },
+    { t: 180.4, text: 'Ki kariye ki kariye' },
+    { t: 183.5, text: 'Eh maamla vas ton baahre' },
+    { t: 186.4, text: 'Jaanan wala jaane nahi' },
+    { t: 189.5, text: 'Reh ke bhi o maan nahi de' },
+    { t: 192.4, text: 'Saath bhi te saath nahi de' },
+    { t: 195.5, text: 'Rakhe mera bhi maan' },
+    { t: 199.0, text: 'Jaanan wala jaane nahi' },
+    { t: 202.5, text: 'Reh ke bhi o maan nahi de' },
+    { t: 204.9, text: 'Saath bhi te saath nahi de' },
+    { t: 207.4, text: 'Kabhi kabhi' },
+  ],
+
+  // Jhol — Maanu × Annural Khalid (timed from caps/jhol.out.js)
+  '-2RAq5o5pwc': [
+    { t: 29.7, text: "How can I unveil this to you?" },
+    { t: 32.8, text: "My heart can find no peace" },
+    { t: 35.8, text: "Shattered in your memory, I adorn my world" },
+    { t: 42, text: "Tell me now, which way do I turn" },
+    { t: 45.1, text: "the roads have disappeared on me" },
+    { t: 48.2, text: "I feared this would happen" },
+    { t: 51.1, text: "now the day hasn't even dawned" },
+    { t: 53, text: "and my heart is flooded with your memories" },
+    { t: 54.7, text: "You're my deepest longing" },
+    { t: 55.9, text: "When you're not near" },
+    { t: 57.5, text: "My soul is in agony" },
+    { t: 59, text: "Stay close to me, my love Don't leave me already" },
+    { t: 62.1, text: "You are my destiny" },
+    { t: 63.6, text: "Never go far from me" },
+    { t: 65.1, text: "When you asked, I gathered all the stars for you" },
+    { t: 68.5, text: "You need never fear my love" },
+    { t: 71.6, text: "You dwell within my heart" },
+    { t: 72.7, text: "You alone are my yearning" },
+    { t: 74.5, text: "Don't you see, I'd die for you, why won't you hear me?" },
+    { t: 77.7, text: "With each day, my longing for you grows" },
+    { t: 82.2, text: "Each day, your beauty leaves me more undone" },
+    { t: 86.1, text: "Tell me how to survive, my love" },
+    { t: 90.1, text: "Your presence enchants all who surround you" },
+    { t: 94.5, text: "Now that I've fallen for you, what am I to do?" },
+    { t: 98.2, text: "My love, can I come a little closer?" },
+    { t: 109.8, text: "Who should I turn to?" },
+    { t: 110.8, text: "How do they conceal their feelings, chatting and laughing as if unburdened?" },
+    { t: 115.8, text: "Hope has deserted me, leaving me empty" },
+    { t: 119, text: "We're often trapped by others' words without reason." },
+    { t: 121.7, text: "I don't deceive; your allure overwhelms me" },
+    { t: 125.1, text: "The songs I write are odes to you" },
+    { t: 127.8, text: "The connection of our hearts is not a fault of our hearts" },
+    { t: 131.2, text: "Our desire was simply to be together" },
+    { t: 134.2, text: "I have made it known to the world: you are the only one for me." },
+    { t: 137.4, text: "When you come to me, happiness follows" },
+    { t: 140.3, text: "When you depart, a void engulfs me" },
+    { t: 143.4, text: "I yearn to stay with you, my love" },
+    { t: 146.7, text: "With a smile, I've assumed all obligations" },
+    { t: 149.5, text: "I've never doubted you" },
+    { t: 152.7, text: "When you were by my side, my heart soared across the skies" },
+    { t: 155.4, text: "Such was the connection of two hearts" },
+    { t: 157.1, text: "Our love speaks beyond words on paper" },
+    { t: 159, text: "You are my enchantment" },
+    { t: 165.1, text: "You alone are my yearning" },
+    { t: 166.7, text: "Don't you see, I'd die for you—why won't you hear me?" },
+    { t: 170.3, text: "With each day, my longing for you grows" },
+    { t: 174.4, text: "Each day, your beauty leaves me more undone" },
+    { t: 178.3, text: "Tell me how to survive, my love" },
+    { t: 182.4, text: "Your presence enchants all who surround you" },
+    { t: 186.6, text: "Now that I've fallen for you, what am I to do?" },
+    { t: 189.1, text: "My love, can I come a little closer?" },
+    { t: 207.6, text: "I dedicate my life to you." },
+    { t: 212.9, text: "How I sing your praises" },
+    { t: 220, text: "Without you, my heart is numb" },
+    { t: 225.1, text: "All I want is to have you" },
+    { t: 228.1, text: "Turn around for me, won't you" },
+    { t: 231.5, text: "With each day, my longing for you grows" },
+    { t: 236.1, text: "Each day, your beauty leaves me more undone" },
+    { t: 239.9, text: "Tell me how to survive, my love" },
+    { t: 243.7, text: "Your presence enchants all who surround you" },
+    { t: 248, text: "Now that I've fallen for you, what am I to do?" },
+    { t: 252.1, text: "My love, can I come a little closer?" }
+  ],
+
+  // Aarzu — Noor · Khan · Madhurxo (timed from caps/aarzu.out.js)
+  'M5OCLifZK1w': [
+    { t: 54.8, text: 'Tera sharmaana meri jaana' },
+    { t: 58.5, text: 'Kabhi rakh lun chhupa ke' },
+    { t: 61.5, text: 'Teri yaadein sabhi khwaabon mein mere' },
+    { t: 66.0, text: 'Hai tu hi basi, tu hi basi' },
+    { t: 70.7, text: 'Tu hi basi' },
+    { t: 72.5, text: 'Tera sharmaana meri jaana' },
+    { t: 76.5, text: 'Kabhi rakh lun chhupa ke' },
+    { t: 79.9, text: 'Teri yaadein sabhi khwaabon mein mere' },
+    { t: 84.8, text: 'Hai tu hi basi, tu hi basi' },
+    { t: 89.0, text: 'Tu hi basi' },
+    { t: 91.0, text: 'Teri yaad jo rahe na' },
+    { t: 92.5, text: 'Meri khwaabon mein basa hai tu hi tu' },
+    { t: 94.3, text: 'Sawaalon mein main rakh lun chhupa ke' },
+    { t: 96.0, text: 'Mujhe tu hi to bigaade' },
+    { t: 97.5, text: 'Meri aankhon mein saja hai tu hi tu' },
+    { t: 99.3, text: 'Peechhe dekho' },
+    { t: 100.2, text: 'Teri yaad jo rahi na' },
+    { t: 101.9, text: 'Meri khwaabon mein basa hai tu hi tu' },
+    { t: 104.1, text: 'Sawaalon mein main rakh lun chhupa ke' },
+    { t: 105.6, text: 'Mujhe tu hi to bigaade' },
+    { t: 107.0, text: 'Meri aankhon mein saja hai tu hi tu' },
+    { t: 109.6, text: 'Khwaabon mein tu hi tu' },
+    { t: 113.0, text: 'Main tere bin adhoora hoon' },
+    { t: 117.5, text: 'Sanwaare tu bigaade' },
+    { t: 121.8, text: 'Tu hai humsafar' },
+    { t: 125.0, text: 'Kya khuda hai tu' },
+    { t: 127.0, text: 'Palkon pe main rakh dun' },
+    { t: 129.5, text: 'Mera ye jahaan taaron se saja dun tujhko' },
+    { t: 137.0, text: 'Aaina dikha dun tujhko' },
+    { t: 140.0, text: 'Meri tu raza' },
+    { t: 141.6, text: 'Meri tu raza, meri tu raza' },
+    { t: 145.0, text: 'Peechhe dekho raah' },
+    { t: 146.2, text: 'Teri yaad jo rahi na' },
+    { t: 147.5, text: 'Meri khwaabon mein basa hai tu hi tu' },
+    { t: 149.6, text: 'Sawaalon mein main rakh lun chhupa ke' },
+    { t: 151.4, text: 'Mujhe tu hi to bigaade' },
+    { t: 152.8, text: 'Meri aankhon mein saja hai tu hi tu' },
+    { t: 154.1, text: 'Peechhe dekho raah' },
+    { t: 155.3, text: 'Teri yaad jo rahi na' },
+    { t: 156.5, text: 'Meri khwaabon mein basa hai tu hi tu' },
+    { t: 158.6, text: 'Sawaalon mein main rakh lun chhupa ke' },
+    { t: 160.4, text: 'Mujhe tu hi to bigaade' },
+    { t: 162.0, text: 'Meri aankhon mein saja hai tu hi tu' },
+    { t: 164.5, text: 'Tera sharmaana meri jaana' },
+    { t: 168.5, text: 'Kabhi rakh lun chhupa ke' },
+    { t: 171.5, text: 'Teri yaadein sabhi khwaabon mein mere' },
+    { t: 175.5, text: 'Hai tu hi basi, tu hi basi' },
+    { t: 180.5, text: 'Tu hi basi' },
+    { t: 182.5, text: 'Tera sharmaana meri jaana' },
+    { t: 186.5, text: 'Kabhi rakh lun chhupa ke' },
+    { t: 189.5, text: 'Teri yaadein sabhi khwaabon mein mere' },
+    { t: 193.5, text: 'Hai tu hi basi' },
+    { t: 196.4, text: 'Tu hi basi, tu hi basi' },
+    { t: 199.5, text: 'Donon jahaan teri mohabbat mein haar ke' },
+    { t: 204.0, text: 'Wo jaa raha hai koi shab-e-gham guzaar ke' },
+    { t: 209.2, text: 'Veeran hai maikada khum-o-saaghar udaas hain' },
+    { t: 213.0, text: 'Tum kya gaye ke rooth gaye din bahaar ke' },
+  ],
+
+  // Laavan — Jasmine Sandlas (timed from caps/laavan.out.js)
+  'OxXKDGO-MYQ': [
+    { t: 9.7, text: 'Soniya re' },
+    { t: 12.4, text: 'Soniya' },
+    { t: 14.2, text: 'Soniya ve soniya' },
+    { t: 16.5, text: 'Jad soniya tu lena mera naam' },
+    { t: 20.0, text: 'Khalo ja osse thaan te' },
+    { t: 23.0, text: 'Fad meri baanh soniya' },
+    { t: 26.2, text: 'Le ja door main ishq \'ch choor' },
+    { t: 29.5, text: 'Mere val haan tu mod ke aana' },
+    { t: 33.5, text: 'Soniya jadon soniya tu lena mera naam' },
+    { t: 38.5, text: 'Khalo ja osse thaan te' },
+    { t: 41.0, text: 'Fad meri baanh soniya' },
+    { t: 44.0, text: 'Le ja door main ishq \'ch choor' },
+    { t: 48.6, text: 'Mere val haan tu mod ke aana' },
+    { t: 52.7, text: 'Soniya' },
+    { t: 54.6, text: 'Soniya ve' },
+    { t: 57.2, text: 'Soniya soniya' },
+    { t: 61.7, text: 'Soniya' },
+    { t: 64.1, text: 'Soniya' },
+    { t: 66.2, text: 'Soniya' },
+    { t: 71.0, text: 'Soniya' },
+    { t: 72.8, text: 'Paani dariyaavan da' },
+    { t: 75.0, text: 'Rang hai hawaavan da' },
+    { t: 76.4, text: 'Saath saade saahwan da' },
+    { t: 79.9, text: 'Pyaar diyan chhaawan da' },
+    { t: 82.5, text: 'Lambi lambi raahwan da' },
+    { t: 85.4, text: 'Supna laavan da' },
+    { t: 88.9, text: 'Paani dariyaavan da' },
+    { t: 92.0, text: 'Rang hai hawaavan da' },
+    { t: 94.8, text: 'Saath saade saahwan da' },
+    { t: 97.8, text: 'Pyaar diyan chhaawan da' },
+    { t: 100.5, text: 'Lambi lambi raahwan da' },
+    { t: 103.3, text: 'Supna laavan da' },
+    { t: 106.0, text: 'Jadon soniya tu lena mera naam' },
+    { t: 109.5, text: 'Khalo ja osse thaan te' },
+    { t: 112.5, text: 'Fad meri baanh soniya' },
+    { t: 115.5, text: 'Le ja door main ishq \'ch choor' },
+    { t: 119.0, text: 'Mere vallon haan tu mod ke aana' },
+    { t: 123.0, text: 'Soniya jad soniya tu lena mera naam' },
+    { t: 128.5, text: 'Khalo ja osse thaan te' },
+    { t: 131.5, text: 'Fad meri baanh soniya' },
+    { t: 134.5, text: 'Le ja door main ishq \'ch choor' },
+    { t: 138.5, text: 'Mere val haan tu mod ke aana' },
+    { t: 142.4, text: 'Soniya' },
+    { t: 144.3, text: 'Soniya re' },
+    { t: 147.0, text: 'Soniya soniya' },
+    { t: 151.4, text: 'Soniya' },
+    { t: 153.9, text: 'Soniya' },
+    { t: 155.9, text: 'Soniya' },
+    { t: 158.5, text: 'Soniya' },
+    { t: 176.1, text: 'Soniya' },
+    { t: 178.8, text: 'Soniya' },
+  ],
+
+  // Sila — Abdul Hannan · M. Qizilbash (timed from caps/sila.out.js)
+  '650MNBxXSdY': [
+    { t: 21.8, text: 'Kaise' },
+    { t: 24.5, text: 'Saawan ki kaali ghataayein' },
+    { t: 29.8, text: 'Jaane lagi' },
+    { t: 32.6, text: 'Kaise' },
+    { t: 35.3, text: 'Jeevan ki mujh pe sazaayein' },
+    { t: 40.6, text: 'Aane lagi' },
+    { t: 43.5, text: 'Jab hua main tera' },
+    { t: 47.7, text: 'Bezubaan ho gaya' },
+    { t: 52.6, text: 'Kaisi hai ye manzilein' },
+    { t: 58.4, text: 'Benawa main hoon' },
+    { t: 63.8, text: 'Phir na jaane' },
+    { t: 67.3, text: 'Kyun wahi hai sila' },
+    { t: 71.4, text: 'Jo dete sabhi hain mere' },
+    { t: 76.7, text: 'Dil tu koi faisla' },
+    { t: 82.2, text: 'To le le abhi' },
+    { t: 99.7, text: 'Chaand taare par ganwaaya' },
+    { t: 105.2, text: 'Maine kya kya paaya' },
+    { t: 110.5, text: 'Aakhir kya tune mitaaya' },
+    { t: 115.9, text: 'Jo dil mera socha na khud ka tha' },
+    { t: 122.0, text: 'Jazbaati chunta tujhko' },
+    { t: 125.8, text: 'Le gaya main talab' },
+    { t: 129.7, text: 'Mera waqt tha tera' },
+    { t: 133.0, text: 'Har khwaab tera' },
+    { t: 136.2, text: 'Maanta gaya' },
+    { t: 140.0, text: 'Phir na jaane' },
+    { t: 142.5, text: 'Kyun wahi hai sila' },
+    { t: 146.5, text: 'Jo dete sabhi hain mere' },
+    { t: 152.0, text: 'Dil tu koi faisla' },
+    { t: 157.4, text: 'To le le abhi' },
+    { t: 182.6, text: 'Na jaane' },
+    { t: 185.5, text: 'Kyun wahi hai sila' },
+    { t: 189.6, text: 'Jo dete sabhi mere' },
+    { t: 195.0, text: 'Dil tu koi faisla' },
+    { t: 200.4, text: 'To le le abhi' },
+    { t: 203.5, text: 'Phir na jaane' },
+    { t: 207.0, text: 'Kyun wahi hai sila' },
+    { t: 211.1, text: 'Jo dete sabhi mere' },
+    { t: 216.5, text: 'Dil tu koi faisla' },
+    { t: 221.8, text: 'To le le abhi' },
+  ],
+
+  // Safar — Bayaan · Sherazam (timed from caps/safar.out.js)
+  '09Urt8CSQAA': [
+    { t: 22.2, text: 'O sanam o jigar' },
+    { t: 25.2, text: 'Tum kaho kya hai khabar' },
+    { t: 28.1, text: 'Kaise katein yeh raatein hain' },
+    { t: 31.7, text: 'Kehte hain sab magar' },
+    { t: 34.2, text: 'Koi chala na in par' },
+    { t: 36.8, text: 'Raaste jo maine naape hain' },
+    { t: 39.4, text: 'Kabhi hai taaron ki jhilmil' },
+    { t: 42.0, text: 'Kabhi na dikhti manzil' },
+    { t: 44.4, text: 'Aisa safar mera' },
+    { t: 48.7, text: 'Main bhaaga bhaaga sadiyon se jaaga' },
+    { t: 52.0, text: 'Aaya hoon meelon door se' },
+    { t: 57.8, text: 'Na humsafar koi na apna ghar' },
+    { t: 61.5, text: 'Yaara behta hoon nadiya pe' },
+    { t: 76.7, text: 'Dikhte hain khwaab jo jaagti aankhon ko' },
+    { t: 82.4, text: 'Sapne nahi iraade hain' },
+    { t: 86.0, text: 'Poore woh karne ko' },
+    { t: 88.8, text: 'Chal pade nange pairon' },
+    { t: 91.6, text: 'Khud se kiye jo waade hain' },
+    { t: 94.8, text: 'Rukna na kabhi bhi tha' },
+    { t: 97.3, text: 'Chalna hi toh hai manzil' },
+    { t: 100.0, text: 'Main na kahin thehra' },
+    { t: 104.3, text: 'Main bhaaga bhaaga sadiyon se jaaga' },
+    { t: 108.0, text: 'Aaya hoon meelon door se' },
+    { t: 113.2, text: 'Na humsafar koi na apna ghar' },
+    { t: 117.0, text: 'Yaara behta hoon nadiya pe' },
+    { t: 122.7, text: 'Main bhaaga bhaaga sadiyon se jaaga' },
+    { t: 126.5, text: 'Aaya ummeedon ka karke iraada' },
+    { t: 131.0, text: 'Main bhaaga bhaaga sadiyon se jaaga' },
+    { t: 137.0, text: 'Aaya hoon meelon door karke iraada' },
+    { t: 142.4, text: 'Haath ki lakeeron mein' },
+    { t: 144.6, text: 'Na khone diya khwaab ko taabeer mein' },
+    { t: 146.6, text: 'Shehar ki hawa ne mujh mein rang bhare' },
+    { t: 149.5, text: 'Main bhoola purani tasveeron mein' },
+    { t: 152.2, text: 'Likha haath ki lakeeron mein' },
+    { t: 154.0, text: 'Na khone diya khwaabon ko taabeer mein' },
+    { t: 156.2, text: 'Dekh ke rab ne aazmaya mujhe' },
+    { t: 159.2, text: 'Par diye sab kuch taqdeer se' },
+    { t: 161.0, text: 'Likha haath ki lakeeron mein' },
+    { t: 163.5, text: 'Na khone diya khwaab ko taabeer mein' },
+    { t: 165.5, text: 'Shehar ki hawa ne mujh mein rang bhare' },
+    { t: 168.5, text: 'Main bhoola purani tasveeron mein' },
+    { t: 170.8, text: 'Likha haath ki lakeeron mein' },
+    { t: 173.0, text: 'Na khone diya khwaab ko taabeer mein' },
+    { t: 175.2, text: 'Dekh ke rab ne aazmaya mujhe' },
+    { t: 177.8, text: 'Par diye sab kuch taqdeer se' },
+    { t: 179.8, text: 'Likha haath ki lakeeron mein' },
+    { t: 181.8, text: 'Na khone diya khwaab ko taabeer mein' },
+    { t: 184.0, text: 'Shehar ki hawa ne mujh mein rang bhare' },
+    { t: 186.8, text: 'Main bhoola purani tasveeron mein' },
+    { t: 188.5, text: 'Likha haath ki lakeeron mein' },
+    { t: 190.5, text: 'Na khone diya khwaab ko taabeer mein' },
+    { t: 192.5, text: 'Dekh ke rab ne aazmaya mujhe' },
+    { t: 195.0, text: 'Par diye sab kuch taqdeer se' },
+    { t: 197.0, text: 'Likha haath ki lakeeron mein' },
+    { t: 199.3, text: 'Na khone diya khwaab ko taabeer mein' },
+    { t: 201.5, text: 'Shehar ki hawa ne mujh mein rang bhare' },
+    { t: 204.5, text: 'Main bhoola purani tasveeron mein' },
+    { t: 206.8, text: 'Likha haath ki lakeeron mein' },
+    { t: 209.5, text: 'Na khone diya khwaab ko taabeer mein' },
+    { t: 211.3, text: 'Dekh ke rab ne aazmaya mujhe' },
+    { t: 213.1, text: 'Par diya sab kuch taqdeeron se' },
+  ],
+
+  // Faasle — Kaavish (timed from caps/faasle.out.js)
+  'JqLFnz7C_Io': [
+    { t: 16.0, text: 'Faasle' },
+    { t: 19.2, text: 'Jhoothe silsile' },
+    { t: 23.0, text: 'Toote hue dil' },
+    { t: 27.1, text: 'Jaaye kahan' },
+    { t: 31.1, text: 'Mujhe jo khushi' },
+    { t: 35.1, text: 'Meri na kabhi' },
+    { t: 39.1, text: 'Jaaye tere sang' },
+    { t: 43.3, text: 'Jaaye tu jahan' },
+    { t: 46.5, text: 'Meri yeh dua hai' },
+    { t: 51.0, text: 'Ki tera jeevan' },
+    { t: 55.1, text: 'Yun chalta rahe barqaraar' },
+    { t: 146.9, text: 'Kya ho gaya' },
+    { t: 154.9, text: 'Tere waaste' },
+    { t: 158.8, text: 'Sabhi raaste' },
+    { t: 163.2, text: 'Chhod ke main aaya' },
+    { t: 170.9, text: 'Tu toh na mila' },
+    { t: 179.0, text: 'Lekin mera dil' },
+    { t: 183.4, text: 'Jaane tu kahan' },
+    { t: 221.0, text: 'Jaaunga kahan' },
+    { t: 224.6, text: 'Main toh yahan' },
+    { t: 228.8, text: 'Tere dil ki' },
+    { t: 231.5, text: 'Aahaton mein hoon' },
+    { t: 236.9, text: 'Sapnon mein' },
+    { t: 240.9, text: 'Sochon mein hai tu' },
+    { t: 244.9, text: 'Har lamhe mein' },
+    { t: 253.1, text: 'Dhadke dil tere hi liye' },
+    { t: 261.4, text: 'Hoga kisi ka naam' },
+    { t: 277.6, text: 'Jaa rahe' },
+    { t: 285.5, text: 'Jaa raha' },
+    { t: 293.7, text: 'Jaa rahi' },
+  ],
+
+  // Hoor — Samar Jafri (timed from caps/hoor.out.js)
+  '4Jmeg6nK0Y8': [
+    { t: 12.7, text: 'Maine dekha tha usko' },
+    { t: 18.0, text: 'Jahan baitha tha kal ko' },
+    { t: 23.3, text: 'Hoor jaisi woh dikhti kyun' },
+    { t: 29.7, text: 'Nazrein na hatti' },
+    { t: 33.0, text: 'Humne bhi kuch na kaha' },
+    { t: 38.0, text: 'Usne bhi kuch na kaha' },
+    { t: 43.5, text: 'Baatein dilon ki jo reh gayi' },
+    { t: 49.0, text: 'Yeh hai kahani us roz ki' },
+    { t: 53.5, text: 'Yeh jo kahani hai jo hamari' },
+    { t: 59.0, text: 'Hogi kabhi na poori' },
+    { t: 65.5, text: 'Baat hamari jo na kahi thi' },
+    { t: 69.5, text: 'Reh gayi hai woh adhoori' },
+    { t: 97.6, text: 'Mehsoos mujhko jo tha hua' },
+    { t: 102.5, text: 'Kaise karoon lafzon se bayaan' },
+    { t: 108.0, text: 'Dil mein jo tha woh na keh saka' },
+    { t: 113.5, text: 'Milke bhi tujhse na mil saka' },
+    { t: 121.5, text: 'Aisi kya wajah' },
+    { t: 125.9, text: 'Mere jo saamne thi' },
+    { t: 130.5, text: 'Phir bhi meri kyun na tum ho saki' },
+    { t: 140.0, text: 'Kismat meri khel rahi thi' },
+    { t: 146.6, text: 'Majboori se' },
+    { t: 150.8, text: 'Nazrein hamari jo na mili thi' },
+    { t: 156.0, text: 'Yehi taqdeer thi meri' },
+    { t: 161.6, text: 'Baatein hamari jo na kahi thi' },
+    { t: 167.5, text: 'Reh gayi hai woh adhoori' },
+    { t: 172.5, text: 'Yeh jo kahani hai jo hamari' },
+    { t: 178.5, text: 'Hogi kabhi na poori' },
+  ],
+
+  // Saya Figan — Murtaza Qizilbash (timed from caps/sayafigan.out.js)
+  'mdbbFs9KX0c': [
+    { t: 0.9, text: 'Le chal mujhe yahan se' },
+    { t: 9.2, text: 'Parey wahan par kahin' },
+    { t: 13.5, text: 'Jidhar main hoon' },
+    { t: 19.2, text: 'Bekhata tanhaiyon mein' },
+    { t: 24.0, text: 'Kyun is bheed mein meri' },
+    { t: 31.6, text: 'Sada kyun nahi tu sun raha' },
+    { t: 39.0, text: 'Dhoondhun tujhe har jagah' },
+    { t: 45.0, text: 'Tu na mile' },
+    { t: 50.2, text: 'Gustakhiyan ke hain' },
+    { t: 54.0, text: 'Ajab yeh silsile' },
+    { t: 59.0, text: 'Main kaise karoon' },
+    { t: 63.1, text: 'Karoon yeh bayaan' },
+    { t: 68.0, text: 'Shuru se likhi dard ki is dastaan ki' },
+    { t: 88.8, text: 'Dooriyan' },
+    { t: 102.8, text: 'Khud se pareshan' },
+    { t: 104.5, text: 'Lage mujhe zaalim yeh jahan' },
+    { t: 106.8, text: 'Kaisi khala kaisi hai yeh bechainiyan' },
+    { t: 111.5, text: 'Par yeh toh dil ne aah bhari hai' },
+    { t: 116.8, text: 'Poora hoon main bas teri hi kami hai' },
+    { t: 121.0, text: 'Toh phir main khud se karoon waade' },
+    { t: 124.5, text: 'Sab kuch hi yun bhula de na' },
+    { t: 127.5, text: 'Sataye teri yaadein mujhe' },
+    { t: 131.0, text: 'Phir meri aankhon mein kaisi nami hai' },
+    { t: 135.5, text: 'Poora hoon main bas teri hi kami hai' },
+    { t: 140.0, text: 'Aur ek dariya' },
+    { t: 144.5, text: 'Aansuon ka beh gaya' },
+    { t: 150.0, text: 'Armaan toh dil mein mere reh gaya' },
+    { t: 159.5, text: 'Main kaise karoon' },
+    { t: 165.0, text: 'Karoon yeh bayaan' },
+    { t: 169.0, text: 'Shuru se likhi dard ki is dastaan' },
+    { t: 179.5, text: 'Saaya-e-fighan hai donon jahan' },
+    { t: 187.5, text: 'Phir kyun tere aur mere' },
+    { t: 196.6, text: 'Darmiyaan hai dooriyan' },
+    { t: 204.5, text: 'Tu na jaane kabhi mujh mein kaise rehti hai' },
+    { t: 211.5, text: 'Yeh mera jee tujhko bata ke' },
+    { t: 218.0, text: 'Main kaise karoon' },
+    { t: 221.5, text: 'Karoon yeh bayaan' },
+    { t: 226.5, text: 'Shuru se likhi dard ki is dastaan' },
+    { t: 236.5, text: 'Saaya-e-fighan hai donon jahan' },
+    { t: 245.0, text: 'Phir kyun tere aur mere' },
+    { t: 254.2, text: 'Darmiyaan hai dooriyan' },
+    { t: 261.0, text: 'Yeh faasle hain kyun' },
+    { t: 267.0, text: 'Tere aur mere dil mein yeh' },
+    { t: 282.5, text: 'Dooriyan' },
+  ],
+
+  // Arz Kiya Hai — Anuv Jain × Lost Stories (timed from caps/arzkiyahai.out.js)
+  'bP8ATWCvqzw': [
+    { t: 0.3, text: 'Coke Studio Bharat Season 3, subscribe now' },
+    { t: 40.5, text: 'Kaayar jo the wo shayar bane' },
+    { t: 44.0, text: 'Ab kya kya karein' },
+    { t: 47.4, text: 'Ishq mein na kehte the kuch jo lage ke khoj mein' },
+    { t: 53.8, text: 'Kya lafzon se chale naye aashiq' },
+    { t: 59.8, text: 'Ishq mein tere hai Faiz bane' },
+    { t: 64.6, text: 'Arz kiya hai, humne bhi likha kuch tere baare mein' },
+    { t: 70.0, text: 'Hai aise tu lage ki gulab hai' },
+    { t: 73.5, text: 'Aur aise tu lage ki gulab hai' },
+    { t: 78.0, text: 'Baaghon mein dil ke khil ke' },
+    { t: 82.4, text: 'In fizaaon mein saaye ho gaye' },
+    { t: 89.5, text: 'Aur waise hum to tere hi ghulam hain' },
+    { t: 93.5, text: 'Aur waise hum to tere hi ghulam hain' },
+    { t: 97.5, text: 'Baadshah dil ke' },
+    { t: 101.0, text: 'Teri baazi mein jo tu chahe to' },
+    { t: 108.4, text: 'Doobe dilon ki kya nau banun main' },
+    { t: 112.5, text: 'Khud tair paaun na aankhon mein' },
+    { t: 118.0, text: 'Shayar ki fitrat mein hi doobna' },
+    { t: 122.5, text: 'Main kya hi ladun toofanon se' },
+    { t: 127.8, text: 'Ishq mein tere hain Faiz bane' },
+    { t: 132.6, text: 'Arz kiya hai, humne bhi likha kuch tere baare mein' },
+    { t: 137.8, text: 'Haathon ko sambhale mere haathon mein' },
+    { t: 142.0, text: 'Kaise haathon ko sambhale mere haathon mein' },
+    { t: 147.5, text: 'Jab tak neend na aaye in lakeeron mein' },
+    { t: 152.5, text: 'Baatein ho aaye' },
+    { t: 167.8, text: 'Sa re pa re sa re ga pa sa' },
+    { t: 174.7, text: 'Re re ni sa re re sa pa' },
+    { t: 200.3, text: 'Sabne to sab keh diya hai' },
+    { t: 205.2, text: 'Kya hi kahun' },
+    { t: 207.8, text: 'Jo abhi bhi ankaha hai' },
+    { t: 219.5, text: 'Na meri jaan meri' },
+    { t: 224.4, text: 'Na maane na jaa' },
+    { t: 228.1, text: 'Kar kuch naya main' },
+    { t: 250.1, text: 'Aise aise aise kaise waise' },
+    { t: 253.5, text: 'Jaise jaise main padhun mere dil mein jo' },
+    { t: 256.8, text: 'Meri aankhein bhi padhein teri aankhon ko' },
+    { t: 261.0, text: 'Kya yeh mehfil mein baithe ya uthe' },
+    { t: 267.4, text: 'Daude chale to' },
+    { t: 273.7, text: 'Teri aankhon mein taareefon ki nawaaz hai' },
+    { t: 279.1, text: 'Teri mehfil tere jaane se veeran hai' },
+    { t: 284.0, text: 'Main bas shayar banun, sirf tu sunne aaye to' },
+    { t: 293.1, text: 'Shayad swar banaun, sirf tu sunne aaye to' },
+  ],
+
+  // Pyaar Mein — Murtaza Qizilbash (timed from caps/pyaarmein.out.js)
+  'IyLSbYII_qk': [
+    { t: 34.6, text: 'Haathon mein haath, aankhon mein aankhein' },
+    { t: 40.0, text: 'Na chhoote yeh saath' },
+    { t: 44.8, text: 'Aaye na kal, guzre na pal' },
+    { t: 49.0, text: 'Aur kate na yeh raat' },
+    { t: 53.5, text: 'Kuch na kaho, aao suno' },
+    { t: 58.4, text: 'Seene mein dil yeh dhadakta hua' },
+    { t: 65.0, text: 'Kuch na kaho, aao suno' },
+    { t: 70.0, text: 'Wo tumse jo main nahi keh saka' },
+    { t: 77.8, text: 'Pyaar mein rehna sada hai tere pyaar mein' },
+    { t: 88.9, text: 'Haar mein jeete huye hain hum is haar mein' },
+    { t: 98.0, text: 'Is haar mein' },
+    { t: 101.0, text: 'Bas aise rahe' },
+    { t: 104.5, text: 'Baahon mein meri tu aise rahe' },
+    { t: 111.5, text: 'Bas aansu mere behte the jaise' },
+    { t: 117.0, text: 'Tere na bahe' },
+    { t: 120.5, text: 'Chhodo gila jo bhi hua' },
+    { t: 126.0, text: 'Kaafi hai yeh tum mere paas' },
+    { t: 131.0, text: 'Wo meri suna ke hai dua teri' },
+    { t: 137.0, text: 'Tere liye mera ehsaas' },
+    { t: 144.3, text: 'Ho pyaar mein rehna sada hai tere pyaar mein' },
+    { t: 155.4, text: 'Ho haar mein jeete huye hain hum is haar mein' },
+    { t: 164.5, text: 'Is haar mein' },
+    { t: 168.5, text: 'Pyaar mein rehna sada hai tere pyaar mein' },
+    { t: 177.6, text: 'Ho haar mein jeete huye hain hum is haar mein' },
+    { t: 186.5, text: 'Is haar mein' },
+    { t: 209.3, text: 'Is haar mein' },
+  ],
+
+  // Baat Unkahi — Kaavish · Samra Khan (timed from caps/baatunkahi.out.js)
+  'rn9aNVsABvc': [
+    { t: 27.3, text: 'Tujhse shuru' },
+    { t: 30.4, text: 'Tujh pe khatm' },
+    { t: 33.5, text: 'Meri zindagi ki dastaan' },
+    { t: 39.5, text: 'Ho rooth gayi tu mujhse' },
+    { t: 45.5, text: 'Aa gayi hai doori darmiyaan' },
+    { t: 51.0, text: 'Ho jo kuch mera hai tere liye hai' },
+    { t: 57.5, text: 'Jaaun main tere bin kahaan' },
+    { t: 63.0, text: 'Le chal mujhe tu aisi jagah pe' },
+    { t: 68.5, text: 'Pyaar hi tera ho jahaan' },
+    { t: 75.5, text: 'Tere pyaar mein, intezaar mein' },
+    { t: 81.0, text: 'Khud ko fanaa main kar gayi' },
+    { t: 86.5, text: 'Ho chahat meri tujhse hi thi' },
+    { t: 93.5, text: 'Par ab wo baatein na rahi' },
+    { t: 99.0, text: 'Ho jaa jaa ke aayi waapas yahin pe' },
+    { t: 104.5, text: 'Reh na saki main bin tere' },
+    { t: 111.0, text: 'Khushiyan bhi roothi' },
+    { t: 114.5, text: 'Sapne bhi toote' },
+    { t: 117.5, text: 'Saath raha na tera' },
+    { t: 146.5, text: 'Mere dil se yeh poochhe koi' },
+    { t: 150.6, text: 'Guzri hai kya' },
+    { t: 153.5, text: 'Bujhte diye se koi poochhe zara' },
+    { t: 158.5, text: 'Chahat ke dariya mein maujein hazaar' },
+    { t: 165.0, text: 'Hum to usi mein doobe, nikle na paar' },
+    { t: 172.0, text: 'Raste yahaan ruk gaye' },
+    { t: 177.0, text: 'Hum bhi yahin tham gaye' },
+    { t: 183.5, text: 'Kitne gaye mausam naye' },
+    { t: 189.5, text: 'Chhupke kahin kho gaye' },
+    { t: 194.5, text: 'Ho kaali kaali raat din se kahe' },
+    { t: 201.5, text: 'Taare sabhi so gaye' },
+    { t: 231.5, text: 'Din bhar teri sochon mein rehna mera' },
+    { t: 236.5, text: 'Har pal meri aankhon mein chehra tera' },
+    { t: 243.5, text: 'Sukh dukh ke lamhon mein tera sahara' },
+    { t: 248.4, text: 'Maanga tha jab bhi tujhse saath mila' },
+    { t: 256.0, text: 'Bhool na paaungi kabhi' },
+    { t: 260.4, text: 'Reh gayi jo baatein ankahi' },
+    { t: 267.5, text: 'Phir bhi hai tu hi, kehna yahi hai' },
+    { t: 273.0, text: 'Mit ke bhi mit na saki' },
+    { t: 279.5, text: 'Dil mein jali jo agan thi' },
+    { t: 284.0, text: 'Mar ke bhi bujh na saki' },
+  ],
+
+  // Maand — Bayaan · Hasan Raheem · Rovalio (timed from caps/maand.out.js)
+  'JVtKEX90SZ0': [
+    { t: 14.1, text: 'Mile to tu kabhi nahi' },
+    { t: 20.5, text: 'Meri hasrat kyun bhadkaayi bewajah' },
+    { t: 28.0, text: 'Ke tum bina jiye gaye' },
+    { t: 32.5, text: 'Hua kaise na yeh jeena' },
+    { t: 47.4, text: 'Dariya mere dil ka yeh behta na' },
+    { t: 52.3, text: 'Dukhi dil ki sada kuch yeh kehta na' },
+    { t: 56.0, text: 'Iski khamoshi ki tu wajah hai na' },
+    { t: 59.0, text: 'Dil se tang aa gaya yehi saza hai na' },
+    { t: 62.0, text: 'Ulfaton mein nahi koi paimana' },
+    { t: 66.0, text: 'Mere apnon ka mujhse yeh kehna tha' },
+    { t: 69.5, text: 'Surmayi teri aankhon mein beh jaana' },
+    { t: 73.0, text: 'Kya pata tere gham mein hi rehna tha' },
+    { t: 80.4, text: 'Rehna tha' },
+    { t: 85.5, text: 'Kyun yun sehte sehte dil ko gham kha chuka meri jaan' },
+    { t: 93.0, text: 'Kyun yun rehte rehte dikhe na koi disha' },
+    { t: 99.5, text: 'Kyun yun sehte sehte dil ko gham kha chuka meri jaan' },
+    { t: 107.0, text: 'Kyun yun rehte rehte dikhe na koi disha' },
+    { t: 112.0, text: 'Jo tu nahi to aisa main chehra' },
+    { t: 115.5, text: 'Ke jiski khoobsurti maand padi ho' },
+    { t: 120.0, text: 'Aisa main dariya jo behna na chahe' },
+    { t: 125.5, text: 'Jo tu nahi to aisa main chehra' },
+    { t: 129.5, text: 'Ke jiski khoobsurti maand padi ho' },
+    { t: 133.5, text: 'Aisa main dariya jo behna na chahe' },
+    { t: 140.5, text: 'Dariya mere dil ka yeh behta na' },
+    { t: 144.5, text: 'Dukhi dil ki sada kuch yeh kehta na' },
+    { t: 147.5, text: 'Iski khamoshi ki tu wajah hai na' },
+    { t: 150.5, text: 'Dil se tang aa gaya yehi saza hai na' },
+    { t: 153.5, text: 'Ulfaton mein nahi koi paimana' },
+    { t: 157.0, text: 'Mere apnon ka mujhse yeh kehna tha' },
+    { t: 160.5, text: 'Surmayi teri aankhon mein beh jaana' },
+    { t: 164.2, text: 'Kya pata tere gham mein hi rehna tha' },
+    { t: 169.1, text: 'Kya pata tere gham mein hi rehna tha' },
+    { t: 174.0, text: 'Aisa main dariya jo behna na chahe' },
+  ],
+
+  // Beparwah — Murtaza Qizilbash (timed from caps/beparwah.out.js)
+  'OT7jbBQsSYk': [
+    { t: 35.2, text: 'Kya yahi pyaar hai' },
+    { t: 37.2, text: 'Ya hai yeh tera sitam' },
+    { t: 40.0, text: 'Ke tujhe hum bhula na sake' },
+    { t: 45.5, text: 'Dil mera laachaar hai' },
+    { t: 48.0, text: 'Aur ab toh mere zakhm bhi' },
+    { t: 50.4, text: 'Mujhe yun rula na sake' },
+    { t: 55.8, text: 'Kyun hai dil yeh' },
+    { t: 59.7, text: 'Hai lagta kabhi' },
+    { t: 62.3, text: 'Ke ho ke yahan bhi tu nahi' },
+    { t: 67.5, text: 'Yeh khamoshiyan' },
+    { t: 70.3, text: 'Sataayein mujhe' },
+    { t: 73.0, text: 'Toh sun le meri yeh sadaayein' },
+    { t: 76.6, text: 'Ke yeh aankhein hain nam' },
+    { t: 80.0, text: 'Main tanha' },
+    { t: 83.5, text: 'Tu jaane na' },
+    { t: 85.5, text: 'Tu jaane na' },
+    { t: 88.9, text: 'Ke tera sanam' },
+    { t: 91.7, text: 'Hai ruswa' },
+    { t: 94.2, text: 'Tu jaane na' },
+    { t: 97.1, text: 'O beparwah' },
+    { t: 99.6, text: 'Sambhalo mujhe' },
+    { t: 101.5, text: 'Yeh maikada bewafa hai bada' },
+    { t: 104.6, text: 'Ladkhada jaaunga' },
+    { t: 109.6, text: 'Bacha lo mujhe, be-aasra hoon' },
+    { t: 114.2, text: 'Yahan main khada' },
+    { t: 116.8, text: 'Main kahan jaaunga' },
+    { t: 121.6, text: 'Dil se hi' },
+    { t: 123.1, text: 'Andheron mein hi deta jaaunga' },
+    { t: 128.9, text: 'Main zindagi' },
+    { t: 131.5, text: 'Yeh sargoshiyan' },
+    { t: 134.5, text: 'Rulaayein mujhe' },
+    { t: 137.0, text: 'Aur madhoshiyon ki hawaon mein' },
+    { t: 141.9, text: 'Yeh aankhein hain nam' },
+    { t: 144.9, text: 'Main tanha' },
+    { t: 147.5, text: 'Tu jaane na' },
+    { t: 149.5, text: 'Tu jaane na' },
+    { t: 151.5, text: 'Ke tera sanam' },
+    { t: 155.0, text: 'Hai ruswa' },
+    { t: 158.2, text: 'Tu jaane na' },
+    { t: 161.1, text: 'O beparwah' },
+    { t: 182.4, text: 'O beparwah' },
+  ],
+
+  // Chalo Door Kahin — Samar Jafri (timed from caps/chalodoorkahin.out.js)
+  'piyLXuSrDYo': [
+    { t: 21.6, text: 'Kabhi raaste mein chalte phirte tumse' },
+    { t: 25.3, text: 'Mushkilon se ladte bhidte khud se' },
+    { t: 28.6, text: 'Kya likhoon padhoon kyun boloon main tumse' },
+    { t: 32.0, text: 'Arz kya karoon safhon ko bhar' },
+    { t: 34.3, text: 'Kabhi sheeshe mein khud ko jo dekhoon' },
+    { t: 37.5, text: 'Aankhon mein khud ki tumhein pa loon' },
+    { t: 40.8, text: 'Saanson mein tumko' },
+    { t: 43.6, text: 'Apni main yun sambhaloon' },
+    { t: 46.5, text: 'Saath lena phir karna tum' },
+    { t: 49.7, text: 'Karna bhala kal mein lena' },
+    { t: 54.0, text: 'Milein hum tum' },
+    { t: 58.7, text: 'Thaame haath chalein' },
+    { t: 61.5, text: 'Beete pal ko peechhe chhodein' },
+    { t: 64.5, text: 'Mud ke na dekhein hum tum' },
+    { t: 84.2, text: 'Chalo door kahin' },
+    { t: 87.4, text: 'Nahi kuch bhi yahan' },
+    { t: 90.5, text: 'Jahan nahi koi' },
+    { t: 93.5, text: 'Sukoon hai wahin' },
+    { t: 96.9, text: 'Afsaanon mein bhi kahani aisi nahi' },
+    { t: 101.5, text: 'Jab jab tum saans lo' },
+    { t: 105.5, text: 'Jee loon main zindagi' },
+    { t: 109.0, text: 'Duniya jahan ki baat tumse keh doon' },
+    { t: 113.1, text: 'Dil ki baaton mein lafz kho jaayein' },
+    { t: 118.4, text: 'Aankhon se main yeh keh doon' },
+    { t: 121.5, text: 'Karna ghabra na jaana' },
+    { t: 124.6, text: 'Chhodo duniya ko' },
+    { t: 128.0, text: 'Tum ho jaayein' },
+    { t: 133.6, text: 'Haazir hoon main' },
+    { t: 135.8, text: 'Tumhara hi hoon main' },
+    { t: 138.5, text: 'Bolo ek dooje ke' },
+    { t: 141.8, text: 'Ho jaayein hum' },
+  ],
+
+  // Khat — Navjot Ahuja (timed from caps/khat.out.js)
+  'LUgpPmj6nR8': [
+    { t: 20.3, text: 'Kaagaz ke phool' },
+    { t: 23.0, text: 'Laaun tere liye' },
+    { t: 26.3, text: 'Khat likhoon' },
+    { t: 29.6, text: 'Tere liye' },
+    { t: 32.5, text: 'Main khuda ko maanu nahi' },
+    { t: 37.1, text: 'Par maangu dua' },
+    { t: 40.2, text: 'Tere liye' },
+    { t: 44.2, text: 'Tere liye' },
+    { t: 47.0, text: 'Ghar banaun' },
+    { t: 49.7, text: 'Deewar neele rang se sajaun' },
+    { t: 53.0, text: 'Pasand hai tumhein' },
+    { t: 57.7, text: 'Maloom hai' },
+    { t: 59.5, text: 'Tumne bataya tha ek dafa' },
+    { t: 65.8, text: 'Neele phool laa raha hoon' },
+    { t: 69.0, text: 'Tere liye' },
+    { t: 72.2, text: 'Khat likhoon' },
+    { t: 75.0, text: 'Tere liye' },
+    { t: 78.6, text: 'Main khuda ko maanu nahi' },
+    { t: 82.0, text: 'Par maangu dua' },
+    { t: 85.6, text: 'Tere liye' },
+    { t: 109.0, text: 'Teri baatein' },
+    { t: 111.6, text: 'Nasamajh si' },
+    { t: 114.2, text: 'Phir bhi jaayaz lag rahi hain' },
+    { t: 119.5, text: 'Tu pareshan kar rahi hai' },
+    { t: 125.0, text: 'Phir bhi maasoom lag rahi hai' },
+    { t: 129.5, text: 'Tere liye' },
+    { t: 132.3, text: 'Mandir jaaun' },
+    { t: 135.5, text: 'Tere naam ka diya jalaun' },
+    { t: 140.2, text: 'Hansta rahe tu chahe jo ho' },
+    { t: 144.0, text: 'Teri hansi ko' },
+    { t: 146.7, text: 'Kisi ki nazar na lage' },
+    { t: 151.0, text: 'Kaagaz ke phool' },
+    { t: 153.7, text: 'Laaun tere liye' },
+    { t: 157.6, text: 'Khat likhoon' },
+    { t: 160.3, text: 'Tere liye' },
+    { t: 162.5, text: 'Main khuda ko maanu nahi' },
+    { t: 168.5, text: 'Par maangu dua' },
+    { t: 172.3, text: 'Tere liye' },
+    { t: 215.0, text: 'Tere liye hum bane hain' },
+    { t: 219.0, text: 'Tere liye' },
+    { t: 222.6, text: 'Badal rahe hain kya' },
+    { t: 226.0, text: 'Mohabbat ho gayi hai' },
+    { t: 230.5, text: 'Mere hi teri baatein karein' },
+    { t: 236.3, text: 'Tere liye' },
+    { t: 239.0, text: 'Ghar banaun' },
+    { t: 241.7, text: 'Deewar neele rang se sajaun' },
+    { t: 245.0, text: 'Pasand hai tujhe' },
+    { t: 248.2, text: 'Maloom hai' },
+    { t: 250.9, text: 'Tune bataya tha ek dafa' },
+    { t: 265.7, text: 'Dekh shayar ban gaya' },
+    { t: 269.6, text: 'Tere liye naghma likha' },
+    { t: 275.0, text: 'Tere liye' },
+    { t: 278.0, text: 'Main khuda ko maanu kyun' },
+    { t: 283.0, text: 'Tu khuda' },
+    { t: 287.1, text: 'Tere liye' },
+  ],
+
+  // Woh — Murtaza Qizilbash (timed from caps/woh.out.js)
+  'Y1QKbqszZfg': [
+    { t: 13.2, text: 'Panaahon mein' },
+    { t: 15.7, text: 'Raat ki khamoshiyon mein' },
+    { t: 19.5, text: 'Hawa chalne lage' },
+    { t: 22.3, text: 'Aur zulf lehraaye' },
+    { t: 26.0, text: 'Uski ada mein' },
+    { t: 28.9, text: 'Na jaane hai kaisa nasha' },
+    { t: 33.0, text: 'Woh aaye saamne' },
+    { t: 34.8, text: 'Aur jaan le jaaye' },
+    { t: 37.5, text: 'Uske kaanon mein jhumke gehne' },
+    { t: 40.8, text: 'In aankhon ke kya kehne' },
+    { t: 44.5, text: 'Shaida inka main ho gaya' },
+    { t: 50.1, text: 'Aur uski paayal ki chhan chhan' },
+    { t: 54.7, text: 'Rijhaaye dil ki dhadkan' },
+    { t: 57.8, text: 'Woh mere jeene ki wajah' },
+    { t: 64.0, text: 'Kya hai yeh mera marz' },
+    { t: 70.1, text: 'Ya uski nazron ka asar' },
+    { t: 75.6, text: 'Na jaane kyun' },
+    { t: 80.0, text: 'Saansein meri na chale jaane kyun' },
+    { t: 86.4, text: 'Shaamein kabhi na dhalein' },
+    { t: 88.7, text: 'Khud se ho jaayein bekhabar' },
+    { t: 92.1, text: 'Kar de jo hum pe woh nazar' },
+    { t: 95.0, text: 'Na jaane kyun' },
+    { t: 97.6, text: 'Woh humse chura le humein' },
+    { t: 114.3, text: 'Pal do pal ki saanson mein reh jaaun' },
+    { t: 118.5, text: 'Sochta hoon par keh na kabhi paaun' },
+    { t: 122.0, text: 'Dil ki woh batiyan' },
+    { t: 123.8, text: 'Yeh guzri ratiyan' },
+    { t: 125.2, text: 'Main seh jaaun' },
+    { t: 126.4, text: 'Do pal do pal ka aashiq toh main thehra' },
+    { t: 131.8, text: 'Main bhool gaya woh haseen chehra' },
+    { t: 134.8, text: 'Woh beeti hui sadiyon ki' },
+    { t: 136.8, text: 'Behti hui nadiyon mein beh jaaun' },
+    { t: 139.8, text: 'Jab uski aankhon se behta kaajal' },
+    { t: 144.5, text: 'Kare is dil ko paagal' },
+    { t: 147.0, text: 'Kaisi mujh pe hai yeh saza' },
+    { t: 152.5, text: 'Aur uski kaali zulfon ke' },
+    { t: 155.5, text: 'Saaye se mera dil sharmaaye' },
+    { t: 159.5, text: 'Main toh ho jaaun fanaa' },
+    { t: 166.5, text: 'Ashkon ki dhaaron mein' },
+    { t: 172.9, text: 'Kaise samete yeh' },
+    { t: 178.0, text: 'Na jaane kyun' },
+    { t: 182.4, text: 'Saansein meri na chale jaane kyun' },
+    { t: 188.8, text: 'Shaamein kabhi na dhalein' },
+    { t: 191.6, text: 'Pal mein hi jaayenge bikhar' },
+    { t: 194.5, text: 'Kar de woh hum pe jo nazar' },
+    { t: 197.2, text: 'Na jaane kyun' },
+    { t: 199.9, text: 'Woh humse chura le humein' },
+  ],
+
+  // Khasara — Abdul Hannan · Samar Jafri (timed from caps/khasara.out.js)
+  '-EhOs3Ol-v4': [
+    { t: 13.4, text: 'Karti ja karti ja' },
+    { t: 15.7, text: 'Mere dil ko tu chaknachoor karti ja' },
+    { t: 21.0, text: 'Karti ja zaahir' },
+    { t: 24.9, text: 'Jo tera yeh guroor' },
+    { t: 28.6, text: 'Mujhe tu yeh batati ja' },
+    { t: 31.0, text: 'Is zakhm ka marham kya' },
+    { t: 35.4, text: 'Kyun thodi rasm-e-wafa' },
+    { t: 38.6, text: 'Imtihaan badhana' },
+    { t: 43.5, text: 'Kaise yeh hua khasara' },
+    { t: 47.1, text: 'Na mein sambhla dobara' },
+    { t: 50.6, text: 'Haaye na qaraar dil ko tere bin saiyaan' },
+    { t: 57.6, text: 'Maine toh nibhaya' },
+    { t: 61.4, text: 'Saath bada' },
+    { t: 65.2, text: 'Tune toh khaak dhoondi manzil' },
+    { t: 71.5, text: 'Tu rooth ja' },
+    { t: 74.4, text: 'Kabool na humein' },
+    { t: 78.6, text: 'Tu door ja toh khaak hum jiye' },
+    { t: 85.8, text: 'Qurbat jo thi' },
+    { t: 89.0, text: 'Jhoot se bhari' },
+    { t: 93.0, text: 'Rooh meri tumhe dekh toh jaati' },
+    { t: 100.2, text: 'Log karte hain tumse doori' },
+    { t: 107.7, text: 'Kahani teri meri hai adhoori' },
+    { t: 114.6, text: 'Hai dua sada' },
+    { t: 118.0, text: 'Tu raho jahan bhi jaana' },
+    { t: 121.8, text: 'Tu jeeta mein haara' },
+    { t: 124.8, text: 'Reh hi gaya kehne ko kya' },
+    { t: 128.5, text: 'Humne toh tha nibhaya' },
+    { t: 132.6, text: 'Saath bada' },
+    { t: 135.9, text: 'Tune toh khaak dhoondi manzil' },
+    { t: 143.8, text: 'Kaise yeh hua khasara' },
+    { t: 146.6, text: 'Na mein sambhla dobara' },
+    { t: 150.2, text: 'Aaye na qaraar' },
+    { t: 152.0, text: 'Dil ko hai bebasi yahan' },
+  ],
+
+  // Har Baar — Murtaza Qizilbash · Samar Jafri (timed from caps/harbaar.out.js)
+  'XYmTfNiAqW8': [
+    { t: 14.6, text: 'Chal diye tum kahan' },
+    { t: 18.2, text: 'Neer bharne ke' },
+    { t: 20.9, text: 'Yahan reh gaye hain kyun nishaan' },
+    { t: 28.2, text: 'Is dil bechain ke' },
+    { t: 31.8, text: 'Aansu mere nain ke' },
+    { t: 34.8, text: 'Reh gaye hain jaane jaan' },
+    { t: 41.5, text: 'Mere dardon se tumko yeh baatein hain' },
+    { t: 44.9, text: 'Ke adhoori tere bin raatein hain' },
+    { t: 48.5, text: 'Kisse waale yeh dil se na jaate hain' },
+    { t: 53.6, text: 'Phir hum kyun har baar aate hain' },
+    { t: 58.9, text: 'Tujhko manate hain' },
+    { t: 61.3, text: 'Tere gun gaate hain' },
+    { t: 64.5, text: 'Har ghadi' },
+    { t: 69.0, text: 'Har pal duaon mein tujhko hi maangte hain' },
+    { t: 76.0, text: 'Phir bhi tu kyun aata hai nahi' },
+    { t: 103.3, text: 'Mujh mein jo koi kami hai thodi' },
+    { t: 110.2, text: 'Poori woh tumse hai hui' },
+    { t: 117.0, text: 'Jab tum yun aana' },
+    { t: 120.5, text: 'Gale lag jaana' },
+    { t: 123.9, text: 'Tere siva na hai koi' },
+    { t: 129.4, text: 'Hum toh tumko pukaarte hain' },
+    { t: 133.3, text: 'Yun yaad karte hain' },
+    { t: 137.5, text: 'Dil jo ghabra jaata hai kabhi' },
+    { t: 144.4, text: 'Khud ko sawaalon mein barbaad karte hain' },
+    { t: 151.0, text: 'Jab tu jawaab deta hai nahi' },
+    { t: 158.1, text: 'Chhodo yeh baat purani hai' },
+    { t: 160.9, text: 'Phir se likhni yeh kahani hai' },
+    { t: 164.5, text: 'Karte hain tumse yeh waada' },
+    { t: 170.6, text: 'Toh hum har baar aayenge' },
+    { t: 175.4, text: 'Tujhko manayenge' },
+    { t: 178.7, text: 'Tere gun gaayenge' },
+    { t: 182.5, text: 'Har ghadi' },
+    { t: 185.5, text: 'Har pal duaon mein tujhko hi maangenge' },
+    { t: 192.4, text: 'Tu aa hi jaayega' },
+    { t: 196.3, text: 'Hai yakeen' },
+    { t: 198.5, text: 'Ki main ankhiyan teri meri saanjha ve' },
+    { t: 204.7, text: 'O maahi main hoya tera' },
+    { t: 206.8, text: 'Das ki main karaan haaye' },
+    { t: 210.4, text: 'O maahi tenu ki main ankhiyan' },
+    { t: 213.5, text: 'Teri meri saanjha ve' },
+    { t: 216.8, text: 'O maahi main hoya tera' },
+    { t: 220.5, text: 'Das ki main karaan haaye shaava' },
+    { t: 225.3, text: 'O maahi ki main ankhiyan' },
+    { t: 228.3, text: 'Teri meri saanjha ve' },
+    { t: 232.2, text: 'O maahi hoya tera' },
+    { t: 234.4, text: 'Das ki main karaan shaava' },
+    { t: 239.0, text: 'O maahi' },
+  ],
+
+  // Bhool — Murtaza Qizilbash (timed from caps/bhool.out.js)
+  'ZUQoFmTUw08': [
+    { t: 25.7, text: 'Maahi ve' },
+    { t: 27.7, text: 'Teri ada pe jab se nigaahein padi' },
+    { t: 34.0, text: 'Hum apne nahi rahe' },
+    { t: 38.5, text: 'Soch mein khoya rahoon' },
+    { t: 41.5, text: 'Teri aadat hai mujhko lagi' },
+    { t: 46.5, text: 'Tu itni haseen' },
+    { t: 50.5, text: 'Dil mera na jaane kyun chahe phir tujhe' },
+    { t: 56.5, text: 'Jaise barson se jude ho silsile' },
+    { t: 63.0, text: 'Main tera ho jaunga' },
+    { t: 67.0, text: 'Keh de bas mujhe' },
+    { t: 69.5, text: 'Lagta tujhko bhi hai yeh' },
+    { t: 73.0, text: 'Ya phir humein bhool hai' },
+    { t: 90.1, text: 'Ab toh piya bin roye' },
+    { t: 93.3, text: 'Aankhon teri mein khoye' },
+    { t: 96.5, text: 'Rehte hain hardam mere nain' },
+    { t: 102.0, text: 'Chehra tera o yaara' },
+    { t: 105.0, text: 'Chaand se bhi hai pyaara' },
+    { t: 108.5, text: 'Tu hi hai mere dil ka chain' },
+    { t: 114.0, text: 'Raahon mein aaye na' },
+    { t: 116.3, text: 'Man se tera tazkara jaaye na' },
+    { t: 119.5, text: 'Tere siva koi bhi bhaaye na' },
+    { t: 122.8, text: 'Laage nahi bin tere dil mera jaane jaan' },
+    { t: 126.8, text: 'Meri yaadon mein tu, waadon mein tu' },
+    { t: 130.0, text: 'Hai iraadon mein tu' },
+    { t: 132.0, text: 'Saare ke saare zamaane ko yun maine bhulaya hai' },
+    { t: 137.0, text: 'Toh meri sun le sada' },
+    { t: 140.0, text: 'Yeh dil mera na jaane kyun chahe phir tujhe' },
+    { t: 146.5, text: 'Jaise barson se jude ho silsile' },
+    { t: 153.0, text: 'Main tera ho jaunga' },
+    { t: 157.0, text: 'Keh de bas mujhe' },
+    { t: 159.5, text: 'Lagta tujhko bhi hai yeh' },
+    { t: 163.0, text: 'Ya phir humein bhool hai' },
+    { t: 167.5, text: 'Tera deewana' },
+    { t: 171.5, text: 'Khud se begaana' },
+    { t: 175.0, text: 'Zaalim zamaana' },
+    { t: 178.5, text: 'Haaye main tera' },
+    { t: 181.0, text: 'Jahan hai jo tu yahan hai' },
+    { t: 186.5, text: 'Yehi dua hai' },
+    { t: 191.0, text: 'Dil mera na jaane kyun chahe phir tujhe' },
+    { t: 197.5, text: 'Jaise barson se jude ho silsile' },
+    { t: 204.0, text: 'Main tera ho jaunga' },
+    { t: 208.0, text: 'Keh de bas mujhe' },
+    { t: 210.4, text: 'Lagta tujhko bhi hai yeh' },
+    { t: 214.0, text: 'Ya phir humein bhool hai' },
+    { t: 218.0, text: 'Tera deewana' },
+    { t: 222.0, text: 'Khud se begaana' },
+    { t: 226.0, text: 'Zaalim zamaana' },
+    { t: 229.5, text: 'Haaye main tera' },
+    { t: 232.0, text: 'Jahan hai jo tu yahan hai' },
+    { t: 237.5, text: 'Yehi dua hai' },
+  ],
+
+  // Tum — Murtaza Qizilbash (timed from caps/tum.out.js)
+  '0enmMyV1Q48': [
+    { t: 36.6, text: 'Betaabiyan' },
+    { t: 41.2, text: 'Bechainiyan' },
+    { t: 43.6, text: 'Laayi yahan' },
+    { t: 46.5, text: 'Jaaun kahan tumhare siva' },
+    { t: 54.6, text: 'Yeh ranjishein' },
+    { t: 59.3, text: 'Dukhon bhari yeh bandishein' },
+    { t: 63.9, text: 'Sunaun kahan tumhare siva' },
+    { t: 69.8, text: 'Hum beintehaa' },
+    { t: 73.0, text: 'Pyaar tumhein karte hain' },
+    { t: 76.5, text: 'Tum na samajh paoge' },
+    { t: 79.8, text: 'Toh aise munh ko na modo' },
+    { t: 82.5, text: 'Is dil ko na todo' },
+    { t: 85.5, text: 'Ke hum hain sataaye hue' },
+    { t: 89.0, text: 'Kaisa fasana hai' },
+    { t: 93.0, text: 'Mera jahan tum ho' },
+    { t: 96.5, text: 'Tum hi toh ho aarzoo' },
+    { t: 100.5, text: 'Tum hi ho mera saara sukoon' },
+    { t: 105.8, text: 'Tum guzra zamaana' },
+    { t: 110.2, text: 'Meri subah tum ho' },
+    { t: 114.5, text: 'Toota sitara hoon main' },
+    { t: 119.5, text: 'Jab se haara hoon tumse main' },
+    { t: 127.0, text: 'Nadaan hai veeraan hai' },
+    { t: 130.3, text: 'Man yeh mera khud se anjaan hai' },
+    { t: 134.8, text: 'Tum bekhabar' },
+    { t: 138.3, text: 'Main besabar' },
+    { t: 140.4, text: 'Tumhare liye kya yeh aasaan hai' },
+    { t: 144.0, text: 'Dil mera gaaye kabhi' },
+    { t: 146.5, text: 'Man ghabraaye hai kabhi' },
+    { t: 149.5, text: 'Pyaar mujhe hai hua tumse' },
+    { t: 153.0, text: 'Haan dum dum aankhon mein hi basti hai' },
+    { t: 156.5, text: 'Yaadein sabhi' },
+    { t: 158.5, text: 'Ishq mujhe hai hua tumse' },
+    { t: 161.5, text: 'Toh aao na le jaao na' },
+    { t: 165.0, text: 'Uljha hua hoon main dekho zara' },
+    { t: 169.8, text: 'Ke meri aankhon mein gham hai' },
+    { t: 172.5, text: 'Aur laakhon sitam' },
+    { t: 174.7, text: 'Maine khud pe uthaaye hue' },
+    { t: 178.5, text: 'Kaisa fasana hai' },
+    { t: 183.5, text: 'Mera jahan tum ho' },
+    { t: 187.0, text: 'Tum hi toh ho aarzoo' },
+    { t: 190.5, text: 'Tum hi ho mera saara sukoon' },
+    { t: 195.8, text: 'Tum guzra zamaana' },
+    { t: 200.5, text: 'Meri subah tum ho' },
+    { t: 205.0, text: 'Toota sitara hoon main' },
+    { t: 210.0, text: 'Jab se haara hoon tumse main' },
+  ],
+
+  // Main Rahun — Samar Jafri (Parwarish) (timed from en transcript)
+  'EK8IdWyztLo': [
+    { t: 34.6,  text: 'Main kahun dil mera na mane' },
+    { t: 37.4,  text: 'Tere hi peeche aata jaaye' },
+    { t: 39.6,  text: 'Can\'t refuse the words that come out of your mouth' },
+    { t: 42.4,  text: 'And you keep finding ways to tell me' },
+    { t: 46.7,  text: 'We can be with one another' },
+    { t: 51.9,  text: 'Why don\'t you see it through?' },
+    { t: 61.5,  text: 'Lo chalo kehta hu main haal-e-dil tumse' },
+    { t: 72.2,  text: 'Main rahun tera yun' },
+    { t: 76.0,  text: 'Kyun chalun tumse door' },
+    { t: 80.0,  text: 'Main toh tha tera hi hoon' },
+    { t: 124.6, text: 'Tu meri zindagi, baat yeh hai badi' },
+    { t: 128.0, text: 'Lo chalo tum mujhe ho kubool' },
+    { t: 133.0, text: 'Aisa ho tum mere ho jaao' },
+    { t: 138.0, text: 'Khwaab mein tum mere jo aao' },
+    { t: 142.0, text: 'Ho jaye duniya se hum door' },
+    { t: 148.0, text: 'Kya kahoon tumse apni baat main' },
+    { t: 155.0, text: 'Aankhein meri kehti hain ankaha tumse' },
+    { t: 165.0, text: 'Main rahun tera yun' },
+    { t: 170.0, text: 'Kyun chalun tumse door' },
+    { t: 175.0, text: 'Main toh tha tera hi hoon' },
+  ],
+
+  // Tere Pyaar Main — Kaavish (timed from hi transcript)
+  'kfKP4o-bXzM': [
+    { t: 47.2,  text: 'Tere pyaar mein, dil haar ke' },
+    { t: 57.8,  text: 'Maine kya paaya, kya gawaaya' },
+    { t: 73.2,  text: 'Tere pyaar mein, dil haar ke' },
+    { t: 86.8,  text: 'Maine kya paaya, kya kamaaya' },
+    { t: 120.6, text: 'Tujhko chaaha, tujhko pooja' },
+    { t: 127.1, text: 'Maine tujhe dil mein basaaya' },
+    { t: 134.8, text: 'Tere liye, aye bewafa' },
+    { t: 142.5, text: 'Kaise jiya hai, kya kya kiya' },
+    { t: 151.7, text: 'Tere pyaar mein, dil haar ke' },
+    { t: 164.2, text: 'Maine kya paaya, kya kamaaya' },
+    { t: 201.8, text: 'Teri yaadein, woh saari baatein' },
+    { t: 212.2, text: 'Tu hi bata, kaise bhulaun' },
+    { t: 220.4, text: 'Kis se kahoon, aye bewafa' },
+    { t: 226.2, text: 'Dil kis tarah hai toota mera' },
+    { t: 260.0, text: 'Tere pyaar mein' },
+    { t: 271.6, text: 'Tere pyaar mein, dil haar ke' },
+    { t: 280.4, text: 'Maine kya paaya' },
+    { t: 289.0, text: 'Kya paaya, maine kya paaya' },
+  ],
+};
+// Mark videoIds here to show "✨ Instrumental Magic ✨" instead of "not available"
+const INSTRUMENTAL_IDS = new Set([]);
+
+const lyricsLeft = $('lyricsLeft');
+const lyricsRight = $('lyricsRight');
+const lyricsControls = $('lyricsControls');
+
+let lyricsOn = localStorage.getItem('ishqpod-lyrics-on') !== 'false';
+let lyricsMode = localStorage.getItem('ishqpod-lyrics-mode') || 'right'; // left | right | both
+let lyricLines = null;        // [{ t: seconds, text }] sorted by t, or null
+let lyricStatus = 'loading';  // loading | ok | none | instrumental
+let lyricSongId = null;
+let currentLyricIndex = -1;
+let lyricsFetchController = null;
+let lyricsSyncInterval = null;
+
+function cleanArtistForApi(artist) {
+  // "Abdul Hannan · Samar Jafri" → "Abdul Hannan"; strip feat/parens
+  return (artist || 'Murtaza Qizilbash')
+    .split(/[·×,]|\bfeat\b|\bft\b/i)[0]
+    .replace(/\(.*?\)/g, '')
+    .trim();
+}
+
+function spreadLines(texts, duration, introSeconds) {
+  // Distribute untimed lines evenly across the song.
+  // introSeconds: when the vocals actually start (0 = song opens with singing)
+  const dur = duration && duration > 30 ? duration : 240;
+  const intro = introSeconds || 0;
+  const usable = dur * 0.95 - intro;
+  return texts.map((text, i) => ({
+    t: intro + (usable * i) / texts.length,
+    text
+  }));
+}
+
+function normalizeLyrics(raw, duration) {
+  if (!raw) return null;
+  // Object form: { intro: seconds, lines: [...] } — intro = when vocals start
+  if (!Array.isArray(raw) && Array.isArray(raw.lines)) {
+    return normalizeLyricsArray(raw.lines, duration, raw.intro || 0);
+  }
+  return normalizeLyricsArray(raw, duration, 0);
+}
+
+function normalizeLyricsArray(raw, duration, intro) {
+  if (!Array.isArray(raw) || raw.length === 0) return null;
+  if (typeof raw[0] === 'object') {
+    return raw.slice().sort((a, b) => a.t - b.t);
+  }
+  return spreadLines(raw, duration, intro);
+}
+
+async function fetchLyricsFromApi(song) {
+  const artist = cleanArtistForApi(song.artist);
+  const url = `https://api.lyrics.ovh/v1/${encodeURIComponent(artist)}/${encodeURIComponent(song.title)}`;
+  const controller = new AbortController();
+  lyricsFetchController = controller;
+  const timeout = setTimeout(() => controller.abort(), 7000);
+  try {
+    const res = await fetch(url, { signal: controller.signal });
+    clearTimeout(timeout);
+    if (!res.ok) return null;
+    const data = await res.json();
+    if (!data.lyrics) return null;
+    const texts = data.lyrics
+      .split('\n')
+      .map(l => l.replace(/\r/g, '').trim())
+      .filter(l => l && !/^\[.*\]$/.test(l) && !/^Paroles de la chanson/i.test(l));
+    if (texts.length < 2) return null;
+    return spreadLines(texts, song.duration);
+  } catch (e) {
+    clearTimeout(timeout);
+    return null; // network error / abort / rate limit → fall through
+  }
+}
+
+async function loadLyricsForSong(song) {
+  // Cancel any in-flight fetch for the previous song
+  if (lyricsFetchController) { lyricsFetchController.abort(); lyricsFetchController = null; }
+  lyricSongId = song.videoId;
+  currentLyricIndex = -1;
+  lyricLines = null;
+
+  if (INSTRUMENTAL_IDS.has(song.videoId)) {
+    lyricStatus = 'instrumental';
+    renderLyricPanels();
+    return;
+  }
+
+  // 1) Local database
+  const local = normalizeLyrics(LOCAL_LYRICS[song.videoId], song.duration);
+  if (local) {
+    lyricLines = local;
+    lyricStatus = 'ok';
+    renderLyricPanels();
+    return;
+  }
+
+  // 2) Public API
+  lyricStatus = 'loading';
+  renderLyricPanels();
+  const fetched = await fetchLyricsFromApi(song);
+  if (lyricSongId !== song.videoId) return; // song changed while fetching
+  if (fetched) {
+    lyricLines = fetched;
+    lyricStatus = 'ok';
+  } else {
+    lyricStatus = 'none';
+  }
+  renderLyricPanels();
+}
+
+function lyricIndexForTime(t) {
+  if (!lyricLines) return -1;
+  let idx = -1;
+  for (let i = 0; i < lyricLines.length; i++) {
+    if (lyricLines[i].t <= t) idx = i; else break;
+  }
+  return idx;
+}
+
+function buildLyricWindowHtml() {
+  // 2 past lines, the current line, 2 upcoming lines
+  const parts = [];
+  const idx = currentLyricIndex;
+  for (let i = idx - 2; i <= idx + 2; i++) {
+    if (i < 0 || i >= lyricLines.length) continue;
+    let cls = 'lyr-line';
+    if (i < idx) cls += ' past';
+    else if (i === idx) cls += ' current';
+    else cls += ' next';
+    parts.push(`<div class="${cls}">${escapeHtml(lyricLines[i].text)}</div>`);
+  }
+  if (idx < 0 && lyricLines.length) {
+    // song hasn't reached the first line yet — preview the opening
+    parts.push(`<div class="lyr-line next">${escapeHtml(lyricLines[0].text)}</div>`);
+    if (lyricLines[1]) parts.push(`<div class="lyr-line next">${escapeHtml(lyricLines[1].text)}</div>`);
+  }
+  return parts.join('');
+}
+
+function escapeHtml(s) {
+  return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
+function renderLyricPanels() {
+  let html;
+  if (!lyricsOn) html = '';
+  else if (lyricStatus === 'loading') html = '<div class="lyr-status">searching for lyrics…</div>';
+  else if (lyricStatus === 'instrumental') html = '<div class="lyr-status">✨ Instrumental Magic ✨</div>';
+  else if (lyricStatus === 'none') html = '<div class="lyr-status">Lyrics not available for this track</div>';
+  else html = buildLyricWindowHtml();
+
+  const showLeft = lyricsOn && (lyricsMode === 'left' || lyricsMode === 'both');
+  const showRight = lyricsOn && (lyricsMode === 'right' || lyricsMode === 'both');
+  lyricsLeft.innerHTML = showLeft ? html : '';
+  lyricsRight.innerHTML = showRight ? html : '';
+  lyricsLeft.classList.toggle('visible', showLeft);
+  lyricsRight.classList.toggle('visible', showRight);
+}
+
+function syncLyrics() {
+  if (!lyricsOn || lyricStatus !== 'ok' || !ytPlayer || !ytReady) return;
+  let t = 0;
+  try { t = ytPlayer.getCurrentTime() || 0; } catch (e) { return; }
+  // Lead the vocals slightly: compensates for polling latency and the
+  // fade-in transition so the line is fully visible when it's sung.
+  const idx = lyricIndexForTime(t + LYRIC_LEAD);
+  if (idx !== currentLyricIndex) {
+    currentLyricIndex = idx;
+    renderLyricPanels();
+  }
+}
+const LYRIC_LEAD = 1.0; // seconds
+
+function startLyricsSync() {
+  stopLyricsSync();
+  lyricsSyncInterval = setInterval(syncLyrics, 150);
+}
+function stopLyricsSync() {
+  if (lyricsSyncInterval) { clearInterval(lyricsSyncInterval); lyricsSyncInterval = null; }
+}
+
+// ---- controls ----
+const lyrToggle = $('lyrToggle');
+const modeButtons = { left: $('lyrModeLeft'), right: $('lyrModeRight'), both: $('lyrModeBoth') };
+
+function refreshLyricControls() {
+  lyrToggle.classList.toggle('on', lyricsOn);
+  lyricsControls.classList.toggle('off', !lyricsOn);
+  Object.entries(modeButtons).forEach(([mode, btn]) =>
+    btn.classList.toggle('on', mode === lyricsMode));
+}
+
+lyrToggle.addEventListener('click', () => {
+  lyricsOn = !lyricsOn;
+  localStorage.setItem('ishqpod-lyrics-on', lyricsOn);
+  refreshLyricControls();
+  renderLyricPanels();
+});
+Object.entries(modeButtons).forEach(([mode, btn]) => {
+  btn.addEventListener('click', () => {
+    lyricsMode = mode;
+    localStorage.setItem('ishqpod-lyrics-mode', mode);
+    refreshLyricControls();
+    renderLyricPanels();
+  });
+});
+
+refreshLyricControls();
+startLyricsSync();
+
+// ============ INITIALIZE ============
+loadYouTubeAPI();
+updateUI();
+updatePlayingState();
+resetScreenScroll();
+
+}
+</script>
+</body>
+</html>

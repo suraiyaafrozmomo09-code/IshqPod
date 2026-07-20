@@ -1,0 +1,1497 @@
+{
+  "wireMagic": "pb3",
+  "pens": [ {
+  
+  } ],
+  "wsWinStyles": [ {
+  
+  }, {
+    "mhModeHint": 2,
+    "juJustifCode": 0,
+    "sdScrollDir": 3
+  } ],
+  "wpWinPositions": [ {
+  
+  }, {
+    "apPoint": 6,
+    "ahHorPos": 20,
+    "avVerPos": 100,
+    "rcRows": 2,
+    "ccCols": 40
+  } ],
+  "events": [ {
+    "tStartMs": 0,
+    "dDurationMs": 235560,
+    "id": 1,
+    "wpWinPosId": 1,
+    "wsWinStyleId": 1
+  }, {
+    "tStartMs": 654,
+    "dDurationMs": 2020,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "[संगीत]"
+    } ]
+  }, {
+    "tStartMs": 21830,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 21840,
+    "dDurationMs": 4000,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "कैसे",
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 24470,
+    "dDurationMs": 1370,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 24480,
+    "dDurationMs": 5240,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "सावन",
+      "acAsrConf": 0
+    }, {
+      "utf8": " [संगीत]",
+      "tOffsetMs": 410
+    }, {
+      "utf8": " की",
+      "tOffsetMs": 719,
+      "acAsrConf": 0
+    }, {
+      "utf8": " [गाना गाने की आवाज़]",
+      "tOffsetMs": 1065
+    } ]
+  }, {
+    "tStartMs": 25830,
+    "dDurationMs": 3890,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 25840,
+    "dDurationMs": 3880,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "काली",
+      "acAsrConf": 0
+    }, {
+      "utf8": " घटाएं",
+      "tOffsetMs": 880,
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 29830,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 29840,
+    "dDurationMs": 4220,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "जाने",
+      "acAsrConf": 0
+    }, {
+      "utf8": " लगी",
+      "tOffsetMs": 800,
+      "acAsrConf": 0
+    }, {
+      "utf8": " [गाना गाने की आवाज़]",
+      "tOffsetMs": 945
+    } ]
+  }, {
+    "tStartMs": 32549,
+    "dDurationMs": 1511,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 32559,
+    "dDurationMs": 2721,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "कैसे",
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 34050,
+    "dDurationMs": 1230,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 34060,
+    "dDurationMs": 6540,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "[संगीत]"
+    } ]
+  }, {
+    "tStartMs": 35270,
+    "dDurationMs": 5330,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 35280,
+    "dDurationMs": 5320,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "जीवन",
+      "acAsrConf": 0
+    }, {
+      "utf8": " की",
+      "tOffsetMs": 640,
+      "acAsrConf": 0
+    }, {
+      "utf8": " मुझ",
+      "tOffsetMs": 1200,
+      "acAsrConf": 0
+    }, {
+      "utf8": " पे",
+      "tOffsetMs": 1600,
+      "acAsrConf": 0
+    }, {
+      "utf8": " सजाएं",
+      "tOffsetMs": 2320,
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 40600,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 40610,
+    "dDurationMs": 7070,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "[संगीत]"
+    }, {
+      "utf8": " आने",
+      "tOffsetMs": 30,
+      "acAsrConf": 0
+    }, {
+      "utf8": " लगी",
+      "tOffsetMs": 750,
+      "acAsrConf": 0
+    }, {
+      "utf8": " जब",
+      "tOffsetMs": 1710,
+      "acAsrConf": 0
+    }, {
+      "utf8": " हुआ",
+      "tOffsetMs": 2430,
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 44950,
+    "dDurationMs": 2730,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 44960,
+    "dDurationMs": 5475,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "मैं",
+      "acAsrConf": 0
+    }, {
+      "utf8": " तेरा",
+      "tOffsetMs": 480,
+      "acAsrConf": 0
+    }, {
+      "utf8": " [संगीत]",
+      "tOffsetMs": 890
+    } ]
+  }, {
+    "tStartMs": 47670,
+    "dDurationMs": 2765,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 47680,
+    "dDurationMs": 4960,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "बेजुबा",
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 50425,
+    "dDurationMs": 2215,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 50435,
+    "dDurationMs": 5240,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "[संगीत]"
+    }, {
+      "utf8": " हो",
+      "tOffsetMs": 45,
+      "acAsrConf": 0
+    }, {
+      "utf8": " गया",
+      "tOffsetMs": 525,
+      "acAsrConf": 0
+    }, {
+      "utf8": " [गाना गाने की आवाज़]",
+      "tOffsetMs": 655
+    } ]
+  }, {
+    "tStartMs": 52630,
+    "dDurationMs": 3045,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 52640,
+    "dDurationMs": 5759,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "कैसी",
+      "acAsrConf": 0
+    }, {
+      "utf8": " है",
+      "tOffsetMs": 800,
+      "acAsrConf": 0
+    }, {
+      "utf8": " ये",
+      "tOffsetMs": 1200,
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 55665,
+    "dDurationMs": 2734,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 55675,
+    "dDurationMs": 5445,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "[संगीत]"
+    }, {
+      "utf8": " मंजिलें",
+      "tOffsetMs": 85,
+      "acAsrConf": 0
+    }, {
+      "utf8": " [गाना गाने की आवाज़]",
+      "tOffsetMs": 1310
+    } ]
+  }, {
+    "tStartMs": 58389,
+    "dDurationMs": 2731,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 58399,
+    "dDurationMs": 5441,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "बेनवा",
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 61110,
+    "dDurationMs": 2730,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 61120,
+    "dDurationMs": 6160,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "मैं",
+      "acAsrConf": 0
+    }, {
+      "utf8": " [गाना गाने की आवाज़]",
+      "tOffsetMs": 450
+    }, {
+      "utf8": " हूं",
+      "tOffsetMs": 480,
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 63830,
+    "dDurationMs": 3450,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 63840,
+    "dDurationMs": 7520,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "फिर",
+      "acAsrConf": 0
+    }, {
+      "utf8": " ना",
+      "tOffsetMs": 399,
+      "acAsrConf": 0
+    }, {
+      "utf8": " जाने",
+      "tOffsetMs": 880,
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 67270,
+    "dDurationMs": 4090,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 67280,
+    "dDurationMs": 5600,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "क्यों",
+      "acAsrConf": 0
+    }, {
+      "utf8": " वही",
+      "tOffsetMs": 1199,
+      "acAsrConf": 0
+    }, {
+      "utf8": " है",
+      "tOffsetMs": 1920,
+      "acAsrConf": 0
+    }, {
+      "utf8": " [संगीत]",
+      "tOffsetMs": 2150
+    }, {
+      "utf8": " सेला",
+      "tOffsetMs": 2400,
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 71350,
+    "dDurationMs": 1530,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 71360,
+    "dDurationMs": 5360,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "जो",
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 72870,
+    "dDurationMs": 3850,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 72880,
+    "dDurationMs": 8340,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "देते",
+      "acAsrConf": 0
+    }, {
+      "utf8": " सभी",
+      "tOffsetMs": 880,
+      "acAsrConf": 0
+    }, {
+      "utf8": " है",
+      "tOffsetMs": 1840,
+      "acAsrConf": 0
+    }, {
+      "utf8": " मेरे",
+      "tOffsetMs": 2160,
+      "acAsrConf": 0
+    }, {
+      "utf8": " [संगीत]",
+      "tOffsetMs": 2445
+    } ]
+  }, {
+    "tStartMs": 76710,
+    "dDurationMs": 4510,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 76720,
+    "dDurationMs": 5439,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "दिल",
+      "acAsrConf": 0
+    }, {
+      "utf8": " तू",
+      "tOffsetMs": 1360,
+      "acAsrConf": 0
+    }, {
+      "utf8": " [गाना गाने की आवाज़]",
+      "tOffsetMs": 2535
+    }, {
+      "utf8": " कोई",
+      "tOffsetMs": 2560,
+      "acAsrConf": 0
+    }, {
+      "utf8": " फैसला",
+      "tOffsetMs": 3200,
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 81210,
+    "dDurationMs": 949,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 81220,
+    "dDurationMs": 2460,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "[संगीत]"
+    } ]
+  }, {
+    "tStartMs": 82149,
+    "dDurationMs": 1531,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 82159,
+    "dDurationMs": 4301,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "तो",
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 83670,
+    "dDurationMs": 2790,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 83680,
+    "dDurationMs": 4800,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "ले",
+      "acAsrConf": 0
+    }, {
+      "utf8": " ले",
+      "tOffsetMs": 320,
+      "acAsrConf": 0
+    }, {
+      "utf8": " कभी",
+      "tOffsetMs": 720,
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 86450,
+    "dDurationMs": 2030,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 86460,
+    "dDurationMs": 2020,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "[संगीत]",
+      "isSpeakerChange": 1
+    } ]
+  }, {
+    "tStartMs": 90380,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 90390,
+    "dDurationMs": 2020,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "[गाना गाने की आवाज़]"
+    } ]
+  }, {
+    "tStartMs": 96931,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 96941,
+    "dDurationMs": 2020,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "[संगीत]"
+    } ]
+  }, {
+    "tStartMs": 99670,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 99680,
+    "dDurationMs": 4521,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "चांद",
+      "acAsrConf": 0,
+      "isSpeakerChange": 1
+    }, {
+      "utf8": " [गाना गाने की आवाज़]",
+      "tOffsetMs": 536
+    }, {
+      "utf8": " तारे",
+      "tOffsetMs": 560,
+      "acAsrConf": 0
+    }, {
+      "utf8": " पर",
+      "tOffsetMs": 1759,
+      "acAsrConf": 0
+    }, {
+      "utf8": " गवाया",
+      "tOffsetMs": 2240,
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 102171,
+    "dDurationMs": 2030,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 102181,
+    "dDurationMs": 2020,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "[संगीत]"
+    } ]
+  }, {
+    "tStartMs": 105190,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 105200,
+    "dDurationMs": 5279,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "मैंने",
+      "acAsrConf": 0
+    }, {
+      "utf8": " [गाना गाने की आवाज़]",
+      "tOffsetMs": 256
+    }, {
+      "utf8": " क्या",
+      "tOffsetMs": 640,
+      "acAsrConf": 0
+    }, {
+      "utf8": " क्या",
+      "tOffsetMs": 800,
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 107749,
+    "dDurationMs": 2730,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 107759,
+    "dDurationMs": 4902,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "पाया",
+      "acAsrConf": 0
+    }, {
+      "utf8": " [संगीत]",
+      "tOffsetMs": 972
+    } ]
+  }, {
+    "tStartMs": 110469,
+    "dDurationMs": 2192,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 110479,
+    "dDurationMs": 4202,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "आखिर",
+      "acAsrConf": 0
+    }, {
+      "utf8": " क्या",
+      "tOffsetMs": 721,
+      "acAsrConf": 0
+    }, {
+      "utf8": " तूने",
+      "tOffsetMs": 1280,
+      "acAsrConf": 0
+    }, {
+      "utf8": " मिटाया",
+      "tOffsetMs": 2161,
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 112651,
+    "dDurationMs": 2030,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 112661,
+    "dDurationMs": 2020,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "[गाना गाने की आवाज़]"
+    } ]
+  }, {
+    "tStartMs": 115910,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 115920,
+    "dDurationMs": 8960,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "जो",
+      "acAsrConf": 0
+    }, {
+      "utf8": " दिल",
+      "tOffsetMs": 320,
+      "acAsrConf": 0
+    }, {
+      "utf8": " मेरा",
+      "tOffsetMs": 720,
+      "acAsrConf": 0
+    }, {
+      "utf8": " सोचा",
+      "tOffsetMs": 1680,
+      "acAsrConf": 0
+    }, {
+      "utf8": " [संगीत]",
+      "tOffsetMs": 1981
+    }, {
+      "utf8": " ना",
+      "tOffsetMs": 2479,
+      "acAsrConf": 0
+    }, {
+      "utf8": " खुद",
+      "tOffsetMs": 3440,
+      "acAsrConf": 0
+    }, {
+      "utf8": " का",
+      "tOffsetMs": 3839,
+      "acAsrConf": 0
+    }, {
+      "utf8": " था",
+      "tOffsetMs": 5120,
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 121990,
+    "dDurationMs": 2890,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 122000,
+    "dDurationMs": 3759,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "जज्बाती",
+      "acAsrConf": 0
+    }, {
+      "utf8": " चुनता",
+      "tOffsetMs": 1360,
+      "acAsrConf": 0
+    }, {
+      "utf8": " [संगीत]",
+      "tOffsetMs": 1796
+    } ]
+  }, {
+    "tStartMs": 124870,
+    "dDurationMs": 889,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 124880,
+    "dDurationMs": 4811,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "तुझको",
+      "acAsrConf": 0
+    }, {
+      "utf8": " [गाना गाने की आवाज़]",
+      "tOffsetMs": 226
+    } ]
+  }, {
+    "tStartMs": 125749,
+    "dDurationMs": 3942,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 125759,
+    "dDurationMs": 10482,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "ले",
+      "acAsrConf": 0
+    }, {
+      "utf8": " गया",
+      "tOffsetMs": 400,
+      "acAsrConf": 0
+    }, {
+      "utf8": " मैं",
+      "tOffsetMs": 1601,
+      "acAsrConf": 0
+    }, {
+      "utf8": " तलब",
+      "tOffsetMs": 1841,
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 129681,
+    "dDurationMs": 6560,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 129691,
+    "dDurationMs": 8709,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "[संगीत]"
+    }, {
+      "utf8": " मेरा",
+      "tOffsetMs": 469,
+      "acAsrConf": 0
+    }, {
+      "utf8": " वक्त",
+      "tOffsetMs": 1589,
+      "acAsrConf": 0
+    }, {
+      "utf8": " था",
+      "tOffsetMs": 2149,
+      "acAsrConf": 0
+    }, {
+      "utf8": " तेरा",
+      "tOffsetMs": 3109,
+      "acAsrConf": 0
+    }, {
+      "utf8": " हर",
+      "tOffsetMs": 4149,
+      "acAsrConf": 0
+    }, {
+      "utf8": " खवा",
+      "tOffsetMs": 4628,
+      "acAsrConf": 0
+    }, {
+      "utf8": " तेरा",
+      "tOffsetMs": 5829,
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 136231,
+    "dDurationMs": 2169,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 136241,
+    "dDurationMs": 6239,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "[संगीत][गाना गाने की आवाज़]"
+    }, {
+      "utf8": " मानता",
+      "tOffsetMs": 159,
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 138390,
+    "dDurationMs": 4090,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 138400,
+    "dDurationMs": 10559,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "गया",
+      "acAsrConf": 0
+    }, {
+      "utf8": " फिर",
+      "tOffsetMs": 640,
+      "acAsrConf": 0
+    }, {
+      "utf8": " ना",
+      "tOffsetMs": 1120,
+      "acAsrConf": 0
+    }, {
+      "utf8": " जाने",
+      "tOffsetMs": 1520,
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 142470,
+    "dDurationMs": 6489,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 142480,
+    "dDurationMs": 9481,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "क्यों",
+      "acAsrConf": 0
+    }, {
+      "utf8": " वही",
+      "tOffsetMs": 1200,
+      "acAsrConf": 0
+    }, {
+      "utf8": " [संगीत]",
+      "tOffsetMs": 1621
+    }, {
+      "utf8": " है",
+      "tOffsetMs": 2000,
+      "acAsrConf": 0
+    }, {
+      "utf8": " ला",
+      "tOffsetMs": 2880,
+      "acAsrConf": 0
+    }, {
+      "utf8": " जो",
+      "tOffsetMs": 4160,
+      "acAsrConf": 0
+    }, {
+      "utf8": " देते",
+      "tOffsetMs": 5600,
+      "acAsrConf": 0
+    }, {
+      "utf8": " [संगीत]",
+      "tOffsetMs": 6206
+    } ]
+  }, {
+    "tStartMs": 148949,
+    "dDurationMs": 3012,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 148959,
+    "dDurationMs": 6241,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "सभी",
+      "acAsrConf": 0
+    }, {
+      "utf8": " है",
+      "tOffsetMs": 961,
+      "acAsrConf": 0
+    }, {
+      "utf8": " मेरे",
+      "tOffsetMs": 1280,
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 151951,
+    "dDurationMs": 3249,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 151961,
+    "dDurationMs": 5479,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "[गाना गाने की आवाज़]"
+    }, {
+      "utf8": " दिल",
+      "tOffsetMs": 39,
+      "acAsrConf": 0
+    }, {
+      "utf8": " तू",
+      "tOffsetMs": 1399,
+      "acAsrConf": 0
+    }, {
+      "utf8": " कोई",
+      "tOffsetMs": 2519,
+      "acAsrConf": 0
+    }, {
+      "utf8": " [संगीत]",
+      "tOffsetMs": 2620
+    } ]
+  }, {
+    "tStartMs": 155190,
+    "dDurationMs": 2250,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 155200,
+    "dDurationMs": 3759,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "फैसला",
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 157430,
+    "dDurationMs": 1529,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 157440,
+    "dDurationMs": 5056,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "तो",
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 158949,
+    "dDurationMs": 3547,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 158959,
+    "dDurationMs": 3537,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "ले",
+      "acAsrConf": 0
+    }, {
+      "utf8": " ले",
+      "tOffsetMs": 241,
+      "acAsrConf": 0
+    }, {
+      "utf8": " अभी",
+      "tOffsetMs": 801,
+      "acAsrConf": 0
+    }, {
+      "utf8": " [संगीत]",
+      "tOffsetMs": 1517
+    } ]
+  }, {
+    "tStartMs": 165051,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 165061,
+    "dDurationMs": 2020,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "[संगीत]"
+    } ]
+  }, {
+    "tStartMs": 182550,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 182560,
+    "dDurationMs": 2959,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "ना",
+      "acAsrConf": 0
+    }, {
+      "utf8": " जाने",
+      "tOffsetMs": 399,
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 184702,
+    "dDurationMs": 817,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 184712,
+    "dDurationMs": 4887,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "[संगीत]"
+    } ]
+  }, {
+    "tStartMs": 185509,
+    "dDurationMs": 4090,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 185519,
+    "dDurationMs": 5601,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "क्यों",
+      "acAsrConf": 0
+    }, {
+      "utf8": " वही",
+      "tOffsetMs": 1121,
+      "acAsrConf": 0
+    }, {
+      "utf8": " है",
+      "tOffsetMs": 1841,
+      "acAsrConf": 0
+    }, {
+      "utf8": " सवा",
+      "tOffsetMs": 2321,
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 189589,
+    "dDurationMs": 1531,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 189599,
+    "dDurationMs": 2321,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "जो",
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 191110,
+    "dDurationMs": 810,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 191120,
+    "dDurationMs": 3839,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "देते",
+      "acAsrConf": 0
+    }, {
+      "utf8": " [संगीत]",
+      "tOffsetMs": 142
+    } ]
+  }, {
+    "tStartMs": 191910,
+    "dDurationMs": 3049,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 191920,
+    "dDurationMs": 8480,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "सभी",
+      "acAsrConf": 0
+    }, {
+      "utf8": " मेरे",
+      "tOffsetMs": 1360,
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 194949,
+    "dDurationMs": 5451,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 194959,
+    "dDurationMs": 6961,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "दिल",
+      "acAsrConf": 0
+    }, {
+      "utf8": " तू",
+      "tOffsetMs": 1360,
+      "acAsrConf": 0
+    }, {
+      "utf8": " कोई",
+      "tOffsetMs": 2560,
+      "acAsrConf": 0
+    }, {
+      "utf8": " [संगीत]",
+      "tOffsetMs": 2853
+    }, {
+      "utf8": " फैसला",
+      "tOffsetMs": 3280,
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 200390,
+    "dDurationMs": 1530,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 200400,
+    "dDurationMs": 3119,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "तो",
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 201910,
+    "dDurationMs": 1609,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 201920,
+    "dDurationMs": 5039,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "ले",
+      "acAsrConf": 0
+    }, {
+      "utf8": " ले",
+      "tOffsetMs": 319,
+      "acAsrConf": 0
+    }, {
+      "utf8": " [संगीत]",
+      "tOffsetMs": 477
+    } ]
+  }, {
+    "tStartMs": 203509,
+    "dDurationMs": 3450,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 203519,
+    "dDurationMs": 7601,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "गिर",
+      "acAsrConf": 0
+    }, {
+      "utf8": " ना",
+      "tOffsetMs": 481,
+      "acAsrConf": 0
+    }, {
+      "utf8": " जाए",
+      "tOffsetMs": 881,
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 206949,
+    "dDurationMs": 4171,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 206959,
+    "dDurationMs": 5681,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "क्यों",
+      "acAsrConf": 0
+    }, {
+      "utf8": " वही",
+      "tOffsetMs": 1200,
+      "acAsrConf": 0
+    }, {
+      "utf8": " है",
+      "tOffsetMs": 2000,
+      "acAsrConf": 0
+    }, {
+      "utf8": " सेना",
+      "tOffsetMs": 2481,
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 211110,
+    "dDurationMs": 1530,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 211120,
+    "dDurationMs": 2399,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "जो",
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 212630,
+    "dDurationMs": 889,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 212640,
+    "dDurationMs": 3840,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "दे",
+      "acAsrConf": 0
+    }, {
+      "utf8": " [संगीत]",
+      "tOffsetMs": 237
+    } ]
+  }, {
+    "tStartMs": 213509,
+    "dDurationMs": 2971,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 213519,
+    "dDurationMs": 8321,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "सभी",
+      "acAsrConf": 0
+    }, {
+      "utf8": " मेरे",
+      "tOffsetMs": 1201,
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 216470,
+    "dDurationMs": 5370,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 216480,
+    "dDurationMs": 6880,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "दिल",
+      "acAsrConf": 0
+    }, {
+      "utf8": " तू",
+      "tOffsetMs": 1360,
+      "acAsrConf": 0
+    }, {
+      "utf8": " कोई",
+      "tOffsetMs": 2560,
+      "acAsrConf": 0
+    }, {
+      "utf8": " [संगीत]",
+      "tOffsetMs": 2947
+    }, {
+      "utf8": " फैसला",
+      "tOffsetMs": 3200,
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 221830,
+    "dDurationMs": 1530,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 221840,
+    "dDurationMs": 5319,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "तो",
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 223350,
+    "dDurationMs": 3809,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 223360,
+    "dDurationMs": 3799,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "ले",
+      "acAsrConf": 0
+    }, {
+      "utf8": " ले",
+      "tOffsetMs": 320,
+      "acAsrConf": 0
+    }, {
+      "utf8": " अभी",
+      "tOffsetMs": 799,
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 227932,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 227942,
+    "dDurationMs": 2020,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "[संगीत]"
+    } ]
+  }, {
+    "tStartMs": 232550,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 232560,
+    "dDurationMs": 3000,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "आ",
+      "acAsrConf": 0
+    } ]
+  } ]
+}

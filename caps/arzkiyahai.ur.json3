@@ -1,0 +1,752 @@
+{
+  "wireMagic": "pb3",
+  "pens": [ {
+  
+  } ],
+  "wsWinStyles": [ {
+  
+  }, {
+    "mhModeHint": 2,
+    "juJustifCode": 1,
+    "sdScrollDir": 3
+  } ],
+  "wpWinPositions": [ {
+  
+  }, {
+    "apPoint": 6,
+    "ahHorPos": 20,
+    "avVerPos": 100,
+    "rcRows": 2,
+    "ccCols": 40
+  } ],
+  "events": [ {
+    "tStartMs": 0,
+    "dDurationMs": 301160,
+    "id": 1,
+    "wpWinPosId": 1,
+    "wsWinStyleId": 1
+  }, {
+    "tStartMs": 320,
+    "dDurationMs": 6520,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "کوک اسٹوڈیو بھارت سیزن 3 ابھی سبسکرائب کریں۔",
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 12580,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 12590,
+    "dDurationMs": 11730,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "[موسیقی]"
+    } ]
+  }, {
+    "tStartMs": 28150,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 28160,
+    "dDurationMs": 19280,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "[موسیقی]"
+    } ]
+  }, {
+    "tStartMs": 40470,
+    "dDurationMs": 6970,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 40480,
+    "dDurationMs": 13280,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "جو بزدل تھے وہ شاعر بن گئے اب کیا کریں؟",
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 47430,
+    "dDurationMs": 6330,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 47440,
+    "dDurationMs": 12400,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "میں نے محبت میں کوئی ایسی بات نہیں کہی جس کی وجہ سے میں اسے ڈھونڈنے کو دل کروں۔",
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 53750,
+    "dDurationMs": 6090,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 53760,
+    "dDurationMs": 10880,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "میں نئے محبت کرنے والوں کو چلانے کے لیے کون سے الفاظ استعمال کرتا ہوں۔",
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 59830,
+    "dDurationMs": 4810,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 59840,
+    "dDurationMs": 10160,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "عشق میں تیرے ہیں فیض بنے",
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 64630,
+    "dDurationMs": 5370,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 64640,
+    "dDurationMs": 12000,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "میں نے درخواست کی ہے کہ میں بھی آپ کے بارے میں کچھ لکھوں۔",
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 69990,
+    "dDurationMs": 6650,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 70000,
+    "dDurationMs": 12400,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "میں تم جیسا ہوں، تم گلاب جیسی ہو اور تم ایسے ہو۔",
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 76630,
+    "dDurationMs": 5770,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 76640,
+    "dDurationMs": 12880,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "یوں لگتا ہے جیسے دل کے باغوں میں گلاب کے پھول کھل رہے ہیں۔",
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 82390,
+    "dDurationMs": 7130,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 82400,
+    "dDurationMs": 13280,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "ان فضاؤں میں سائے پڑ گئے ہیں۔",
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 89510,
+    "dDurationMs": 6170,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 89520,
+    "dDurationMs": 11440,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "اور ویسے بھی ہم آپ کے غلام ہیں اور ویسے بھی",
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 95670,
+    "dDurationMs": 5290,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 95680,
+    "dDurationMs": 12200,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "ہم تیرے غلام ہیں دلوں کے بادشاہ",
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 100950,
+    "dDurationMs": 6930,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 100960,
+    "dDurationMs": 6920,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "تم جو چاہو تمہارے حق میں ہو۔",
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 108389,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 108399,
+    "dDurationMs": 9601,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "ڈوبے دلوں کا کیا؟",
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 111590,
+    "dDurationMs": 6410,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 111600,
+    "dDurationMs": 10879,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "میں خود بننا چاہتا ہوں، تیری آنکھوں میں تیر نہیں سکتا",
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 117990,
+    "dDurationMs": 4489,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 118000,
+    "dDurationMs": 9759,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "اپنے آپ کو شاعر کی فطرت میں غرق کر دو",
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 122469,
+    "dDurationMs": 5290,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 122479,
+    "dDurationMs": 10081,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "میں طوفانوں سے کیسے لڑ سکتا ہوں؟",
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 127749,
+    "dDurationMs": 4811,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 127759,
+    "dDurationMs": 10081,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "آپ کی محبت میں میں نعمت بن گیا ہوں۔",
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 132550,
+    "dDurationMs": 5290,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 132560,
+    "dDurationMs": 8080,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "میں نے درخواست کی ہے کہ میں بھی آپ کے بارے میں کچھ لکھوں۔",
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 137830,
+    "dDurationMs": 2810,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 137840,
+    "dDurationMs": 8080,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "ہاتھ پکڑو",
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 140630,
+    "dDurationMs": 5290,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 140640,
+    "dDurationMs": 11840,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "میں اپنے ہاتھوں کو اپنے ہاتھوں میں کیسے سنبھال سکتا ہوں؟",
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 145910,
+    "dDurationMs": 6570,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 145920,
+    "dDurationMs": 11000,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "جب تک نیند نہ آجائے ہاتھوں میں ان لکیروں میں",
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 152470,
+    "dDurationMs": 4450,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 152480,
+    "dDurationMs": 4440,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "چیزیں ہو چکی ہیں",
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 158150,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 158160,
+    "dDurationMs": 7150,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "[موسیقی]"
+    } ]
+  }, {
+    "tStartMs": 167750,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 167760,
+    "dDurationMs": 5320,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "سا ری پا ری سا ری گا پا سا",
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 174710,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 174720,
+    "dDurationMs": 7080,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "ری ری نی سا رے ری سا پا",
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 191550,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 191560,
+    "dDurationMs": 3060,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "[موسیقی]"
+    } ]
+  }, {
+    "tStartMs": 196869,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 196879,
+    "dDurationMs": 3000,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "جی ہاں",
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 200309,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 200319,
+    "dDurationMs": 4881,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "سب نے سب کچھ کہا",
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 203589,
+    "dDurationMs": 1611,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 203599,
+    "dDurationMs": 4161,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "ہے",
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 205190,
+    "dDurationMs": 2570,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 205200,
+    "dDurationMs": 9560,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "میں کیا کہوں",
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 207750,
+    "dDurationMs": 7010,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 207760,
+    "dDurationMs": 7000,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "جو ابھی تک نامکمل ہے۔",
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 215030,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 215040,
+    "dDurationMs": 3000,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "میں",
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 219509,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 219519,
+    "dDurationMs": 4841,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "نہیں، میری جان، میری",
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 224390,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 224400,
+    "dDurationMs": 9640,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "نا مہ نا جا",
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 228070,
+    "dDurationMs": 5970,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 228080,
+    "dDurationMs": 5960,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "میں کچھ نیا کرتا ہوں۔",
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 235589,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 235599,
+    "dDurationMs": 3000,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "لیکن",
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 239270,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 239280,
+    "dDurationMs": 3879,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "جو ہے",
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 250070,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 250080,
+    "dDurationMs": 12160,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "اس طرح اس طرح کی طرح اس طرح جیسے میں پڑھتا ہوں۔",
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 256789,
+    "dDurationMs": 5451,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 256799,
+    "dDurationMs": 10641,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "میرے دل میں میری آنکھیں بھی تیرا شوق بڑھ جاتی ہیں۔",
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 262230,
+    "dDurationMs": 5210,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 262240,
+    "dDurationMs": 10600,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "کیا مجلس میں آنکھ اٹھا کر بیٹھنا یا کھڑا ہونا ضروری ہے؟",
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 267430,
+    "dDurationMs": 5410,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 267440,
+    "dDurationMs": 5400,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "چلانے کے لیے",
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 273670,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 273680,
+    "dDurationMs": 11280,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "تیری آنکھوں میں حمد ہے۔ آپ کا",
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 279110,
+    "dDurationMs": 5850,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 279120,
+    "dDurationMs": 12600,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "آپ کے جانے سے محفل خالی ہے۔ میں صرف شاعر ہوں۔",
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 284950,
+    "dDurationMs": 6770,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 284960,
+    "dDurationMs": 6760,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "اگر آپ سننے آئیں گے تو میں بناؤں گا۔",
+      "acAsrConf": 0
+    } ]
+  }, {
+    "tStartMs": 293110,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 293120,
+    "dDurationMs": 8040,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "شاید میں آواز اٹھاؤں۔ اگر آپ صرف سننے کے لیے آتے ہیں۔",
+      "acAsrConf": 0
+    } ]
+  } ]
+}

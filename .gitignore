@@ -1,0 +1,23 @@
+# Claude AI config
+.claude/
+
+# Node modules (if any)
+node_modules/
+
+# Transcript files (generated)
+mainrahun_transcript.txt
+mainrahun_hi_translate.txt
+mainrahun_hi.txt
+terepyaar_transcript.txt
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor files
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
