@@ -1,6 +1,7 @@
 # IshqPod 🎵
 
 A beautifully designed iPod-style web music player that plays 25+ Pakistani Urdu/Hindi songs with synchronized Hinglish lyrics floating in the background.
+Link : https://ishq-pod.vercel.app/
 
 ## ✨ Features
 
